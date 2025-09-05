@@ -41,7 +41,7 @@ class Breadcrumbs
                 'title' => 'Titulos',
                 'parent' => 'edudata.index',
             ],
-            'edudata.programacion' => [
+            'edudata.programas' => [
                 'title' => 'Programación y Proyectos',
                 'parent' => 'edudata.index',
             ],
