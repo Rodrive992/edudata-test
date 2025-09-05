@@ -126,7 +126,7 @@
                 <div class="p-5 flex-grow">
                     <h3 class="text-lg font-bold text-gray-800 mb-3 group-hover:text-gray-400 transition-colors">Titulos</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">
-                        Legalización y Registro de Titulos en la Provincia de Catamarca.
+                        Transformación digital del sistema de titulación.
 
                     </p>
                 </div>
@@ -142,7 +142,7 @@
                 <div class="p-5 flex-grow">
                     <h3 class="text-lg font-bold text-gray-800 mb-3 group-hover:text-gray-400 transition-colors">Programas y Proyectos</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">
-                        Programas y Proyectos   
+                        Ejecución de políticas educativas nacionales con impacto provincial  
                     </p>
                 </div>
             </a>       
