@@ -45,6 +45,11 @@ class Breadcrumbs
                 'title' => 'Programación y Proyectos',
                 'parent' => 'edudata.index',
             ],
+             'edudata.edutecnica' => [
+                'title' => 'Educación Técnica y Agrotecnica',
+                'parent' => 'edudata.index',
+            ],
+            
             'edured.index' => [
                 'title' => 'EduRed',
                 'parent' => null,

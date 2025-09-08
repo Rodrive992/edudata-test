@@ -12,7 +12,7 @@ use App\Http\Controllers\InnovacionController;
 use App\Http\Controllers\AsuntosController;
 use App\Http\Controllers\ProgramasProyectosController;
 use App\Http\Controllers\TitulosController;
-
+use App\Http\Controllers\EducacionTecnicaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,7 +33,7 @@ Route::prefix('edudata')->group(function () {
     Route::get('/asuntos', [AsuntosController::class, 'index'])->name('edudata.asuntos');
     Route::get('/mantenimiento', [MantenimientoController::class, 'index'])->name('edudata.mantenimiento');
     Route::get('/formacion', [FormacionController::class, 'index'])->name('edudata.formacion');
-    Route::get('/administracion', [AdministracionEjecucionController::class, 'index'])->name('edudata.administracion');
+    Route::get('/edutecnica', [EducacionTecnicaController::class, 'index'])->name('edudata.edutecnica');
     Route::get('/innovacion', [InnovacionController::class, 'index'])->name('edudata.innovacion');
     Route::get('/titulos', [TitulosController::class, 'index'])->name('edudata.titulos');
     Route::get('/programasyproyectos', [ProgramasProyectosController::class, 'index'])->name('edudata.programas');
