@@ -49,6 +49,11 @@ class Breadcrumbs
                 'title' => 'Educación Técnica y Agrotecnica',
                 'parent' => 'edudata.index',
             ],
+
+            'edudata.residencia' => [
+                'title' => 'Residencia Universitaria',
+                'parent' => 'edudata.index',
+            ],
             
             'edured.index' => [
                 'title' => 'EduRed',

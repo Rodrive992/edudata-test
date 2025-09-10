@@ -21,7 +21,7 @@
                 </div>
             </div>
 
-            <!-- Contenedor de tarjetas - 4 arriba, 2 abajo centradas -->
+            <!-- Contenedor de tarjetas - 4 arriba, 4 abajo centradas y residencia centrada -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                 <!-- Organigrama -->
                 <a href="https://web.catamarca.edu.ar/sitio/el-ministerio/estructura-organica.html"
@@ -90,10 +90,8 @@
                 </a>
             </div>
 
-            <!-- Segunda fila con 2 tarjetas centradas -->
+            <!-- Segunda fila con 4 tarjetas -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-
-
                 <!-- Planeamiento Educativo -->
                 <a href="{{ route('edudata.formacion') }}"
                     class="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 hover:border-blue-300 h-full flex flex-col">
@@ -126,6 +124,7 @@
                         </p>
                     </div>
                 </a>
+
                 <!-- Titulos -->
                 <a href="{{ route('edudata.titulos') }}"
                     class="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 hover:border-blue-300 h-full flex flex-col">
@@ -138,7 +137,6 @@
                         </h3>
                         <p class="text-gray-600 text-sm leading-relaxed">
                             Transformación digital del sistema de titulación.
-
                         </p>
                     </div>
                 </a>
@@ -158,7 +156,25 @@
                         </p>
                     </div>
                 </a>
+            </div>
 
+            <!-- Tercera fila con tarjeta centrada de Residencia Universitaria -->
+            <div class="flex justify-center mb-16">
+                <a href="{{ route('edudata.residencia') }}"
+                    class="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 hover:border-blue-300 h-full flex flex-col w-full sm:w-2/3 md:w-1/2 lg:w-1/3">
+                    <div class="w-full h-48 flex items-center justify-center bg-gray-50 p-4">
+                        <img src="{{ asset('images/logoresidencia-v3.png') }}" alt="Residencia Universitaria"
+                            class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110">
+                    </div>
+                    <div class="p-5 flex-grow">
+                        <h3 class="text-lg font-bold text-gray-800 mb-3 group-hover:text-gray-400 transition-colors">
+                            Residencia Universitaria</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Residencia "Abuelas Plaza de Mayo" para estudiantes del interior provincial que cursan en la
+                            UNCa.
+                        </p>
+                    </div>
+                </a>
             </div>
         </div>
     @endsection

@@ -24,51 +24,47 @@
     @php $tareaSel = request('tarea', 'realizadas'); @endphp
 
     <!-- Tarjeta de filtros compacta en una sola línea -->
-    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4 mb-10">
-        <h2 class="text-base md:text-lg font-semibold text-gray-800 mb-3">Tareas de mantenimiento edilicio</h2>
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5 mb-10">
+        <h2 class="text-lg font-semibold text-gray-800 mb-4">Tareas de mantenimiento edilicio</h2>
 
-        <form id="filtrosForm" method="GET"  class="flex flex-wrap items-end gap-3">
+        <form id="filtrosForm" method="GET" class="flex flex-wrap items-end gap-3">
             <!-- Tarea (siempre) -->
             <div class="w-full sm:w-auto">
-                <label class="block text-xs font-medium text-gray-700 mb-1">Tareas</label>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Tareas</label>
                 <select name="tarea"
-                        class="w-56 sm:w-48 rounded-md border border-gray-300 py-2 px-3 focus:border-gray-700 focus:ring-1 focus:ring-gray-700 transition">
+                        class="w-48 rounded-md border border-gray-300 py-2 px-3 focus:border-gray-700 focus:ring-1 focus:ring-gray-700 transition">
                     <option value="realizadas" {{ $tareaSel === 'realizadas' ? 'selected' : '' }}>Realizadas</option>
                     <option value="pendientes" {{ $tareaSel === 'pendientes' ? 'selected' : '' }}>Pendientes</option>
-                    <option value="comisiones" {{ $tareaSel === 'comisiones' ? 'selected' : '' }}>Comisiones de Servicio</option>
+                    <option value="comisiones" {{ $tareaSel === 'comisiones' ? 'selected' : '' }}>Comisiones</option>
                 </select>
             </div>
 
             @if($tareaSel === 'realizadas')
-                
-
                 <!-- Establecimiento -->
-                <div class="flex-1 min-w-[14rem]">
-                    <label class="block text-xs font-medium text-gray-700 mb-1">Establecimiento</label>
+                <div class="w-full sm:w-auto">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Establecimiento</label>
                     <input type="text" name="establecimiento" value="{{ request('establecimiento') }}"
-                           class="w-full rounded-md border border-gray-300 py-2 px-3 focus:border-gray-700 focus:ring-1 focus:ring-gray-700 transition"
+                           class="w-56 rounded-md border border-gray-300 py-2 px-3 focus:border-gray-700 focus:ring-1 focus:ring-gray-700 transition"
                            placeholder="Buscar establecimiento">
                 </div>
             @endif
 
             @if($tareaSel === 'pendientes')
                 <!-- Localidad -->
-                <div class="flex-1 min-w-[14rem]">
-                    <label class="block text-xs font-medium text-gray-700 mb-1">Localidad</label>
+                <div class="w-full sm:w-auto">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Localidad</label>
                     <input type="text" name="localidad" value="{{ request('localidad') }}"
-                           class="w-full rounded-md border border-gray-300 py-2 px-3 focus:border-gray-700 focus:ring-1 focus:ring-gray-700 transition"
+                           class="w-56 rounded-md border border-gray-300 py-2 px-3 focus:border-gray-700 focus:ring-1 focus:ring-gray-700 transition"
                            placeholder="Filtrar por localidad">
                 </div>
             @endif
 
             @if($tareaSel === 'comisiones')
-               
-
                 <!-- Búsqueda -->
-                <div class="flex-1 min-w-[14rem]">
-                    <label class="block text-xs font-medium text-gray-700 mb-1">Buscar</label>
+                <div class="w-full sm:w-auto">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Buscar</label>
                     <input type="text" name="q" value="{{ request('q') }}"
-                           class="w-full rounded-md border border-gray-300 py-2 px-3 focus:border-gray-700 focus:ring-1 focus:ring-gray-700 transition"
+                           class="w-56 rounded-md border border-gray-300 py-2 px-3 focus:border-gray-700 focus:ring-1 focus:ring-gray-700 transition"
                            placeholder="Localidad o establecimiento">
                 </div>
             @endif
@@ -76,7 +72,7 @@
             <!-- Botón Buscar -->
             <div class="w-full sm:w-auto">
                 <button type="submit"
-                        class="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2.5 px-5 rounded-md shadow-sm transition focus:outline-none focus:ring-2 focus:ring-gray-500">
+                        class="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 text-white font-semibold py-2 px-5 rounded-md shadow-sm transition focus:outline-none focus:ring-2 focus:ring-gray-500">
                     Buscar
                 </button>
             </div>
@@ -84,8 +80,20 @@
             <!-- Botón Enlace Externo -->
             <div class="w-full sm:w-auto">
                 <a href="https://tad.catamarca.gob.ar/tramitesadistancia" target="_blank" rel="noopener"
-                   class="w-full sm:w-auto inline-flex justify-center items-center text-center border border-gray-300 hover:border-gray-400 text-gray-800 font-semibold py-2.5 px-4 rounded-md transition">
-                    Solicitud de Mantenimiento Edilicio
+                   class="w-full sm:w-auto inline-flex justify-center items-center text-center border border-gray-300 hover:border-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-md transition">
+                    Solicitud de Mantenimiento
+                </a>
+            </div>
+
+            <!-- Nuevo botón: Establecimientos -->
+            <div class="w-full sm:w-auto">
+                <a href="https://nimble-gumdrop-ccc062.netlify.app/" target="_blank" rel="noopener"
+                   class="w-full sm:w-auto inline-flex justify-center items-center text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md shadow-sm transition focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    Establecimientos
                 </a>
             </div>
         </form>

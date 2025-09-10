@@ -13,6 +13,7 @@ use App\Http\Controllers\AsuntosController;
 use App\Http\Controllers\ProgramasProyectosController;
 use App\Http\Controllers\TitulosController;
 use App\Http\Controllers\EducacionTecnicaController;
+use App\Http\Controllers\ResidenciaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +38,7 @@ Route::prefix('edudata')->group(function () {
     Route::get('/innovacion', [InnovacionController::class, 'index'])->name('edudata.innovacion');
     Route::get('/titulos', [TitulosController::class, 'index'])->name('edudata.titulos');
     Route::get('/programasyproyectos', [ProgramasProyectosController::class, 'index'])->name('edudata.programas');
+    Route::get('/residencia', [ResidenciaController::class, 'index'])->name('edudata.residencia');
     
 });
 
