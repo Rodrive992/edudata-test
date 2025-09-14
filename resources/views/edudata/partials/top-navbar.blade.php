@@ -1,26 +1,23 @@
  <nav class="bg-gray-200 shadow-sm" x-data="{ openEduData: false }">
-     <!-- Nav Principal -->
      <div class="container mx-auto px-5 py-4">
          <div class="flex items-center justify-between">
-             <!-- Logo a la izquierda -->
-             <div class="flex items-center">
+             <!-- Logo y título a la izquierda -->
+             <div class="flex items-center space-x-4">
                  <a href="{{ route('edudata.index') }}">
                      <img src="{{ asset('images/edudatalogo3.png') }}" alt="EDUDATA Logo" class="h-12">
                  </a>
-             </div>
-
-             <!-- Títulos centrales - Versión mejorada -->
-             <div class="hidden md:block text-center space-y-1">
-                 <h1 class="text-lg font-semibold text-gray-800 tracking-tight">DIRECCIÓN DE TRANSPARENCIA ACTIVA</h1>
-                 <div class="flex justify-center items-center space-x-2">
-                     <span class="text-sm text-gray-600 font-medium">Ministerio de Educación, Ciencia y
-                         Tecnología</span>
-                     <span class="text-gray-400">•</span>
-                     <span class="text-sm text-gray-600">Catamarca Gobierno</span>
+                 <div class="text-left leading-tight">
+                     <div class="text-xs font-medium text-gray-700 tracking-tight">DIRECCIÓN DE</div>
+                     <div class="text-sm font-semibold text-gray-800 tracking-tight">TRANSPARENCIA ACTIVA</div>
                  </div>
              </div>
 
-             <!-- Botón derecho - Versión mejorada -->
+             <!-- Espacio central (puede ser utilizado para otros elementos) -->
+             <div class="hidden md:block text-center space-y-1">
+                 <!-- Espacio intencionalmente dejado en blanco -->
+             </div>
+
+             <!-- Botón derecho -->
              <div class="flex items-center">
                  <button @click="openEduData = !openEduData"
                      class="px-4 py-2 bg-gray-800 hover:bg-gray-600 text-white text-sm font-medium rounded-md shadow-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">

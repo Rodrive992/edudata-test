@@ -3,23 +3,52 @@
 @section('title', 'Edudata - Educación Técnica')
 
 @section('content')
-    <div class="container mx-auto px-4 py-8">
-        <!-- Banner principal -->
-        <div class="mb-8 rounded-xl overflow-hidden">
-            <img src="{{ asset('images/banneredutecnica-v2.png') }}" alt="Banner Educación Técnica"
-                class="w-full h-60 md:h-70 object-contain md:object-cover">
-        </div>
-        <!-- Encabezado -->
-        <div class="text-center mb-2">
-            <div class="max-w-4xl mx-auto">
-                <div class="inline-block bg-gray-100/80 px-6 py-3 rounded-lg mb-6 backdrop-blur-sm border border-gray-200">
-                    <p class="text-lg font-medium text-gray-700">
-                        Acciones de la <strong>Dirección Provincial de Educación Técnica, Agrotécnica y Formación
-                            Profesional</strong>
-                    </p>
+    <div class="container mx-auto px-4">
+        {{-- Carrusel full-bleed --}}
+        <section x-data="{
+            i: 0,
+            imgs: [
+                '{{ asset('images/banneredutecnica1-v4.png') }}',
+                '{{ asset('images/banneredutecnica2-v4.png') }}'
+            ],
+            intervalId: null,
+            start() { this.intervalId = setInterval(() => this.next(), 4000) },
+            stop() { if (this.intervalId) clearInterval(this.intervalId) },
+            next() { this.i = (this.i + 1) % this.imgs.length },
+            prev() { this.i = (this.i - 1 + this.imgs.length) % this.imgs.length }
+        }" x-init="start()" @mouseenter="stop()" @mouseleave="start()"
+            class="relative left-1/2 right-1/2 -mx-[50vw] w-screen mb-10"> {{-- Añadido mb-10 para espacio --}}
+            <div class="relative w-full h-[100px] sm:h-[340px] md:h-[420px] lg:h-[435px] bg-gray-800">
+                <!-- Slides -->
+                <template x-for="(src, idx) in imgs" :key="idx">
+                    <div x-show="i === idx" x-transition.opacity.duration.500ms
+                        class="absolute inset-0 flex items-center justify-center">
+                        <img :src="src" :alt="`Banner ${idx+1}`" class="w-full h-full object-contain"
+                            loading="eager" fetchpriority="high" />
+                    </div>
+                </template>
+
+                <!-- Controles -->
+                <button @click="prev()"
+                    class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white rounded-full p-2 shadow outline-none"
+                    aria-label="Anterior">
+
+                </button>
+                <button @click="next()"
+                    class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white rounded-full p-2 shadow outline-none"
+                    aria-label="Siguiente">
+
+                </button>
+
+                <!-- Indicadores -->
+                <div class="absolute bottom-3 w-full flex items-center justify-center gap-2">
+                    <template x-for="(src, idx) in imgs" :key="idx">
+                        <button @click="i = idx" class="h-2.5 w-2.5 rounded-full transition-all"
+                            :class="i === idx ? 'bg-white w-4' : 'bg-white/20'" aria-label="Ir a la imagen"></button>
+                    </template>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Presentación -->
         <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-10">
