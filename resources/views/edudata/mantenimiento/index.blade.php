@@ -32,12 +32,18 @@
                 <button @click="prev()"
                     class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white rounded-full p-2 shadow outline-none"
                     aria-label="Anterior">
-
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-800" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
                 </button>
                 <button @click="next()"
                     class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white rounded-full p-2 shadow outline-none"
                     aria-label="Siguiente">
-
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-800" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
                 </button>
 
                 <!-- Indicadores -->
@@ -60,7 +66,8 @@
                 <div class="md:col-span-2">
                     <label class="block text-sm font-medium text-gray-700 mb-2">Tareas</label> {{-- Aumentado mb-2 --}}
                     <select name="tarea"
-                        class="w-full rounded-md border border-gray-300 py-2.5 px-3 focus:border-gray-700 focus:ring-2 focus:ring-gray-700 transition text-sm"> {{-- Aumentado padding y focus ring --}}
+                        class="w-full rounded-md border border-gray-300 py-2.5 px-3 focus:border-gray-700 focus:ring-2 focus:ring-gray-700 transition text-sm">
+                        {{-- Aumentado padding y focus ring --}}
                         <option value="realizadas" {{ $tareaSel === 'realizadas' ? 'selected' : '' }}>Realizadas</option>
                         <option value="pendientes" {{ $tareaSel === 'pendientes' ? 'selected' : '' }}>Pendientes</option>
                         <option value="comisiones" {{ $tareaSel === 'comisiones' ? 'selected' : '' }}>Comisiones</option>
@@ -121,12 +128,12 @@
                     </a>
                 </div>
 
-                
+
                 <!-- Botón Enlace Externo -->
                 <div class="md:col-span-2">
                     <a href="https://tad.catamarca.gob.ar/tramitesadistancia" target="_blank" rel="noopener"
                         class="w-full inline-flex justify-center items-center text-center border border-gray-300 hover:border-gray-400 text-gray-800 font-semibold py-2.5 px-4 rounded-md transition">
-                        Solicitud   
+                        Solicitud
                     </a>
                 </div>
             </form>

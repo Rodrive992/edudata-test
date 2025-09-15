@@ -14,6 +14,7 @@ use App\Http\Controllers\ProgramasProyectosController;
 use App\Http\Controllers\TitulosController;
 use App\Http\Controllers\EducacionTecnicaController;
 use App\Http\Controllers\ResidenciaController;
+use App\Http\Controllers\OrganigramaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +32,7 @@ Route::get('/edured', [AuthController::class, 'showLoginForm'])->name('login');
 
 // Secciones de EduData - Acceso Publico
 Route::prefix('edudata')->group(function () {
+    Route::get('/organigrama', [OrganigramaController::class, 'index'])->name('edudata.organigrama');
     Route::get('/asuntos', [AsuntosController::class, 'index'])->name('edudata.asuntos');
     Route::get('/mantenimiento', [MantenimientoController::class, 'index'])->name('edudata.mantenimiento');
     Route::get('/formacion', [FormacionController::class, 'index'])->name('edudata.formacion');

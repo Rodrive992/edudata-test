@@ -5,7 +5,7 @@
 @section('content')
     <div class="container mx-auto px-4">
         {{-- Carrusel full-bleed --}}
-        <section x-data="{  
+        <section x-data="{
             i: 0,
             imgs: [
                 '{{ asset('images/bannerformacion1-v4.png') }}',
@@ -32,12 +32,18 @@
                 <button @click="prev()"
                     class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white rounded-full p-2 shadow outline-none"
                     aria-label="Anterior">
-
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-800" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
                 </button>
                 <button @click="next()"
                     class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white rounded-full p-2 shadow outline-none"
                     aria-label="Siguiente">
-
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-800" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
                 </button>
 
                 <!-- Indicadores -->

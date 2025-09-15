@@ -17,6 +17,10 @@ class Breadcrumbs
                 'title' => 'Inicio',
                 'parent' => null,
             ],
+            'edudata.organigrama' => [
+                'title' => 'Estructura Orgánica',
+                'parent' => 'edudata.index',
+            ],
             'edudata.formacion' => [
                 'title' => 'Formación Profesional',
                 'parent' => 'edudata.index',

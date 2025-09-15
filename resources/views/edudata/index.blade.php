@@ -32,12 +32,18 @@
                     <button @click="prev()"
                         class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white rounded-full p-2 shadow outline-none"
                         aria-label="Anterior">
-                        
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-800" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
                     </button>
                     <button @click="next()"
                         class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white rounded-full p-2 shadow outline-none"
                         aria-label="Siguiente">
-                        
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-800" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
                     </button>
 
                     <!-- Indicadores -->
@@ -52,7 +58,7 @@
             <!-- Contenedor de tarjetas - 4 arriba, 4 abajo centradas y residencia centrada -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 py-2">
                 <!-- Organigrama -->
-                <a href="https://web.catamarca.edu.ar/sitio/el-ministerio/estructura-organica.html"
+                <a href="{{ route('edudata.organigrama') }}"
                     class="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-200 hover:border-blue-300 h-full flex flex-col">
                     <div class="w-full h-48 flex items-center justify-center bg-gray-50 p-4">
                         <img src="{{ asset('images/logorganigrama.png') }}" alt="Organigrama"
@@ -161,7 +167,8 @@
                             class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110">
                     </div>
                     <div class="p-5 flex-grow">
-                        <h3 class="text-lg font-bold text-gray-800 mb-3 group-hover:text-gray-400 transition-colors">Titulos
+                        <h3 class="text-lg font-bold text-gray-800 mb-3 group-hover:text-gray-400 transition-colors">
+                            Titulos
                         </h3>
                         <p class="text-gray-600 text-sm leading-relaxed">
                             Transformación digital del sistema de titulación.

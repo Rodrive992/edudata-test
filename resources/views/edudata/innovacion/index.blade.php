@@ -33,12 +33,18 @@
                     <button @click="prev()"
                         class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white rounded-full p-2 shadow outline-none"
                         aria-label="Anterior">
-
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-800" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
                     </button>
                     <button @click="next()"
                         class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white rounded-full p-2 shadow outline-none"
                         aria-label="Siguiente">
-
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-800" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
                     </button>
 
                     <!-- Indicadores -->
@@ -172,7 +178,8 @@
                     <!-- 3 -->
                     <div class="rounded-lg border border-gray-200 overflow-hidden shadow-sm">
                         <div class="px-5 py-4 bg-amber-50/80 border-b border-gray-200 flex items-center">
-                            <div class="bg-amber-600 text-white rounded-full h-8 w-8 flex items-center justify-center mr-3">
+                            <div
+                                class="bg-amber-600 text-white rounded-full h-8 w-8 flex items-center justify-center mr-3">
                                 3</div>
                             <h4 class="text-base md:text-lg font-semibold text-gray-800">"Acompañar en tiempos digitales:
                                 vínculos, identidad y derechos"</h4>
