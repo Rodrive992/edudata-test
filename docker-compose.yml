@@ -17,7 +17,10 @@ services:
       - laravel_laravel
 
   web:
-    image: nginx:alpine
+    # image: nginx:alpine
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
     container_name: laravel_nginx
     restart: unless-stopped
     ports:
