@@ -1,39 +1,38 @@
-FROM php:8.2-cli
+FROM php:8.2-fpm
 
-# Instalar dependencias del sistema
+# Instalar dependencias
 RUN apt-get update && apt-get install -y \
-    libpng-dev \
-    libjpeg-dev \
-    libfreetype6-dev \
-    zip \
     git \
-    unzip \
     curl \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd pdo pdo_mysql bcmath
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    zip \
+    unzip \
+    nodejs \
+    npm
+
+# Instalar extensiones PHP
+RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
 # Instalar Composer
-COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-WORKDIR /var/www/html
+# Establecer directorio de trabajo
+WORKDIR /var/www
 
-# Copiar composer.json y composer.lock para aprovechar la caché de capas de Docker
-COPY composer.json composer.lock ./
+# Copiar archivos de la aplicación
+COPY . /var/www
 
-# Instalar dependencias de Laravel
-RUN composer install --no-dev --no-scripts --no-autoloader
+# Instalar dependencias de Composer
+RUN composer install --optimize-autoloader --no-dev
 
-# Copiar el resto del código de la aplicación
-COPY . .
+# Instalar dependencias de NPM y compilar assets
+RUN npm install && npm run build
 
-# Generar autoloader optimizado
-RUN composer dump-autoload --no-dev --optimize
+# Configurar permisos
+RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
-# Ajustar permisos
-RUN chmod -R 777 storage bootstrap/cache
+EXPOSE 3008
 
-# Exponer puerto para artisan serve
-EXPOSE 8000
-
-# Comando para iniciar Artisan Serve
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
+CMD php artisan serve --host=0.0.0.0 --port=3008

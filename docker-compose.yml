@@ -1,4 +1,4 @@
-# version: "3.8"
+version: '3'
 
 services:
   app:
@@ -8,58 +8,48 @@ services:
     container_name: laravel_app
     restart: unless-stopped
     ports:
-      - "3008:8000"  # Mapear puerto 8000 de Laravel al 3008 del host
+      - "3008:3008"
     volumes:
-      - ./:/var/www/html:cached
-    environment:
-      - APP_ENV=${APP_ENV:-production}
-      - APP_DEBUG=${APP_DEBUG:-false}
-      - DB_CONNECTION=${DB_CONNECTION:-mysql}
-      - DB_HOST=${DB_HOST:-db}
-      - DB_PORT=${DB_PORT:-3306}
-      - DB_DATABASE=${DB_DATABASE:-edudata}
-      - DB_USERNAME=${DB_USERNAME:-laravel}
-      - DB_PASSWORD=${DB_PASSWORD:-secret}
-    depends_on:
-      - db
+      - .:/var/www
     networks:
-      - laravel
-    command: php -S 0.0.0.0:8000 -t public
+      - app_network
+    depends_on:
+      - mysql
 
-  db:
+  mysql:
     image: mysql:8.0
-    container_name: laravel_db
+    container_name: mysql_db
     restart: unless-stopped
     environment:
-      MYSQL_DATABASE: ${DB_DATABASE:-edudata}
-      MYSQL_USER: ${DB_USERNAME:-laravel}
-      MYSQL_PASSWORD: ${DB_PASSWORD:-secret}
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-secret}
-    ports:
-      - "3306:3306"
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
     volumes:
       - mysql_data:/var/lib/mysql
     networks:
-      - laravel
+      - app_network
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
     restart: unless-stopped
-    environment:
-      PMA_HOST: db
-      PMA_USER: ${DB_USERNAME:-laravel}
-      PMA_PASSWORD: ${DB_PASSWORD:-secret}
     ports:
       - "8081:80"
-    depends_on:
-      - db
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
     networks:
-      - laravel
+      - app_network
+    depends_on:
+      - mysql
+
+networks:
+  app_network:
+    driver: bridge
 
 volumes:
   mysql_data:
-
-networks:
-  laravel:
-    driver: bridge
+    driver: local
