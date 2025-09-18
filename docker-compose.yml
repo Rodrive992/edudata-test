@@ -1,61 +1,69 @@
-version: "3.8"
+# version: "3.8"
 
 services:
   app:
-    image: php:8.2-cli
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: laravel_app
-    working_dir: /var/www/html
+    restart: unless-stopped
+    ports:
+      - "3008:8000"  # Mapear puerto 8000 de Laravel al 3008 del host
     volumes:
       - ./:/var/www/html
+      # Excluir directorios de volumen para mejorar rendimiento
+      - /var/www/html/vendor
+      - /var/www/html/node_modules
     environment:
-      - APP_ENV=local
-      - APP_DEBUG=true
-      - DB_CONNECTION=mysql
-      - DB_HOST=db
-      - DB_PORT=3306
+      - APP_ENV=${APP_ENV:-production}
+      - APP_DEBUG=${APP_DEBUG:-false}
+      - APP_KEY=${APP_KEY:-base64:NGZnTYWi}
+      - DB_CONNECTION=${DB_CONNECTION:-mysql}
+      - DB_HOST=${DB_HOST:-db}
+      - DB_PORT=${DB_PORT:-3306}
       - DB_DATABASE=${DB_DATABASE:-edudata}
-      - DB_USERNAME=${DB_USERNAME:-root}
+      - DB_USERNAME=${DB_USERNAME:-laravel}
       - DB_PASSWORD=${DB_PASSWORD:-secret}
-    command: sh -c "composer install && php artisan serve --host=0.0.0.0 --port=8000"
     depends_on:
       - db
-    ports:
-      - "3008:8000"
     networks:
-      - laravel_network
+      - laravel
+    command: php artisan serve --host=0.0.0.0 --port=8000
 
   db:
     image: mysql:8.0
     container_name: laravel_db
+    restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-secret}
       MYSQL_DATABASE: ${DB_DATABASE:-edudata}
+      MYSQL_USER: ${DB_USERNAME:-laravel}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-secret}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-secret}
     ports:
       - "3306:3306"
     volumes:
-      - dbdata:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
     networks:
-      - laravel_network
+      - laravel
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
+    restart: unless-stopped
     environment:
       PMA_HOST: db
-      PMA_PORT: 3306
-      PMA_USER: ${DB_USERNAME:-root}
+      PMA_USER: ${DB_USERNAME:-laravel}
       PMA_PASSWORD: ${DB_PASSWORD:-secret}
     ports:
       - "8081:80"
     depends_on:
       - db
     networks:
-      - laravel_network
+      - laravel
 
 volumes:
-  dbdata:
+  mysql_data:
 
 networks:
-  laravel_network:
+  laravel:
     driver: bridge
-

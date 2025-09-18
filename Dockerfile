@@ -1,6 +1,6 @@
-FROM php:8.2-fpm
+FROM php:8.2-cli
 
-# Dependencias del sistema
+# Instalar dependencias del sistema
 RUN apt-get update && apt-get install -y \
     libpng-dev \
     libjpeg-dev \
@@ -17,14 +17,23 @@ COPY --from=composer:2.6 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
 
-# Copiar Laravel
-COPY . .
+# Copiar composer.json y composer.lock para aprovechar la caché de capas de Docker
+COPY composer.json composer.lock ./
 
 # Instalar dependencias de Laravel
-RUN composer install --no-dev --optimize-autoloader
+RUN composer install --no-dev --no-scripts --no-autoloader
 
-# Permisos
-RUN chown -R www-data:www-data storage bootstrap/cache
+# Copiar el resto del código de la aplicación
+COPY . .
 
-EXPOSE 9000
-CMD ["php-fpm"]
+# Generar autoloader optimizado
+RUN composer dump-autoload --no-dev --optimize
+
+# Ajustar permisos
+RUN chmod -R 777 storage bootstrap/cache
+
+# Exponer puerto para artisan serve
+EXPOSE 8000
+
+# Comando para iniciar Artisan Serve
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
