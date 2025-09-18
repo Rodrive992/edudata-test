@@ -21,7 +21,7 @@ services:
     container_name: laravel_nginx
     restart: unless-stopped
     ports:
-      - "8000:80"
+      - "8000:3008"
     volumes:
       - ./:/var/www/html
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
@@ -55,7 +55,7 @@ services:
       PMA_USER: ${DB_USERNAME:-root}
       PMA_PASSWORD: ${DB_PASSWORD:-secret}
     ports:
-      - "8080:80"
+      - "8080:5008"
     depends_on:
       - db
     networks:
