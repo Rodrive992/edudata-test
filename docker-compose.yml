@@ -24,8 +24,8 @@ services:
       - "3008:80"
     volumes:
     - ./:/var/www/html:ro
-    - ./docker/nginx:/etc/nginx/custom_conf:ro
-    command: ["nginx", "-g", "daemon off;", "-c", "/etc/nginx/custom_conf/default.conf"]
+    - ./docker/nginx/default.conf:/etc/nginx/custom_conf.conf:ro
+    command: ["nginx", "-g", "daemon off;", "-c", "/etc/nginx/custom_conf.conf"]
     depends_on:
       - app
     networks:
