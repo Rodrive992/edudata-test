@@ -1,4 +1,4 @@
-FROM php:8.2-fpm
+FROM php:8.2-cli
 
 # Instalar dependencias
 RUN apt-get update && apt-get install -y \
@@ -19,20 +19,23 @@ RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Establecer directorio de trabajo
-WORKDIR /var/www
+WORKDIR /var/www/html
 
-# Copiar archivos de la aplicación
-COPY . /var/www
+# Copiar el proyecto
+COPY . .
+
+# Asegurarse de que artisan sea ejecutable
+RUN chmod +x artisan
 
 # Instalar dependencias de Composer
-RUN composer install --optimize-autoloader --no-dev
+RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
-# Instalar dependencias de NPM y compilar assets
-RUN npm install && npm run build
+# Instalar dependencias de NPM y compilar assets (si es necesario)
+RUN if [ -f package.json ]; then npm install && npm run build; fi
 
 # Configurar permisos
-RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
+RUN chown -R www-data:www-data storage bootstrap/cache
 
-EXPOSE 3008
+EXPOSE 8000
 
-CMD php artisan serve --host=0.0.0.0 --port=3008
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
