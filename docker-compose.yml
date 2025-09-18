@@ -1,69 +1,50 @@
-# version: "3.8"
+version: "3.8"
 
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: php:8.2-cli
     container_name: laravel_app
-    restart: unless-stopped
-    # env_file:
-    #   - .env
+    working_dir: /var/www/html
     volumes:
       - ./:/var/www/html
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - DB_CONNECTION=mysql
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_DATABASE=${DB_DATABASE:-edudata}
+      - DB_USERNAME=${DB_USERNAME:-root}
+      - DB_PASSWORD=${DB_PASSWORD:-secret}
+    command: sh -c "composer install && php artisan serve --host=0.0.0.0 --port=8000"
     depends_on:
       - db
-    networks:
-      - laravel_laravel
-
-  web:
-    image: nginx:alpine
-    container_name: laravel_nginx
-    restart: unless-stopped
     ports:
-      - "3008:80"
-    volumes:
-    - ./:/var/www/html:ro
-    - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
-    depends_on:
-      - app
-    networks:
-      - laravel_laravel
+      - "3008:8000"
 
   db:
-    image: mysql:8
+    image: mysql:8.0
     container_name: laravel_db
-    restart: unless-stopped
     environment:
-      MYSQL_DATABASE: ${DB_DATABASE:-edudata}
-      MYSQL_USER: ${DB_USERNAME:-root}
-      MYSQL_PASSWORD: ${DB_PASSWORD:-secret}
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-secret}
+      MYSQL_DATABASE: ${DB_DATABASE:-edudata}
     ports:
       - "3306:3306"
     volumes:
-      - mysql_data:/var/lib/mysql
-    networks:
-      - laravel_laravel
+      - dbdata:/var/lib/mysql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
-    restart: unless-stopped
     environment:
       PMA_HOST: db
+      PMA_PORT: 3306
       PMA_USER: ${DB_USERNAME:-root}
       PMA_PASSWORD: ${DB_PASSWORD:-secret}
     ports:
       - "8081:80"
     depends_on:
       - db
-    networks:
-      - laravel_laravel
 
 volumes:
-  mysql_data:
-
-networks:
-  laravel_laravel:
-    driver: bridge
+  dbdata:
