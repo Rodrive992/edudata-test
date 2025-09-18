@@ -26,5 +26,8 @@ RUN composer install --no-dev --optimize-autoloader
 # Permisos
 RUN chown -R www-data:www-data storage bootstrap/cache
 
+FROM nginx:alpine
+COPY /docker/nginx/default.conf /etc/nginx/conf.d/default.conf
+
 EXPOSE 9000
 CMD ["php-fpm"]
