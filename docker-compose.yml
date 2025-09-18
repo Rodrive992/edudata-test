@@ -59,7 +59,6 @@ services:
 
 networks:
   app_network:
-    external: true
 
 volumes:
   mysql_data:
