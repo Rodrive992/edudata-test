@@ -25,15 +25,15 @@ services:
       - app_network
 
   mysql:
-    image: mysql:8.4.6
+    image: mysql:8
     container_name: mysql_db
     restart: unless-stopped
     ports:
       - "3306:3306"
     environment:
       MYSQL_DATABASE: ${DB_DATABASE:-laravel}
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-password}
-      MYSQL_PASSWORD: ${DB_PASSWORD:-password}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:edudata}
+      MYSQL_PASSWORD: ${DB_PASSWORD:edudata}
       MYSQL_USER: ${DB_USERNAME:-laravel}
     volumes:
       - mysql_data:/var/lib/mysql
@@ -48,7 +48,7 @@ services:
       - "8081:80"
     environment:
       PMA_HOST: mysql
-      #MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-secret}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:edudata}
       # PMA_PORT: 3306
       # PMA_USER: ${DB_USERNAME:-root}
       # PMA_PASSWORD: ${DB_PASSWORD:-secret}
@@ -60,7 +60,3 @@ services:
 networks:
   app_network:
     driver: bridge
-
-volumes:
-  mysql_data:
-    driver: local
