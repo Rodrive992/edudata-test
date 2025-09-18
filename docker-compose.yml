@@ -35,8 +35,6 @@ services:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-password}
       MYSQL_PASSWORD: ${DB_PASSWORD:-password}
       MYSQL_USER: ${DB_USERNAME:-laravel}
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
     volumes:
       - mysql_data:/var/lib/mysql
     networks:
@@ -50,7 +48,7 @@ services:
       - "8081:80"
     environment:
       PMA_HOST: mysql
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-secret}
+      #MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-secret}
       # PMA_PORT: 3306
       # PMA_USER: ${DB_USERNAME:-root}
       # PMA_PASSWORD: ${DB_PASSWORD:-secret}
