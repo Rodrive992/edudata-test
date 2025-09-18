@@ -10,14 +10,10 @@ services:
     ports:
       - "3008:8000"  # Mapear puerto 8000 de Laravel al 3008 del host
     volumes:
-      - ./:/var/www/html
-      # Excluir directorios de volumen para mejorar rendimiento
-      - /var/www/html/vendor
-      - /var/www/html/node_modules
+      - ./:/var/www/html:cached
     environment:
       - APP_ENV=${APP_ENV:-production}
       - APP_DEBUG=${APP_DEBUG:-false}
-      - APP_KEY=${APP_KEY:-base64:NGZnTYWi}
       - DB_CONNECTION=${DB_CONNECTION:-mysql}
       - DB_HOST=${DB_HOST:-db}
       - DB_PORT=${DB_PORT:-3306}
@@ -28,7 +24,7 @@ services:
       - db
     networks:
       - laravel
-    command: php artisan serve --host=0.0.0.0 --port=8000
+    command: php -S 0.0.0.0:8000 -t public
 
   db:
     image: mysql:8.0
