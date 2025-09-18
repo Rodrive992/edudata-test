@@ -4,7 +4,7 @@ FROM nginx:alpine
 RUN rm -f /etc/nginx/conf.d/default.conf
 
 # Copiar nuestra configuración
-COPY docker/nginx/default.conf /etc/nginx/conf.d/
+COPY ./docker/nginx/default.conf /etc/nginx/conf.d/default.conf
 
 # Verificar la configuración al iniciar
 CMD ["nginx", "-g", "daemon off;"]
