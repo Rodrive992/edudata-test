@@ -23,8 +23,9 @@ services:
     ports:
       - "3008:80"
     volumes:
-      - ./:/var/www/html:ro
-      - ./docker/nginx:/etc/nginx/conf.d:ro  # monta toda la carpeta
+    - ./:/var/www/html:ro
+    - ./docker/nginx:/etc/nginx/custom_conf:ro
+    command: ["nginx", "-g", "daemon off;", "-c", "/etc/nginx/custom_conf/default.conf"]
     depends_on:
       - app
     networks:
