@@ -15,6 +15,9 @@ use App\Http\Controllers\TitulosController;
 use App\Http\Controllers\EducacionTecnicaController;
 use App\Http\Controllers\ResidenciaController;
 use App\Http\Controllers\OrganigramaController;
+use App\Http\Controllers\NormativaController;
+use App\Http\Controllers\CargaDigestoController;
+use App\Http\Controllers\SolicitudCargoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,7 +44,10 @@ Route::prefix('edudata')->group(function () {
     Route::get('/titulos', [TitulosController::class, 'index'])->name('edudata.titulos');
     Route::get('/programasyproyectos', [ProgramasProyectosController::class, 'index'])->name('edudata.programas');
     Route::get('/residencia', [ResidenciaController::class, 'index'])->name('edudata.residencia');
-    
+    Route::get('/normativa', [NormativaController::class, 'index'])->name('edudata.normativa');
+    Route::get('/normativa/{id}', [NormativaController::class, 'show'])->name('edudata.normativa.show');
+    Route::get('/normativa/{id}/descargar', [NormativaController::class, 'download'])->name('edudata.normativa.download');
+    Route::get('/normativa/{id}/archivo', [NormativaController::class, 'file'])->name('edudata.normativa.file');
 });
 
 // Autenticación manual
@@ -49,12 +55,29 @@ Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// Secciones de EduRed con autenticación obligatoria
-Route::prefix('edured')->middleware('auth')->group(function () {    
-    Route::get('/', [EduRedController::class, 'index'])->name('edured.index');    
+Route::prefix('edured')->middleware('auth')->group(function () {
+    Route::get('/', [EduRedController::class, 'index'])->name('edured.index');
     Route::get('/historial', [EduRedController::class, 'solicitudes'])->name('edured.historial');
-    Route::post('/generar-solicitud-edilicio', [SolicitudesEduRedController::class, 'nuevaSolicitudEdilicio'])->name('edured.generar-solicitud-edilicio');   
+    Route::post('/generar-solicitud-edilicio', [SolicitudesEduRedController::class, 'nuevaSolicitudEdilicio'])->name('edured.generar-solicitud-edilicio');
     Route::post('/generar-solicitud-vacante', [SolicitudesEduRedController::class, 'nuevaSolicitudVacante'])->name('edured.generar-solicitud-vacante');
-});
 
-    
+    //Herramientas 
+    Route::prefix('herramientas')->group(function () {
+        //Digesto
+        Route::get('/digesto', [CargaDigestoController::class, 'index'])->name('edured.herramientas.digesto.index');
+        Route::post('/digesto', [CargaDigestoController::class, 'store'])->name('edured.herramientas.digesto.store');
+        Route::delete('/digesto/{digesto}', [CargaDigestoController::class, 'destroy'])->name('edured.herramientas.digesto.destroy');
+        //Solicitud cargo vacante
+        // Mantener la ruta con typo para no romper enlaces previos
+        Route::get('/solicitucargos', [SolicitudCargoController::class, 'index'])
+            ->name('edured.herramientas.solicitudcargos.index-legacy');
+
+        // Ruta correcta
+        Route::get('/solicitudcargos', [SolicitudCargoController::class, 'index'])
+            ->name('edured.herramientas.solicitudcargos.index');
+
+        // Generar solicitud desde un cargo
+        Route::get('/solicitudcargos/{cargo}/generar', [SolicitudCargoController::class, 'generar'])
+            ->name('edured.herramientas.solicitudcargos.generar');
+    });
+});
