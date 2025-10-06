@@ -1,13 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PrespuestoEduGralController;
 use App\Http\Controllers\EduRedController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SolicitudesEduRedController;
-use App\Http\Controllers\MantenimientoController;
+use App\Http\Controllers\MantenimientoRealizadasController;
 use App\Http\Controllers\FormacionController;
-use App\Http\Controllers\AdministracionEjecucionController;
 use App\Http\Controllers\InnovacionController;
 use App\Http\Controllers\AsuntosController;
 use App\Http\Controllers\ProgramasProyectosController;
@@ -18,6 +16,8 @@ use App\Http\Controllers\OrganigramaController;
 use App\Http\Controllers\NormativaController;
 use App\Http\Controllers\CargaDigestoController;
 use App\Http\Controllers\SolicitudCargoController;
+use App\Models\MantenimientoRealizadas;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,7 +37,7 @@ Route::get('/edured', [AuthController::class, 'showLoginForm'])->name('login');
 Route::prefix('edudata')->group(function () {
     Route::get('/organigrama', [OrganigramaController::class, 'index'])->name('edudata.organigrama');
     Route::get('/asuntos', [AsuntosController::class, 'index'])->name('edudata.asuntos');
-    Route::get('/mantenimiento', [MantenimientoController::class, 'index'])->name('edudata.mantenimiento');
+    Route::get('/mantenimiento', [MantenimientoRealizadasController::class, 'index'])->name('edudata.mantenimiento');
     Route::get('/formacion', [FormacionController::class, 'index'])->name('edudata.formacion');
     Route::get('/edutecnica', [EducacionTecnicaController::class, 'index'])->name('edudata.edutecnica');
     Route::get('/innovacion', [InnovacionController::class, 'index'])->name('edudata.innovacion');
@@ -71,13 +71,24 @@ Route::prefix('edured')->middleware('auth')->group(function () {
         // Mantener la ruta con typo para no romper enlaces previos
         Route::get('/solicitucargos', [SolicitudCargoController::class, 'index'])
             ->name('edured.herramientas.solicitudcargos.index-legacy');
-
         // Ruta correcta
         Route::get('/solicitudcargos', [SolicitudCargoController::class, 'index'])
             ->name('edured.herramientas.solicitudcargos.index');
-
         // Generar solicitud desde un cargo
-        Route::get('/solicitudcargos/{cargo}/generar', [SolicitudCargoController::class, 'generar'])
-            ->name('edured.herramientas.solicitudcargos.generar');
+        Route::get('/solicitudcargos/{cargo}/generar', [SolicitudCargoController::class, 'generar'])->name('edured.herramientas.solicitudcargos.generar');  
+
+        // Mantenimiento - Tareas Realizadas
+        Route::prefix('mantenimiento/realizadas')->name('edured.herramientas.mantenimiento.realizadas.')->group(function () {
+                // Form para cargar CSV
+                Route::get('/cargar', [MantenimientoRealizadasController::class, 'create'])->name('create');
+                // POST de carga/procesamiento
+                Route::post('/cargar', [MantenimientoRealizadasController::class, 'store'])->name('store');
+                // Listado de archivos cargados
+                Route::get('/archivos', [MantenimientoRealizadasController::class, 'indexArchivos'])->name('archivos.index');
+                // Descargar archivo original
+                Route::get('/archivos/{id}/descargar', [MantenimientoRealizadasController::class, 'descargar'])->name('archivos.descargar');
+                // Eliminar carga completa (archivo + filas)
+                Route::delete('/archivos/{id}', [MantenimientoRealizadasController::class, 'destroyArchivo'])->name('archivos.destroy');
+            });
     });
 });

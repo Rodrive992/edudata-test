@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Mantenimiento extends Model
+class MantenimientoRealizadas extends Model
 {
     use HasFactory;
 
-    protected $table = 'mantenimiento';
+    protected $table = 'mantenimiento_realizadas';
 
     protected $fillable = [
     'id',
@@ -17,5 +17,6 @@ class Mantenimiento extends Model
     'establecimiento',
     'tarea',
     'tipo_tarea',
+    'cod_carga',
     ];
 }
