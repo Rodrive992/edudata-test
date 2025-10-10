@@ -23,7 +23,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-gray-200 shadow-sm">
+<body class="bg-white shadow-sm">
 
     @if (Request::is('edured*'))
         @include('edured.partials.top-navbar')

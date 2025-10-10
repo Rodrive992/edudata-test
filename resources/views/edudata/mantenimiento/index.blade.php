@@ -18,7 +18,7 @@
             prev() { this.i = (this.i - 1 + this.imgs.length) % this.imgs.length }
         }" x-init="start()" @mouseenter="stop()" @mouseleave="start()"
             class="relative left-1/2 right-1/2 -mx-[50vw] w-screen mb-10"> {{-- Añadido mb-10 para espacio --}}
-            <div class="relative w-full h-[100px] sm:h-[340px] md:h-[420px] lg:h-[435px] bg-gray-800">
+            <div class="relative w-full h-[100px] sm:h-[340px] md:h-[420px] lg:h-[435px] bg-gray-900">
                 <!-- Slides -->
                 <template x-for="(src, idx) in imgs" :key="idx">
                     <div x-show="i === idx" x-transition.opacity.duration.500ms
