@@ -102,7 +102,7 @@
               <div x-cloak x-show="openOrg"
                    x-transition.opacity.duration.120ms
                    class="{{ $panelBase }} w-64">
-                <div class="{{ $panelHead }}">Generar solicitud</div>
+                <div class="{{ $panelHead }}">Solicitar Información</div>
                 <ul class="px-2 py-2">
                   <li><a href="#" class="{{ $itemBase }} {{ $itemFx }}">Ir al formulario<span class="{{ $itemCaret }}">→</span></a></li>
                 </ul>

@@ -95,7 +95,7 @@
                         'image' => $imgBasePath . 'normativa' . $imgExtension,
                     ],
                     [
-                        'href' => route('edudata.formacion'),   
+                        'href' => route('edudata.formacion'),
                         'alt' => 'Formación y Programación',
                         'color' => $colorPalette[5],
                         'image' => $imgBasePath . 'formacion' . $imgExtension,
@@ -150,8 +150,10 @@
                         <div class="bg-gradient-to-r from-[#f5cb58] to-[#ddb954] px-6 py-3">
                             <div class="flex items-center justify-center">
                                 <div class="w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center mr-3">
-                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                                     </svg>
                                 </div>
                                 <h2 class="text-white font-bold text-lg text-center">
@@ -159,19 +161,21 @@
                                 </h2>
                             </div>
                         </div>
-                        
+
                         <!-- Contenido -->
                         <div class="p-6">
                             <div class="space-y-4 text-gray-700 text-sm leading-relaxed text-justify">
                                 <p>
-                                    En el marco de la <strong class="text-blue-600">Ley N.º 2.275 de Acceso a la Información Pública</strong>, el
+                                    En el marco de la <strong class="text-blue-600">Ley N.º 2.275 de Acceso a la Información
+                                        Pública</strong>, el
                                     Ministerio de Educación, Ciencia y Tecnología de la Provincia de Catamarca pone a
                                     disposición de la ciudadanía un portal de acceso público que permite conocer el
                                     funcionamiento y el uso de los recursos públicos de su dependencia.
                                 </p>
 
                                 <p>
-                                    El portal forma parte del sistema <strong class="text-blue-600">EDUDATA</strong>, desarrollado por la Dirección de
+                                    El portal forma parte del sistema <strong class="text-blue-600">EDUDATA</strong>,
+                                    desarrollado por la Dirección de
                                     Transparencia Activa, y tiene como objetivo garantizar una gestión abierta, eficiente y
                                     accesible, permitiendo que cada área del ministerio publique información actualizada y
                                     relevante para todos los ciudadanos.
@@ -265,8 +269,10 @@
                         <div class="bg-gradient-to-r from-green-500 to-emerald-600 px-6 py-3">
                             <div class="flex items-center justify-center">
                                 <div class="w-7 h-7 bg-white/20 rounded-lg flex items-center justify-center mr-3">
-                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                     </svg>
                                 </div>
                                 <h2 class="text-white font-bold text-lg text-center">
@@ -274,54 +280,82 @@
                                 </h2>
                             </div>
                         </div>
-                        
+
                         <!-- Contenido -->
                         <div class="p-6">
+                            <!-- Cartel informativo -->
+                            <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0">
+                                        <svg class="w-5 h-5 text-green-600 mt-0.5" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-green-800 text-sm text-justify font-medium">
+                                            Solicitar información pública del Ministerio de Educación, Ciencia y Tecnología
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="space-y-4">
                                 <!-- Lista de pasos mejorada -->
                                 <div class="space-y-4">
                                     <div class="flex items-start group/step">
-                                        <div class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-sm mr-4 mt-0.5 transition-all group-hover/step:bg-green-200">
+                                        <div
+                                            class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-sm mr-4 mt-0.5 transition-all group-hover/step:bg-green-200">
                                             1
                                         </div>
                                         <div class="flex-1">
-                                            <p class="text-gray-700 text-sm font-medium">Ingresa al <a href="#" class="text-green-600 hover:text-green-700 underline font-semibold">formulario</a></p>
+                                            <p class="text-gray-700 text-sm font-medium">Ingresa al <a href="#"
+                                                    class="text-green-600 hover:text-green-700 underline font-semibold">formulario</a>
+                                            </p>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="flex items-start group/step">
-                                        <div class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-sm mr-4 mt-0.5 transition-all group-hover/step:bg-green-200">
+                                        <div
+                                            class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-sm mr-4 mt-0.5 transition-all group-hover/step:bg-green-200">
                                             2
                                         </div>
                                         <div class="flex-1">
                                             <p class="text-gray-700 text-sm">Completa con tus datos personales</p>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="flex items-start group/step">
-                                        <div class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-sm mr-4 mt-0.5 transition-all group-hover/step:bg-green-200">
+                                        <div
+                                            class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-sm mr-4 mt-0.5 transition-all group-hover/step:bg-green-200">
                                             3
                                         </div>
                                         <div class="flex-1">
-                                            <p class="text-gray-700 text-sm">Escribe la información que deseas solicitar</p>
+                                            <p class="text-gray-700 text-sm">Escribe la información que deseas solicitar
+                                            </p>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="flex items-start group/step">
-                                        <div class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-sm mr-4 mt-0.5 transition-all group-hover/step:bg-green-200">
+                                        <div
+                                            class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-sm mr-4 mt-0.5 transition-all group-hover/step:bg-green-200">
                                             4
                                         </div>
                                         <div class="flex-1">
                                             <p class="text-gray-700 text-sm">Envía el formulario</p>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="flex items-start group/step">
-                                        <div class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-sm mr-4 mt-0.5 transition-all group-hover/step:bg-green-200">
+                                        <div
+                                            class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-sm mr-4 mt-0.5 transition-all group-hover/step:bg-green-200">
                                             5
                                         </div>
                                         <div class="flex-1">
-                                            <p class="text-gray-700 text-sm">Consulta tu solicitud en <a href="#" class="text-green-600 hover:text-green-700 underline font-semibold">Registro de Solicitudes</a></p>
+                                            <p class="text-gray-700 text-sm">Consulta tu solicitud en <a href="#"
+                                                    class="text-green-600 hover:text-green-700 underline font-semibold">Registro
+                                                    de Solicitudes</a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -329,7 +363,8 @@
 
                             <!-- Call to action -->
                             <div class="mt-6 pt-4 border-t border-gray-200">
-                                <a href="#" class="block w-full bg-green-500 hover:bg-green-600 text-white text-center py-2 px-4 rounded-lg font-medium transition-colors duration-200">
+                                <a href="#"
+                                    class="block w-full bg-green-500 hover:bg-green-600 text-white text-center py-2 px-4 rounded-lg font-medium transition-colors duration-200">
                                     Iniciar Solicitud
                                 </a>
                             </div>
