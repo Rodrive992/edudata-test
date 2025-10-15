@@ -28,46 +28,48 @@
 
                         <!-- Sección de funcionalidades con fondo claro -->
                         <div
-                            class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-100 p-8 my-8 shadow-lg border border-blue-200">
+                            class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-100 p-4 sm:p-6 lg:p-8 my-6 sm:my-8 shadow-lg border border-blue-200">
                             <!-- Elementos decorativos de fondo -->
                             <div
-                                class="absolute top-0 right-0 w-32 h-32 bg-blue-200/30 rounded-full -translate-y-16 translate-x-16">
+                                class="absolute top-0 right-0 w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-blue-200/30 rounded-full -translate-y-8 sm:-translate-y-12 lg:-translate-y-16 translate-x-8 sm:translate-x-12 lg:translate-x-16">
                             </div>
                             <div
-                                class="absolute bottom-0 left-0 w-24 h-24 bg-indigo-200/30 rounded-full translate-y-12 -translate-x-12">
+                                class="absolute bottom-0 left-0 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-indigo-200/30 rounded-full translate-y-8 sm:translate-y-10 lg:translate-y-12 -translate-x-6 sm:-translate-x-8 lg:-translate-x-12">
                             </div>
 
                             <div class="relative z-10">
                                 <!-- Grid de funcionalidades -->
-                                <div class="grid lg:grid-cols-3 gap-6">
+                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                                     <!-- Tarjeta 1: Tareas realizadas -->
                                     <div
-                                        class="group relative bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-blue-100 hover:bg-white transition-all duration-300 hover:scale-105 shadow-sm flex flex-col h-full">
-                                        <div class="absolute -top-3 -left-3">
+                                        class="group relative bg-white/80 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-blue-100 hover:bg-white transition-all duration-300 hover:scale-105 shadow-sm flex flex-col h-full">
+                                        <div class="absolute -top-2 -left-2 sm:-top-3 sm:-left-3">
                                             <div
-                                                class="h-8 w-8 rounded-full bg-[#f5cb58] flex items-center justify-center shadow-lg">
-                                                <span class="text-white font-bold text-sm">01</span>
+                                                class="h-6 w-6 sm:h-8 sm:w-8 rounded-full bg-[#f5cb58] flex items-center justify-center shadow-lg">
+                                                <span class="text-white font-bold text-xs sm:text-sm">01</span>
                                             </div>
                                         </div>
-                                        <div class="mb-4">
+                                        <div class="mb-3 sm:mb-4">
                                             <div
-                                                class="h-12 w-12 rounded-lg bg-gradient-to-br from-[#f5cb58] to-[#ddb750] flex items-center justify-center mb-3">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                class="h-10 w-10 sm:h-12 sm:w-12 rounded-lg bg-gradient-to-br from-[#f5cb58] to-[#ddb750] flex items-center justify-center mb-2 sm:mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="h-5 w-5 sm:h-6 sm:w-6 text-white" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                         d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                                 </svg>
                                             </div>
                                         </div>
-                                        <h4 class="text-xl font-bold text-gray-800 mb-3">Tareas de Mantenimiento</h4>
-                                        <p class="text-gray-600 leading-relaxed flex-grow">Consulta el historial completo de
-                                            mantenimiento realizadas, pendientes y comisiones de servicio, filtrado por
-                                            establecimiento educativo</p>
-                                        <div class="mt-4 pt-4 border-t border-gray-200">
+                                        <h4 class="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">Tareas de
+                                            Mantenimiento</h4>
+                                        <p class="text-gray-600 leading-relaxed flex-grow text-sm sm:text-base">Consulta el
+                                            historial completo de mantenimiento realizadas, pendientes y comisiones de
+                                            servicio, filtrado por establecimiento educativo</p>
+                                        <div class="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-200">
                                             <a href="#tareas" rel="noopener"
-                                                class="w-full inline-flex items-center justify-center gap-2 px-4 py-2 bg-[#f5cb58] hover:bg-[#e5bb48] text-white font-semibold rounded-lg shadow-sm transition-all duration-200 hover:scale-105">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
-                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-[#f5cb58] hover:bg-[#e5bb48] text-white font-semibold rounded-lg shadow-sm transition-all duration-200 hover:scale-105 text-sm sm:text-base">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 sm:h-4 sm:w-4"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                         d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                                 </svg>
@@ -78,18 +80,19 @@
 
                                     <!-- Tarjeta 2: Ubicación -->
                                     <div
-                                        class="group relative bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-[#6bbde5] hover:bg-white transition-all duration-300 hover:scale-105 shadow-sm flex flex-col h-full">
-                                        <div class="absolute -top-3 -left-3">
+                                        class="group relative bg-white/80 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-[#6bbde5] hover:bg-white transition-all duration-300 hover:scale-105 shadow-sm flex flex-col h-full">
+                                        <div class="absolute -top-2 -left-2 sm:-top-3 sm:-left-3">
                                             <div
-                                                class="h-8 w-8 rounded-full bg-[#6bbde5] flex items-center justify-center shadow-lg">
-                                                <span class="text-white font-bold text-sm">02</span>
+                                                class="h-6 w-6 sm:h-8 sm:w-8 rounded-full bg-[#6bbde5] flex items-center justify-center shadow-lg">
+                                                <span class="text-white font-bold text-xs sm:text-sm">02</span>
                                             </div>
                                         </div>
-                                        <div class="mb-4">
+                                        <div class="mb-3 sm:mb-4">
                                             <div
-                                                class="h-12 w-12 rounded-lg bg-gradient-to-br from-[#6bbde5] to-[#5aadd5] flex items-center justify-center mb-3">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                class="h-10 w-10 sm:h-12 sm:w-12 rounded-lg bg-gradient-to-br from-[#6bbde5] to-[#5aadd5] flex items-center justify-center mb-2 sm:mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="h-5 w-5 sm:h-6 sm:w-6 text-white" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                         d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -97,15 +100,17 @@
                                                 </svg>
                                             </div>
                                         </div>
-                                        <h4 class="text-xl font-bold text-gray-800 mb-3">Ubicación de Establecimientos</h4>
-                                        <p class="text-gray-600 leading-relaxed flex-grow">Accede al mapa completo con la
-                                            localización de todas las instituciones educativas provinciales</p>
-                                        <div class="mt-4 pt-4 border-t border-gray-200">
+                                        <h4 class="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">Ubicación de
+                                            Establecimientos</h4>
+                                        <p class="text-gray-600 leading-relaxed flex-grow text-sm sm:text-base">Accede al
+                                            mapa completo con la localización de todas las instituciones educativas
+                                            provinciales</p>
+                                        <div class="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-200">
                                             <a href="https://nimble-gumdrop-ccc062.netlify.app/" target="_blank"
                                                 rel="noopener"
-                                                class="w-full inline-flex items-center justify-center gap-2 px-4 py-2 bg-[#6bbde5] hover:bg-[#5aadd5] text-white font-semibold rounded-lg shadow-sm transition-all duration-200 hover:scale-105">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
-                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-[#6bbde5] hover:bg-[#5aadd5] text-white font-semibold rounded-lg shadow-sm transition-all duration-200 hover:scale-105 text-sm sm:text-base">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 sm:h-4 sm:w-4"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                         d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -118,32 +123,35 @@
 
                                     <!-- Tarjeta 3: Solicitudes -->
                                     <div
-                                        class="group relative bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-blue-100 hover:bg-white transition-all duration-300 hover:scale-105 shadow-sm flex flex-col h-full">
-                                        <div class="absolute -top-3 -left-3">
+                                        class="group relative bg-white/80 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-blue-100 hover:bg-white transition-all duration-300 hover:scale-105 shadow-sm flex flex-col h-full md:col-span-2 lg:col-span-1">
+                                        <div class="absolute -top-2 -left-2 sm:-top-3 sm:-left-3">
                                             <div
-                                                class="h-8 w-8 rounded-full bg-green-500 flex items-center justify-center shadow-lg">
-                                                <span class="text-white font-bold text-sm">03</span>
+                                                class="h-6 w-6 sm:h-8 sm:w-8 rounded-full bg-green-500 flex items-center justify-center shadow-lg">
+                                                <span class="text-white font-bold text-xs sm:text-sm">03</span>
                                             </div>
                                         </div>
-                                        <div class="mb-4">
+                                        <div class="mb-3 sm:mb-4">
                                             <div
-                                                class="h-12 w-12 rounded-lg bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mb-3">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white"
-                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                class="h-10 w-10 sm:h-12 sm:w-12 rounded-lg bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mb-2 sm:mb-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    class="h-5 w-5 sm:h-6 sm:w-6 text-white" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                         d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                                                 </svg>
                                             </div>
                                         </div>
-                                        <h4 class="text-xl font-bold text-gray-800 mb-3">Solicitudes de Mantenimiento</h4>
-                                        <p class="text-gray-600 leading-relaxed flex-grow">Genera solicitudes específicas si
-                                            pertenecés a la comunidad educativa de la provincia</p>
-                                        <div class="mt-4 pt-4 border-t border-gray-200">
+                                        <h4 class="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">Solicitudes de
+                                            Mantenimiento</h4>
+                                        <p class="text-gray-600 leading-relaxed flex-grow text-sm sm:text-base">Genera
+                                            solicitudes específicas si pertenecés a la comunidad educativa de la provincia
+                                        </p>
+                                        <div class="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-200">
                                             <a href="https://tad.catamarca.gob.ar/tramitesadistancia" target="_blank"
                                                 rel="noopener"
-                                                class="w-full inline-flex items-center justify-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow-sm transition-all duration-200 hover:scale-105">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
-                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                class="w-full inline-flex items-center justify-center gap-2 px-3 py-2 sm:px-4 sm:py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow-sm transition-all duration-200 hover:scale-105 text-sm sm:text-base">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 sm:h-4 sm:w-4"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                         d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                                 </svg>
