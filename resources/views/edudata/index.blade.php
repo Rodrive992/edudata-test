@@ -294,7 +294,7 @@
                                         </svg>
                                     </div>
                                     <div class="ml-3">
-                                        <p class="text-green-800 text-sm text-justify font-medium">
+                                        <p class="text-green-800 text-sm text_center font-medium">
                                             Solicitar información pública del Ministerio de Educación, Ciencia y Tecnología
                                         </p>
                                     </div>
@@ -310,7 +310,7 @@
                                             1
                                         </div>
                                         <div class="flex-1">
-                                            <p class="text-gray-700 text-sm font-medium">Ingresa al <a href="#"
+                                            <p class="text-gray-700 text-sm font-medium">Ingresa al <a href="{{ route('edudata.solicitud-info') }}"
                                                     class="text-green-600 hover:text-green-700 underline font-semibold">formulario</a>
                                             </p>
                                         </div>
@@ -353,7 +353,7 @@
                                             5
                                         </div>
                                         <div class="flex-1">
-                                            <p class="text-gray-700 text-sm">Consulta tu solicitud en <a href="#"
+                                            <p class="text-gray-700 text-sm">Consulta tu solicitud en <a href="{{ route('edudata.solicitud-info.registro_solicitudes_info') }}"
                                                     class="text-green-600 hover:text-green-700 underline font-semibold">Registro
                                                     de Solicitudes</a></p>
                                         </div>
@@ -363,7 +363,7 @@
 
                             <!-- Call to action -->
                             <div class="mt-6 pt-4 border-t border-gray-200">
-                                <a href="#"
+                                <a href="{{ route('edudata.solicitud-info') }}"
                                     class="block w-full bg-green-500 hover:bg-green-600 text-white text-center py-2 px-4 rounded-lg font-medium transition-colors duration-200">
                                     Iniciar Solicitud
                                 </a>

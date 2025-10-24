@@ -24,24 +24,83 @@
                         facilitando el acceso a leyes, decretos, resoluciones y disposiciones.
                     </p>
 
-                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
-                        <p class="text-gray-800 leading-relaxed">
-                            <span class="font-bold text-blue-700">🔍 Desde este portal podés:</span>
-                        </p>
-                        <ul class="mt-2 space-y-2 text-gray-700">
-                            <li class="flex items-start">
-                                <span class="text-green-500 mr-2">•</span>
-                                <span><strong>Buscar normativa específica</strong> por título, descripción o palabras clave</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-green-500 mr-2">•</span>
-                                <span><strong>Consultar documentos completos</strong> de cada normativa</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-green-500 mr-2">•</span>
-                                <span><strong>Acceder de forma transparente</strong> a toda la regulación educativa</span>
-                            </li>
-                        </ul>
+                    <!-- Sección de funcionalidades con fondo claro -->
+                    <div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-100 p-4 sm:p-6 lg:p-8 my-6 sm:my-8 shadow-lg border border-blue-200">
+                        <!-- Elementos decorativos de fondo -->
+                        <div class="absolute top-0 right-0 w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-blue-200/30 rounded-full -translate-y-8 sm:-translate-y-12 lg:-translate-y-16 translate-x-8 sm:translate-x-12 lg:translate-x-16"></div>
+                        <div class="absolute bottom-0 left-0 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-indigo-200/30 rounded-full translate-y-8 sm:translate-y-10 lg:translate-y-12 -translate-x-6 sm:-translate-x-8 lg:-translate-x-12"></div>
+
+                        <div class="relative z-10">
+                            <!-- Header con icono -->
+                            
+
+                            <!-- Grid de funcionalidades -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                                <!-- Tarjeta 1: Búsqueda -->
+                                <div class="group relative bg-white/80 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-blue-100 hover:bg-white transition-all duration-300 hover:scale-105 shadow-sm flex flex-col h-full">
+                                    <div class="absolute -top-2 -left-2 sm:-top-3 sm:-left-3">
+                                        <div class="h-6 w-6 sm:h-8 sm:w-8 rounded-full bg-[#f5cb58] flex items-center justify-center shadow-lg">
+                                            <span class="text-white font-bold text-xs sm:text-sm">01</span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 sm:mb-4">
+                                        <div class="h-10 w-10 sm:h-12 sm:w-12 rounded-lg bg-gradient-to-br from-[#f5cb58] to-[#ddb750] flex items-center justify-center mb-2 sm:mb-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <h4 class="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">Búsqueda Avanzada</h4>
+                                    <p class="text-gray-600 leading-relaxed flex-grow text-sm sm:text-base">Encuentra normativa específica utilizando palabras clave, títulos o descripciones con filtros precisos</p>
+                                    <div class="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-200">
+                                        <span class="text-green-600 text-sm font-semibold">🔍 Búsqueda por contenido</span>
+                                    </div>
+                                </div>
+
+                                <!-- Tarjeta 2: Documentos -->
+                                <div class="group relative bg-white/80 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-[#6bbde5] hover:bg-white transition-all duration-300 hover:scale-105 shadow-sm flex flex-col h-full">
+                                    <div class="absolute -top-2 -left-2 sm:-top-3 sm:-left-3">
+                                        <div class="h-6 w-6 sm:h-8 sm:w-8 rounded-full bg-[#6bbde5] flex items-center justify-center shadow-lg">
+                                            <span class="text-white font-bold text-xs sm:text-sm">02</span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 sm:mb-4">
+                                        <div class="h-10 w-10 sm:h-12 sm:w-12 rounded-lg bg-gradient-to-br from-[#6bbde5] to-[#5aadd5] flex items-center justify-center mb-2 sm:mb-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <h4 class="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">Documentos Completos</h4>
+                                    <p class="text-gray-600 leading-relaxed flex-grow text-sm sm:text-base">Accede a los textos íntegros de leyes, decretos y resoluciones con toda la información oficial</p>
+                                    <div class="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-200">
+                                        <span class="text-cyan-600 text-sm font-semibold">📄 Acceso completo</span>
+                                    </div>
+                                </div>
+
+                                <!-- Tarjeta 3: Transparencia -->
+                                <div class="group relative bg-white/80 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-blue-100 hover:bg-white transition-all duration-300 hover:scale-105 shadow-sm flex flex-col h-full md:col-span-2 lg:col-span-1">
+                                    <div class="absolute -top-2 -left-2 sm:-top-3 sm:-left-3">
+                                        <div class="h-6 w-6 sm:h-8 sm:w-8 rounded-full bg-green-500 flex items-center justify-center shadow-lg">
+                                            <span class="text-white font-bold text-xs sm:text-sm">03</span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 sm:mb-4">
+                                        <div class="h-10 w-10 sm:h-12 sm:w-12 rounded-lg bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mb-2 sm:mb-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 21h7a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v11m0 5l4.879-4.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <h4 class="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">Transparencia Total</h4>
+                                    <p class="text-gray-600 leading-relaxed flex-grow text-sm sm:text-base">Consulta toda la normativa educativa de manera pública y accesible para toda la comunidad</p>
+                                    <div class="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-200">
+                                        <span class="text-green-600 text-sm font-semibold">🌐 Acceso público garantizado</span>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
                     </div>
 
                     <div class="flex flex-wrap gap-2 mt-4">
@@ -146,6 +205,7 @@
                 </div>
             </div>
 
+            {{-- Resto del código se mantiene igual --}}
             {{-- Listado --}}
             <div class="max-w-5xl mx-auto">
                 @if(session('error'))

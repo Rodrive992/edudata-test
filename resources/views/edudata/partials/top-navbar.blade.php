@@ -104,7 +104,10 @@
                    class="{{ $panelBase }} w-64">
                 <div class="{{ $panelHead }}">Solicitar Información</div>
                 <ul class="px-2 py-2">
-                  <li><a href="#" class="{{ $itemBase }} {{ $itemFx }}">Ir al formulario<span class="{{ $itemCaret }}">→</span></a></li>
+                  <li><a href="{{ route('edudata.solicitud-info') }}" class="{{ $itemBase }} {{ $itemFx }}">Ir al formulario<span class="{{ $itemCaret }}">→</span></a></li>
+                </ul>
+                <ul class="px-2 py-2">
+                  <li><a href="{{ route('edudata.solicitud-info.registro_solicitudes_info') }}" class="{{ $itemBase }} {{ $itemFx }}">Registro de Solicitudes<span class="{{ $itemCaret }}">→</span></a></li>
                 </ul>
               </div>
             </div>

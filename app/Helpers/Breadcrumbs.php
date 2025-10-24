@@ -103,6 +103,18 @@ class Breadcrumbs
                 'title' => 'Iniciar sesión',
                 'parent' => null,
             ],
+            'edured.herramientas.solicitudes-info.index' => [
+                'title' => 'Solicitudes',
+                'parent' => 'edured.index',
+            ],
+            'edured.herramientas.solicitudes-info.paso1' => [
+                'title' => 'Responder solicitud - Paso Nº1',
+                'parent' => 'edured.herramientas.solicitudes-info.index',
+            ],
+            'edured.herramientas.solicitudes-info.paso2' => [
+                'title' => 'Responder solicitud - Paso Nº2',
+                'parent' => 'edured.herramientas.solicitudes-info.index',
+            ],
         ];
 
         // Parámetros actuales de la ruta (p.ej. id)

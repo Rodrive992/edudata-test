@@ -3,7 +3,7 @@
          <div class="flex items-center justify-between">
              <!-- Logo y título a la izquierda -->
              <div class="flex items-center space-x-4">
-                 <a href="{{ route('edudata.index') }}">
+                 <a href="{{ route('edured.index') }}">
                      <img src="{{ asset('images/eduredlogo.png') }}" alt="EDURED Logo" class="h-12">
                  </a>
                  <div class="text-left leading-tight">
