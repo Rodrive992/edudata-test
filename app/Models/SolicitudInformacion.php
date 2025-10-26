@@ -28,6 +28,7 @@ class SolicitudInformacion extends Model
         'asunto_solicitud',
         'solicitud_texto',
         'estado_solicitud',
+        'mostrar_solicitud',
         'asunto_respuesta_solicitud',
         'respuesta_solicitud',
         'archivo_respuesta_solicitud',

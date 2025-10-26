@@ -113,7 +113,7 @@ class Breadcrumbs
             ],
             'edured.herramientas.solicitudes-info.paso2' => [
                 'title' => 'Responder solicitud - Paso Nº2',
-                'parent' => 'edured.herramientas.solicitudes-info.index ',
+                'parent' => 'edured.herramientas.solicitudes-info.index',
             ],
         ];
 

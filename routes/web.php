@@ -65,6 +65,7 @@ Route::prefix('edured')->middleware('auth')->group(function () {
     Route::post('/generar-solicitud-edilicio', [SolicitudesEduRedController::class, 'nuevaSolicitudEdilicio'])->name('edured.generar-solicitud-edilicio');
     Route::post('/generar-solicitud-vacante', [SolicitudesEduRedController::class, 'nuevaSolicitudVacante'])->name('edured.generar-solicitud-vacante');
 
+    // EDU RED
     //Herramientas 
     Route::prefix('herramientas')->group(function () {
         //Digesto
@@ -73,31 +74,56 @@ Route::prefix('edured')->middleware('auth')->group(function () {
         Route::delete('/digesto/{digesto}', [CargaDigestoController::class, 'destroy'])->name('edured.herramientas.digesto.destroy');
 
         // Gestión Solicitudes de Información (EDURED)
-        Route::prefix('solicitudes-info')->name('edured.herramientas.solicitudes-info.')->group(function () {
-            // Listado
-            Route::get('/', [SolicitudInformacionController::class, 'gestionSolicitudes'])
-                ->name('index');
+        // Admin / Gestión
+        Route::get('/edured/solicitudes', [SolicitudInformacionController::class, 'gestionSolicitudes'])
+            ->name('edured.herramientas.solicitudes-info.index');
 
-            // Paso 1: verificación de solicitante (sin descripción)
-            Route::get('/{solicitud}', [SolicitudInformacionController::class, 'gestionPaso1'])
-                ->name('paso1');
+        Route::get('/edured/solicitudes/{solicitud}/paso1', [SolicitudInformacionController::class, 'gestionPaso1'])
+            ->name('edured.herramientas.solicitudes-info.paso1');
 
-            // Acción: rechazar
-            Route::post('/{solicitud}/rechazar', [SolicitudInformacionController::class, 'rechazar'])
-                ->name('rechazar');
+        Route::post('/edured/solicitudes/{solicitud}/rechazar', [SolicitudInformacionController::class, 'rechazar'])
+            ->name('edured.herramientas.solicitudes-info.rechazar');
 
-            // Acción: continuar (marca en proceso y redirige a paso 2)
-            Route::post('/{solicitud}/continuar', [SolicitudInformacionController::class, 'continuar'])
-                ->name('continuar');
+        Route::post('/edured/solicitudes/{solicitud}/continuar', [SolicitudInformacionController::class, 'continuar'])
+            ->name('edured.herramientas.solicitudes-info.continuar');
 
-            // Paso 2: responder
-            Route::get('/{solicitud}/respuesta', [SolicitudInformacionController::class, 'gestionPaso2'])
-                ->name('paso2');
+        Route::get('/edured/solicitudes/{solicitud}/paso2', [SolicitudInformacionController::class, 'gestionPaso2'])
+            ->name('edured.herramientas.solicitudes-info.paso2');
 
-            // Guardar respuesta
-            Route::post('/{solicitud}/respuesta', [SolicitudInformacionController::class, 'responder'])
-                ->name('responder');
-        });
+        Route::post('/edured/solicitudes/{solicitud}/responder', [SolicitudInformacionController::class, 'responder'])
+            ->name('edured.herramientas.solicitudes-info.responder');
+
+        // Ver respuesta (solo si respondida)
+        Route::get(
+            '/edured/solicitudes/{solicitud}/respuesta',
+            [SolicitudInformacionController::class, 'gestionRespuesta']
+        )
+            ->name('edured.herramientas.solicitudes-info.respuesta');
+
+        // Publicar en el portal (mostrar_solicitud = 'si')
+        Route::post(
+            '/edured/solicitudes/{solicitud}/publicar',
+            [SolicitudInformacionController::class, 'publicar']
+        )
+            ->name('edured.herramientas.solicitudes-info.publicar');
+
+        // (Opcional) Ocultar del portal (mostrar_solicitud = 'no')
+        Route::post(
+            '/edured/solicitudes/{solicitud}/ocultar',
+            [SolicitudInformacionController::class, 'ocultar']
+        )
+            ->name('edured.herramientas.solicitudes-info.ocultar');
+
+        // Servir/descargar archivos de solicitudes
+        Route::get('/edured/solicitudes/{solicitud}/file/dni-frente',  [SolicitudInformacionController::class, 'fileDniFrente'])
+            ->name('solicitudes.file.dni_frente');
+        Route::get('/edured/solicitudes/{solicitud}/file/dni-reverso', [SolicitudInformacionController::class, 'fileDniReverso'])
+            ->name('solicitudes.file.dni_reverso');
+        Route::get('/edured/solicitudes/{solicitud}/file/respuesta',   [SolicitudInformacionController::class, 'fileRespuesta'])
+            ->name('solicitudes.file.respuesta');
+
+        Route::get('/edured/solicitudes/{solicitud}/download/respuesta', [SolicitudInformacionController::class, 'downloadRespuesta'])
+            ->name('solicitudes.download.respuesta');
         //Solicitud cargo vacante
         // Mantener la ruta con typo para no romper enlaces previos
         Route::get('/solicitucargos', [SolicitudCargoController::class, 'index'])
