@@ -60,7 +60,8 @@
                 <div class="{{ $panelHead }}">Secciones disponibles</div>
                 <ul class="px-2 py-2">
                   <li><a href="{{ route('edudata.mantenimiento')}}"class="{{ $itemBase }} {{ $itemFx }}">Mantenimiento Edilicio <span class="{{ $itemCaret }}">→</span></a></li>
-                  <li><a href="{{ route('edudata.normativa')}}" class="{{ $itemBase }} {{ $itemFx }}">Digesto Normativo <span class="{{ $itemCaret }}">→</span></a></li>        
+                  <li><a href="{{ route('edudata.normativa')}}" class="{{ $itemBase }} {{ $itemFx }}">Digesto Normativo <span class="{{ $itemCaret }}">→</span></a></li>
+                  <li><a href="{{ route('edudata.asambleas')}}" class="{{ $itemBase }} {{ $itemFx }}">Cobertura de Cargos<span class="{{ $itemCaret }}">→</span></a></li>       
                   <li><a href="{{ route('edudata.edutecnica')}}" class="{{ $itemBase }} {{ $itemFx }}">Educación Técnica <span class="{{ $itemCaret }}">→</span></a></li>
                   <li><a href="{{ route('edudata.innovacion')}}" class="{{ $itemBase }} {{ $itemFx }}">Innovación Educativa <span class="{{ $itemCaret }}">→</span></a></li>
                   <li><a href="{{ route('edudata.formacion')}}" class="{{ $itemBase }} {{ $itemFx }}">Formación y Programación <span class="{{ $itemCaret }}">→</span></a></li>
