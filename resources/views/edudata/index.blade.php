@@ -94,6 +94,12 @@
                         'color' => $colorPalette[1],
                         'image' => $imgBasePath . 'normativa' . $imgExtension,
                     ],
+                     [
+                        'href' => route('edudata.asambleas'),
+                        'alt' => 'Cobertura de Cargos',
+                        'color' => $colorPalette[9],
+                        'image' => $imgBasePath . 'asambleas' . $imgExtension,
+                    ],
                     [
                         'href' => route('edudata.formacion'),
                         'alt' => 'Formación y Programación',
@@ -138,6 +144,7 @@
                         'color' => $colorPalette[9],
                         'image' => $imgBasePath . 'residencia' . $imgExtension,
                     ],
+                    
                 ];
             @endphp
 

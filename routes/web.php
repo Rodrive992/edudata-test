@@ -18,6 +18,7 @@ use App\Http\Controllers\CargaDigestoController;
 use App\Http\Controllers\SolicitudCargoController;
 use App\Models\MantenimientoRealizadas;
 use App\Http\Controllers\SolicitudInformacionController;
+use App\Http\Controllers\CoberturaCargosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,7 @@ Route::prefix('edudata')->group(function () {
     Route::get('/solicitud-info', [SolicitudInformacionController::class, 'index'])->name('edudata.solicitud-info');
     Route::post('/solicitud-info', [SolicitudInformacionController::class, 'store'])->name('edudata.solicitud-info.store');
     Route::get('/registro-solicitudes', [SolicitudInformacionController::class, 'registro'])->name('edudata.solicitud-info.registro_solicitudes_info');
+    Route::get('/asambleas', [CoberturaCargosController::class, 'index'])->name('edudata.asambleas');
 });
 
 // Autenticación manual
