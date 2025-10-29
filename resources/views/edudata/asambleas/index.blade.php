@@ -155,47 +155,104 @@
     </style>
 
     <div class="container mx-auto px-4 py-6">
-        <!-- Tarjeta principal con encabezado de imagen -->
-        <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden mb-8">
+        <!-- Tarjeta principal con encabezado de imagen - MEJORADO -->
+        <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden mb-6">
+            <!-- Encabezado con imagen redondeada -->
             <div class="p-4 md:p-6 pb-0">
-                <div class="rounded-xl overflow-hidden mb-4 md:mb-6">
-                    <img src="{{ asset('images/titulo-coberturas.png') }}" alt="Cobertura de Cargos" class="w-full h-auto object-cover rounded-xl">
+                <!-- Imagen centrada y responsiva - MEJORADO -->
+                <div class="rounded-xl overflow-hidden mb-4 md:mb-6 flex justify-center">
+                    <img src="{{ asset('images/titulo-coberturas.png') }}" alt="Cobertura de Cargos" 
+                         class="w-full max-w-2xl h-auto object-contain rounded-xl">
                 </div>
 
-                <!-- Intro + tarjetas -->
+                <!-- Intro + tarjetas - MEJORADO -->
                 <div class="mb-4 md:mb-6">
-                    <div class="space-y-3 md:space-y-4">
-                        <p class="text-gray-700 leading-relaxed text-lg md:text-xl text-responsive">
-                            EL <span class="font-semibold text-blue-700">Ministerio de Educación, Ciencia y Tecnología</span>
-                            presenta el <span class="bg-yellow-100 px-1 rounded">detalle completo de cargos ofrecidos</span> en las
-                            <span class="font-medium text-green-600">asambleas ordinarias y extraordinarias</span> del año 2025,
-                            organizados por <span class="font-semibold">nivel educativo y tipo de concurso</span>.
-                        </p>
+                    <div class="space-y-4">
+                        <!-- Sección de contenido principal - MEJORADO -->
+                        <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl p-4 md:p-5 my-4 border border-blue-200">
+                            <!-- Descripción principal -->
+                            <div class="text-center mb-4 md:mb-5">
+                                <p class="text-gray-700 leading-relaxed text-base md:text-lg">
+                                    EL <span class="font-semibold text-blue-700">Ministerio de Educación, Ciencia y Tecnología</span>
+                                    presenta el detalle completo de cargos ofrecidos en las
+                                    asambleas ordinarias y extraordinarias del año 2025,
+                                    organizados por nivel educativo y tipo de concurso.
+                                </p>
+                            </div>
 
-                        <!-- Tarjetas de resumen -->
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 my-6 md:my-8">
-                            <div class="counter-card" style="border-left-color: #8b5cf6;">
-                                <div class="counter-number text-purple-600">431</div>
-                                <div class="counter-label">Nivel Inicial, Primario, Especial y Adultos</div>
-                            </div>
-                            <div class="counter-card" style="border-left-color: #3b82f6;">
-                                <div class="counter-number text-blue-600">1,942</div>
-                                <div class="counter-label">Nivel Secundario y Modalidades</div>
-                            </div>
-                            <div class="counter-card" style="border-left-color: #10b981;">
-                                <div class="counter-number text-green-600">914</div>
-                                <div class="counter-label">Nivel Superior</div>
-                            </div>
-                        </div>
+                            <!-- Tarjetas de resumen en grid mejorado -->
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+                                <!-- Tarjeta 1 -->
+                                <div class="counter-card group p-4" style="border-left-color: #8b5cf6;">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-purple-100 flex items-center justify-center flex-shrink-0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6 text-purple-600" 
+                                                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                                      d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <div class="counter-number text-purple-600">431</div>
+                                            <div class="counter-label">Nivel Inicial, Primario, Especial y Adultos</div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                        <div class="flex flex-wrap gap-2 mt-4">
-                            <div class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full text-xs md:text-sm text-gray-700"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>Asambleas Ordinarias</div>
-                            <div class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full text-xs md:text-sm text-gray-700"><span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>Asambleas Extraordinarias</div>
-                            <div class="inline-flex items-center bg-gray-100 px-3 py-1 rounded-full text-xs md:text-sm text-gray-700"><span class="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>Concursos de Nivel Superior</div>
+                                <!-- Tarjeta 2 -->
+                                <div class="counter-card group p-4" style="border-left-color: #3b82f6;">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6 text-blue-600" 
+                                                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                                      d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                            </svg>
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <div class="counter-number text-blue-600">1,942</div>
+                                            <div class="counter-label">Nivel Secundario y Modalidades</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Tarjeta 3 -->
+                                <div class="counter-card group p-4" style="border-left-color: #10b981;">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-green-100 flex items-center justify-center flex-shrink-0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6 text-green-600" 
+                                                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                                      d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                            </svg>
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <div class="counter-number text-green-600">914</div>
+                                            <div class="counter-label">Nivel Superior</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Etiquetas informativas -->
+                            <div class="flex flex-wrap gap-2 mt-4 justify-center">
+                                <div class="inline-flex items-center bg-white px-3 py-1 rounded-full text-xs md:text-sm text-gray-700 border border-gray-200">
+                                    <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>Asambleas Ordinarias
+                                </div>
+                                <div class="inline-flex items-center bg-white px-3 py-1 rounded-full text-xs md:text-sm text-gray-700 border border-gray-200">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>Asambleas Extraordinarias
+                                </div>
+                                <div class="inline-flex items-center bg-white px-3 py-1 rounded-full text-xs md:text-sm text-gray-700 border border-gray-200">
+                                    <span class="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>Concursos de Nivel Superior
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
+            <!-- Contenido del archivero -->
+            <div class="p-4 md:p-6 pt-4">
                 <!-- Archivero con la información de cobertura de cargos -->
                 <div class="pt-4" x-data="archiveroCargos()" x-init="initFromQuery('{{ request('nivel','inicial-primario') }}')">
 

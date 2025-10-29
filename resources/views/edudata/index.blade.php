@@ -94,10 +94,10 @@
                         'color' => $colorPalette[1],
                         'image' => $imgBasePath . 'normativa' . $imgExtension,
                     ],
-                     [
+                    [
                         'href' => route('edudata.asambleas'),
                         'alt' => 'Cobertura de Cargos',
-                        'color' => $colorPalette[9],
+                        'color' => $colorPalette[1],
                         'image' => $imgBasePath . 'asambleas' . $imgExtension,
                     ],
                     [
@@ -144,7 +144,6 @@
                         'color' => $colorPalette[9],
                         'image' => $imgBasePath . 'residencia' . $imgExtension,
                     ],
-                    
                 ];
             @endphp
 
@@ -173,7 +172,7 @@
                         <div class="p-6">
                             <div class="space-y-4 text-gray-700 text-sm leading-relaxed text-justify">
                                 <p>
-                                    En el marco de la <strong class="text-blue-600">Ley N.º 2.275 de Acceso a la Información
+                                    En el marco de la <strong class="text-blue-600">Ley N.º 27.275 de Acceso a la Información
                                         Pública</strong>, el
                                     Ministerio de Educación, Ciencia y Tecnología de la Provincia de Catamarca pone a
                                     disposición de la ciudadanía un portal de acceso público que permite conocer el
