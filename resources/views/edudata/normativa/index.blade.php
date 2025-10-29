@@ -1,12 +1,14 @@
 @extends('layouts.app')
 
+@extends('layouts.app')
+
 @section('title', 'Edudata - Normativa')
 
 @section('content')
     <style>
-        /* Efectos y colores mejorados */
+        /* Efectos y colores mejorados (sin cambios visuales fuertes) */
         .search-container {
-            background: linear-gradient(135deg, #6495ED 0%, #FFFf 100%);
+            background: linear-gradient(135deg, #B2D6DB 0%, #FFFf 100%);
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -93,48 +95,42 @@
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
-           ;
         }
 
         .btn-secondary {
-         
             border: 2px solid #e2e8f0;
             transition: all 0.3s ease;
         }
 
         .btn-secondary:hover {
             border-color: #3b82f6;
-            
             transform: translateY(-1px);
         }
 
         .feature-card {
             background: white;
             border-radius: 12px;
-            
         }
-
-        
     </style>
 
-    <div class="container mx-auto px-4 py-6">
+    <div class="container mx-auto px-4 py-4">
         <!-- Tarjeta principal con encabezado de imagen -->
-        <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden mb-6">
+        <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden mb-3">
             <!-- Encabezado con imagen redondeada -->
             <div class="p-4 md:p-6 pb-0">
                 <!-- Imagen centrada y responsiva -->
-                <div class="rounded-xl overflow-hidden mb-4 md:mb-6 flex justify-center">
+                <div class="rounded-xl overflow-hidden mb-3 md:mb-4 flex justify-center">
                     <img src="{{ asset('images/titulo-digesto.png') }}" alt="Digesto Normativo"
-                        class="w-full max-w-2xl h-auto object-contain rounded-xl">
+                         class="w-full max-w-2xl h-auto object-contain rounded-xl">
                 </div>
 
                 <!-- Texto descriptivo mejorado -->
-                <div class="mb-4 md:mb-6">
-                    <div class="space-y-4">
+                <div class="mb-3 md:mb-4">
+                    <div class="space-y-2.5">
                         <!-- Sección de características - MEJORADO -->
-                        <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl p-4 md:p-5 my-4 border border-blue-200">
+                        <div class="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl p-3 md:p-4 my-2 border border-blue-200">
                             <!-- Descripción principal -->
-                            <div class="text-center mb-4 md:mb-5">
+                            <div class="text-center mb-3">
                                 <p class="text-gray-700 leading-relaxed text-base md:text-lg">
                                     El <span class="font-semibold text-blue-700">Digesto Normativo</span>
                                     reúne toda la normativa vigente
@@ -144,15 +140,15 @@
                             </div>
 
                             <!-- Características en grid mejorado -->
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3">
                                 <!-- Característica 1 -->
-                                <div class="feature-card group p-3">
+                                <div class="feature-card group p-2.5">
                                     <div class="flex items-center gap-3">
                                         <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6 text-blue-600"
-                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                             </svg>
                                         </div>
                                         <div class="flex-1 min-w-0">
@@ -163,13 +159,13 @@
                                 </div>
 
                                 <!-- Característica 2 -->
-                                <div class="feature-card group p-3">
+                                <div class="feature-card group p-2.5">
                                     <div class="flex items-center gap-3">
                                         <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-green-100 flex items-center justify-center flex-shrink-0">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6 text-green-600"
-                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                             </svg>
                                         </div>
                                         <div class="flex-1 min-w-0">
@@ -180,13 +176,13 @@
                                 </div>
 
                                 <!-- Característica 3 -->
-                                <div class="feature-card group p-3">
+                                <div class="feature-card group p-2.5">
                                     <div class="flex items-center gap-3">
                                         <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-purple-100 flex items-center justify-center flex-shrink-0">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6 text-purple-600"
-                                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M10 21h7a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v11m0 5l4.879-4.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242z" />
+                                                      d="M10 21h7a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v11m0 5l4.879-4.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242z" />
                                             </svg>
                                         </div>
                                         <div class="flex-1 min-w-0">
@@ -195,25 +191,25 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                            </div> <!-- /grid -->
+                        </div> <!-- /feature box -->
                     </div>
                 </div>
             </div>
 
             <!-- Contenido de búsqueda y resultados -->
-            <div class="p-4 md:p-6 pt-4">
-                {{-- Tarjeta de búsqueda - ESTILO MEJORADO --}}
-                <div class="mx-auto mb-4 md:mb-6">
+            <div class="p-4 md:p-6 pt-3">
+                {{-- Tarjeta de búsqueda - ESTILO MEJORADO Y COMPACTO --}}
+                <div class="mx-auto mb-2 md:mb-3">
                     <div class="search-container">
-                        <div class="search-header px-4 sm:px-6 pt-4 md:pt-5 pb-4 flex items-center justify-between">
+                        <div class="search-header px-4 sm:px-6 pt-3 md:pt-4 pb-3 flex items-center justify-between">
                             <div class="flex items-center gap-3">
                                 <div class="h-8 w-8 md:h-10 md:w-10 rounded-lg bg-white shadow-sm flex items-center justify-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 md:h-5 md:w-5 text-blue-600"
-                                        viewBox="0 0 20 20" fill="currentColor">
+                                         viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd"
-                                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                                            clip-rule="evenodd" />
+                                              d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                              clip-rule="evenodd" />
                                     </svg>
                                 </div>
                                 <h2 class="text-lg md:text-xl font-bold text-gray-900">Buscar normativa</h2>
@@ -226,43 +222,43 @@
                             @endif
                         </div>
 
-                        <di v class="p-4 md:p-5">
+                        <div class="p-3 md:p-4">
                             <form action="{{ route('edudata.normativa') }}" method="GET"
-                                class="grid grid-cols-1 sm:grid-cols-[1fr_auto_auto] gap-3 md:gap-4">
+                                  class="grid grid-cols-1 sm:grid-cols-[1fr_auto_auto] gap-2 md:gap-3">
                                 <div class="relative">
                                     <input type="text" name="q" value="{{ $q ?? '' }}"
-                                        placeholder="Buscar por título, descripción o palabras clave…"
-                                        class="search-input w-full rounded-xl pl-10 md:pl-11 py-2 md:py-3 text-gray-800 transition-all duration-200 text-sm md:text-base"
-                                        aria-label="Buscar por título o descripción" />
+                                           placeholder="Buscar por título, descripción o palabras clave…"
+                                           class="search-input w-full rounded-xl pl-10 md:pl-11 py-2 md:py-2.5 text-gray-800 transition-all duration-200 text-sm md:text-base"
+                                           aria-label="Buscar por título o descripción" />
                                     <span class="absolute inset-y-0 left-3 md:left-4 flex items-center pointer-events-none">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 md:h-5 md:w-5 text-gray-400"
-                                            viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                             viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                             <path fill-rule="evenodd"
-                                                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                                                clip-rule="evenodd" />
+                                                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                                  clip-rule="evenodd" />
                                         </svg>
                                     </span>
                                 </div>
 
                                 <button type="submit"
-                                    class="bg-gradient-to-br from-blue-500 to-blue-600 flex text-white inline-flex items-center justify-center px-4 md:px-5 py-2 md:py-3 rounded-xl font-medium shadow-sm transition-colors duration-200 text-sm md:text-base">
+                                        class="bg-gradient-to-br from-blue-500 to-blue-600 text-white inline-flex items-center justify-center px-4 md:px-5 py-2 md:py-2.5 rounded-xl font-medium shadow-sm transition-colors duration-200 text-sm md:text-base">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 20 20"
-                                        fill="currentColor">
+                                         fill="currentColor">
                                         <path fill-rule="evenodd"
-                                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                                            clip-rule="evenodd" />
+                                              d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                              clip-rule="evenodd" />
                                     </svg>
                                     Buscar
                                 </button>
 
                                 @if (!empty($q))
                                     <a href="{{ route('edudata.normativa') }}"
-                                        class="btn-secondary inline-flex items-center justify-center px-4 md:px-5 py-2 md:py-3 rounded-xl font-medium shadow-sm transition-colors duration-200 text-sm md:text-base">
+                                       class="btn-secondary inline-flex items-center justify-center px-4 md:px-5 py-2 md:py-2.5 rounded-xl font-medium shadow-sm transition-colors duration-200 text-sm md:text-base">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2"
-                                            viewBox="0 0 20 20" fill="currentColor">
+                                             viewBox="0 0 20 20" fill="currentColor">
                                             <path fill-rule="evenodd"
-                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-                                                clip-rule="evenodd" />
+                                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                                  clip-rule="evenodd" />
                                         </svg>
                                         Limpiar
                                     </a>
@@ -270,37 +266,35 @@
                             </form>
 
                             {{-- Meta info / estado --}}
-                            <div
-                                class="mt-3 md:mt-4 text-xs md:text-sm text-gray-600 flex items-center flex-wrap gap-x-2 gap-y-1">
+                            <div class="mt-2 md:mt-2.5 text-xs md:text-sm text-gray-600 flex items-center flex-wrap gap-x-2 gap-y-1">
                                 @if (($digestos->total() ?? 0) > 0)
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5 text-green-500"
-                                        viewBox="0 0 20 20" fill="currentColor">
+                                         viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd"
-                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                            clip-rule="evenodd" />
+                                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                              clip-rule="evenodd" />
                                     </svg>
                                     <span>Mostrando {{ $digestos->firstItem() }}–{{ $digestos->lastItem() }} de
                                         {{ $digestos->total() }} resultados</span>
                                     @if (!empty($q))
-                                        <span>para <span
-                                                class="font-semibold text-gray-900">"{{ $q }}"</span></span>
+                                        <span>para <span class="font-semibold text-gray-900">"{{ $q }}"</span></span>
                                     @endif
                                 @else
                                     @if (!empty($q))
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5 text-yellow-500"
-                                            viewBox="0 0 20 20" fill="currentColor">
+                                             viewBox="0 0 20 20" fill="currentColor">
                                             <path fill-rule="evenodd"
-                                                d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
-                                                clip-rule="evenodd" />
+                                                  d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                                                  clip-rule="evenodd" />
                                         </svg>
                                         <span>No se encontraron resultados para <span
                                                 class="font-semibold text-gray-900">"{{ $q }}"</span>.</span>
                                     @else
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5 text-gray-400"
-                                            viewBox="0 0 20 20" fill="currentColor">
+                                             viewBox="0 0 20 20" fill="currentColor">
                                             <path fill-rule="evenodd"
-                                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                                                clip-rule="evenodd" />
+                                                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                                  clip-rule="evenodd" />
                                         </svg>
                                         <span>No hay normativas cargadas por el momento.</span>
                                     @endif
@@ -310,38 +304,36 @@
                     </div>
                 </div>
 
-                {{-- Listado - ESTILO MEJORADO --}}
+                {{-- Listado - ESTILO MEJORADO Y COMPACTO --}}
                 <div class="mx-auto">
                     @if (session('error'))
-                        <div
-                            class="mb-4 rounded-xl bg-red-50 border border-red-200 text-red-800 px-4 py-3 flex items-start">
+                        <div class="mb-3 rounded-xl bg-red-50 border border-red-200 text-red-800 px-4 py-3 flex items-start">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5 flex-shrink-0 text-red-500"
-                                viewBox="0 0 20 20" fill="currentColor">
+                                 viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-                                    clip-rule="evenodd" />
+                                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                      clip-rule="evenodd" />
                             </svg>
                             <div class="font-medium">{{ session('error') }}</div>
                         </div>
                     @endif
 
                     <div class="results-container">
-                        <div
-                            class="results-header px-4 sm:px-6 py-3 md:py-4 flex items-center justify-between">
+                        <div class="results-header px-4 sm:px-6 py-2.5 md:py-3 flex items-center justify-between">
                             <div class="flex items-center gap-3">
                                 <div class="h-8 w-8 md:h-9 md:w-9 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 md:h-5 md:w-5 text-white"
-                                        viewBox="0 0 20 20" fill="currentColor">
+                                         viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd"
-                                            d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z"
-                                            clip-rule="evenodd" />
+                                              d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z"
+                                              clip-rule="evenodd" />
                                     </svg>
                                 </div>
                                 <h3 class="text-base md:text-lg font-bold text-gray-900">Normativas</h3>
                             </div>
                             @if (!empty($q))
                                 <span
-                                    class="hidden sm:inline text-xs md:text-sm text-blue-700 font-semibold bg-blue-100 px-2 md:px-3 py-1 md:py-1.5 rounded-lg border border-blue-200">
+                                    class="hidden sm:inline text-xs md:text-sm text-blue-700 font-semibold bg-blue-100 px-2 md:px-3 py-1 md:py-1 rounded-lg border border-blue-200">
                                     Filtro: "{{ $q }}"
                                 </span>
                             @endif
@@ -354,7 +346,7 @@
                                     @foreach ($digestos as $dig)
                                         <li class="normativa-item">
                                             <div
-                                                class="px-4 sm:px-6 py-3 md:py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-4">
+                                                class="px-4 sm:px-6 py-2.5 md:py-3 flex flex-col md:flex-row md:items-center md:justify-between gap-3 md:gap-4">
                                                 {{-- Bloque izquierdo --}}
                                                 <div class="flex items-start gap-3 md:gap-4 min-w-0 flex-1">
                                                     {{-- Ícono --}}
@@ -362,14 +354,14 @@
                                                         <div
                                                             class="document-icon h-10 w-10 md:h-11 md:w-11 rounded-xl flex items-center justify-center shadow-sm">
                                                             <svg xmlns="http://www.w3.org/2000/svg"
-                                                                class="h-5 w-5 md:h-6 md:w-6 text-white" viewBox="0 0 24 24"
-                                                                fill="none" stroke="currentColor"
-                                                                aria-hidden="true">
+                                                                 class="h-5 w-5 md:h-6 md:w-6 text-white" viewBox="0 0 24 24"
+                                                                 fill="none" stroke="currentColor"
+                                                                 aria-hidden="true">
                                                                 <path stroke-linecap="round" stroke-linejoin="round"
-                                                                    stroke-width="2"
-                                                                    d="M7 3h6l5 5v13a1 1 0 01-1 1H7a1 1 0 01-1-1V4a1 1 0 011-1z" />
+                                                                      stroke-width="2"
+                                                                      d="M7 3h6l5 5v13a1 1 0 01-1 1H7a1 1 0 01-1-1V4a1 1 0 011-1z" />
                                                                 <path stroke-linecap="round" stroke-linejoin="round"
-                                                                    stroke-width="2" d="M13 3v5h5" />
+                                                                      stroke-width="2" d="M13 3v5h5" />
                                                             </svg>
                                                         </div>
                                                     </div>
@@ -384,14 +376,14 @@
                                                 {{-- Acción --}}
                                                 <div class="flex-shrink-0">
                                                     <a href="{{ route('edudata.normativa.show', $dig->id) }}"
-                                                        class=" bg-gradient-to-br from-blue-500 to-blue-600 flex text-white  flex w-full md:w-auto inline-flex items-center justify-center gap-2 px-3 md:px-4 py-2 md:py-2.5 text-xs md:text-sm font-medium rounded-xl shadow-sm transition-colors duration-200 group">
+                                                       class="bg-gradient-to-br from-blue-500 to-blue-600 text-white w-full md:w-auto inline-flex items-center justify-center gap-2 px-3 md:px-4 py-2 md:py-2.5 text-xs md:text-sm font-medium rounded-xl shadow-sm transition-colors duration-200 group">
                                                         Ver documento
                                                         <svg xmlns="http://www.w3.org/2000/svg"
-                                                            class="h-3 w-3 md:h-4 md:w-4 group-hover:translate-x-0.5 transition-transform"
-                                                            fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                                            aria-hidden="true">
+                                                             class="h-3 w-3 md:h-4 md:w-4 group-hover:translate-x-0.5 transition-transform"
+                                                             fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                             aria-hidden="true">
                                                             <path stroke-linecap="round" stroke-linejoin="round"
-                                                                stroke-width="2" d="M9 5l7 7-7 7" />
+                                                                  stroke-width="2" d="M9 5l7 7-7 7" />
                                                         </svg>
                                                     </a>
                                                 </div>
@@ -402,18 +394,18 @@
                             </div>
 
                             {{-- Paginación --}}
-                            <div class="px-4 sm:px-6 py-2 md:py-3 border-t border-gray-100 bg-gray-50 rounded-b-2xl">
+                            <div class="px-4 sm:px-6 py-1.5 md:py-2 border-t border-gray-100 bg-gray-50 rounded-b-2xl">
                                 {{ $digestos->onEachSide(1)->links() }}
                             </div>
                         @else
-                            <div class="p-6 md:p-8 text-center text-gray-600">
+                            <div class="p-5 md:p-6 text-center text-gray-600">
                                 <div
-                                    class="mx-auto h-12 w-12 md:h-16 md:w-16 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center mb-3 md:mb-4">
+                                    class="mx-auto h-12 w-12 md:h-16 md:w-16 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center mb-2.5 md:mb-3">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 md:h-8 md:w-8 text-gray-400"
-                                        viewBox="0 0 20 20" fill="currentColor">
+                                         viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd"
-                                            d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"
-                                            clip-rule="evenodd" />
+                                              d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"
+                                              clip-rule="evenodd" />
                                     </svg>
                                 </div>
                                 @if (!empty($q))
@@ -432,7 +424,7 @@
                         @endif
                     </div>
                 </div>
-            </div>
-        </div>
+            </div> <!-- /contenido búsqueda y resultados -->
+        </div> <!-- /tarjeta principal -->
     </div>
 @endsection

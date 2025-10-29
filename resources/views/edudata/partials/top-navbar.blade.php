@@ -62,12 +62,12 @@
                   <li><a href="{{ route('edudata.mantenimiento')}}"class="{{ $itemBase }} {{ $itemFx }}">Mantenimiento Edilicio <span class="{{ $itemCaret }}">→</span></a></li>
                   <li><a href="{{ route('edudata.normativa')}}" class="{{ $itemBase }} {{ $itemFx }}">Digesto Normativo <span class="{{ $itemCaret }}">→</span></a></li>
                   <li><a href="{{ route('edudata.asambleas')}}" class="{{ $itemBase }} {{ $itemFx }}">Cobertura de Cargos<span class="{{ $itemCaret }}">→</span></a></li>
-                  <li><a href="{{ route('edudata.formacion')}}" class="{{ $itemBase }} {{ $itemFx }}">Capacitaciones <span class="{{ $itemCaret }}">→</span></a></li>       
+                  <li><a href="{{ route('edudata.formacion')}}" class="{{ $itemBase }} {{ $itemFx }}">Capacitaciones <span class="{{ $itemCaret }}">→</span></a></li>
+                  <li><a href="{{ route('edudata.programas')}}" class="{{ $itemBase }} {{ $itemFx }}">Programas y Proyectos <span class="{{ $itemCaret }}">→</span></a></li>       
                   <li><a href="{{ route('edudata.edutecnica')}}" class="{{ $itemBase }} {{ $itemFx }}">Educación Técnica <span class="{{ $itemCaret }}">→</span></a></li>
                   <li><a href="{{ route('edudata.innovacion')}}" class="{{ $itemBase }} {{ $itemFx }}">Innovación Educativa <span class="{{ $itemCaret }}">→</span></a></li>
                   <li><a href="{{ route('edudata.asuntos')}}" class="{{ $itemBase }} {{ $itemFx }}">Asuntos Jurídicos <span class="{{ $itemCaret }}">→</span></a></li>
-                  <li><a href="{{ route('edudata.titulos')}}" class="{{ $itemBase }} {{ $itemFx }}">Títulos <span class="{{ $itemCaret }}">→</span></a></li>
-                  <li><a href="{{ route('edudata.programas')}}" class="{{ $itemBase }} {{ $itemFx }}">Programas y Proyectos <span class="{{ $itemCaret }}">→</span></a></li>
+                  <li><a href="{{ route('edudata.titulos')}}" class="{{ $itemBase }} {{ $itemFx }}">Títulos <span class="{{ $itemCaret }}">→</span></a></li>                  
                   <li><a href="{{ route('edudata.residencia')}}" class="{{ $itemBase }} {{ $itemFx }}">Residencia Universitaria <span class="{{ $itemCaret }}">→</span></a></li>
                 </ul>
               </div>
