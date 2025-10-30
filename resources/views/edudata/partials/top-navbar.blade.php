@@ -171,13 +171,13 @@
             <button 
               @click="openTransp = !openTransp"
               class="w-full flex justify-between items-center px-4 py-3 text-left text-white bg-white/10 rounded-lg">
-              <span class="font-medium">Transparencia</span>
+              <span class="font-medium">Organigrama</span>
               <svg :class="openTransp ? 'rotate-180' : ''" class="w-5 h-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
             <div x-show="openTransp" class="mt-2 pl-4">
-              <a href="#" class="block py-2 px-4 text-white/90 hover:bg-white/10 rounded-md transition">Ver organigrama</a>
+              <a href="{{ route('edudata.organigrama')}}" class="block py-2 px-4 text-white/90 hover:bg-white/10 rounded-md transition">Ver organigrama</a>
             </div>
           </div>
 
@@ -192,7 +192,7 @@
               </svg>
             </button>
             <div x-show="openOrg" class="mt-2 pl-4">
-              <a href="#" class="block py-2 px-4 text-white/90 hover:bg-white/10 rounded-md transition">Ir al formulario</a>
+              <a href="{{ route('edudata.solicitud-info') }}"class="block py-2 px-4 text-white/90 hover:bg-white/10 rounded-md transition">Ir al formulario</a>
             </div>
           </div>
 
