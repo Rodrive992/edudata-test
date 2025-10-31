@@ -979,7 +979,7 @@
     </div>
     </div>
     </div>
-     @include('edudata.partials.coberturas-info')
+        @include('edudata.partials.coberturas-info')
 
     {{-- Alpine: controlador del archivero --}}
     <script>
