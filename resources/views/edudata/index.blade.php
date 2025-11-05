@@ -6,7 +6,7 @@
     <!-- Fondo blanco para toda la vista -->
     <div class="bg-white">
 
-        {{-- Carrusel --}}
+        {{-- Carrusel MEJORADO PARA MÓVIL --}}
         <section x-data="{
             i: 0,
             imgs: [
@@ -21,39 +21,60 @@
         }" x-init="start()" @mouseenter="stop()" @mouseleave="start()"
             class="relative left-1/2 right-1/2 -mx-[50vw] w-screen">
 
-            <div class="relative w-full h-[100px] sm:h-[340px] md:h-[420px] lg:h-[435px] bg-white">
+            {{-- Contenedor principal del carrusel - ALTURAS MEJORADAS PARA MÓVIL --}}
+            <div class="relative w-full h-[180px] sm:h-[280px] md:h-[380px] lg:h-[435px] bg-white">
                 <!-- Slides -->
                 <template x-for="(src, idx) in imgs" :key="idx">
                     <div x-show="i === idx" x-transition.opacity.duration.500ms class="absolute inset-0">
-                        <img :src="src" :alt="`Banner ${idx+1}`" class="w-full h-full object-cover block"
-                            loading="eager" fetchpriority="high" />
+                        <img :src="src" :alt="`Banner ${idx+1}`" 
+                             class="w-full h-full object-cover object-center block"
+                             loading="eager" 
+                             fetchpriority="high" />
                     </div>
                 </template>
 
-                <!-- Controles -->
+                {{-- Controles - MÁS GRANDES EN MÓVIL --}}
                 <button @click="prev()"
-                    class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white rounded-full p-2 shadow outline-none"
+                    class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-3 shadow-lg outline-none transition-all duration-200
+                           sm:bg-white/20 sm:hover:bg-white sm:p-2"
                     aria-label="Anterior">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-800" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" 
+                         class="h-5 w-5 text-gray-800 sm:h-4 sm:w-4" 
+                         fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                     </svg>
                 </button>
                 <button @click="next()"
-                    class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white rounded-full p-2 shadow outline-none"
+                    class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-3 shadow-lg outline-none transition-all duration-200
+                           sm:bg-white/20 sm:hover:bg-white sm:p-2"
                     aria-label="Siguiente">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-800" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" 
+                         class="h-5 w-5 text-gray-800 sm:h-4 sm:w-4" 
+                         fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
                 </button>
 
-                <!-- Indicadores -->
-                <div class="absolute bottom-3 w-full flex items-center justify-center gap-2">
+                {{-- Indicadores - MÁS VISIBLES EN MÓVIL --}}
+                <div class="absolute bottom-4 w-full flex items-center justify-center gap-3 sm:bottom-3 sm:gap-2">
                     <template x-for="(src, idx) in imgs" :key="idx">
-                        <button @click="i = idx" class="h-2.5 w-2.5 rounded-full transition-all"
-                            :class="i === idx ? 'bg-white w-4' : 'bg-white/40'" aria-label="Ir a la imagen"></button>
+                        <button @click="i = idx" 
+                                class="h-3 w-3 rounded-full transition-all duration-300 shadow
+                                       sm:h-2.5 sm:w-2.5"
+                                :class="i === idx ? 
+                                    'bg-white w-6 sm:w-4' : 
+                                    'bg-white/60 hover:bg-white/80 sm:bg-white/40'"
+                                aria-label="Ir a la imagen"></button>
                     </template>
+                </div>
+
+                {{-- Overlay informativo para móvil --}}
+                <div class="absolute bottom-12 left-0 right-0 sm:hidden">
+                    <div class="text-center">
+                        <div class="inline-block bg-black/50 backdrop-blur-sm rounded-full px-4 py-1">
+                            <p class="text-white text-xs font-medium">Desliza para ver más</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -400,6 +421,18 @@
 
             .scrollbar-track-blue-100::-webkit-scrollbar-track {
                 background-color: #dbeafe;
+            }
+
+            /* Mejoras adicionales para el carrusel en móvil */
+            @media (max-width: 640px) {
+                .carrusel-mobile {
+                    height: 200px !important;
+                }
+                
+                /* Asegurar que las imágenes se centren correctamente */
+                .carrusel-mobile img {
+                    object-position: center top;
+                }
             }
         </style>
     @endpush

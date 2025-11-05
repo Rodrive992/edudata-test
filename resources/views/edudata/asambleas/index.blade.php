@@ -381,7 +381,7 @@
                             <p class="text-gray-700 leading-relaxed text-base md:text-lg">
                                 EL <span class="font-semibold text-blue-700">Ministerio de Educación, Ciencia y
                                     Tecnología</span>
-                                informa la cantidad de  cargos ofrecidos en las
+                                informa la cantidad de cargos ofrecidos en las
                                 asambleas ordinarias y extraordinarias del año 2025,
                                 organizados por nivel educativo y tipo de concurso.
                             </p>
@@ -392,7 +392,7 @@
                             <!-- Tarjeta 1 -->
                             <div class="counter-card group p-4" style="border-left-color: #8b5cf6;">
                                 <div class="flex items-center gap-3">
-                                   
+
                                     <div class="flex-1 min-w-0">
                                         <div class="counter-number text-purple-600">431</div>
                                         <div class="counter-label">Nivel Inicial, Primario, Especial y Adultos</div>
@@ -403,7 +403,7 @@
                             <!-- Tarjeta 2 -->
                             <div class="counter-card group p-4" style="border-left-color: #3b82f6;">
                                 <div class="flex items-center gap-3">
-                                   
+
                                     <div class="flex-1 min-w-0">
                                         <div class="counter-number text-blue-600">1,942</div>
                                         <div class="counter-label">Nivel Secundario y Modalidades</div>
@@ -414,7 +414,7 @@
                             <!-- Tarjeta 3 -->
                             <div class="counter-card group p-4" style="border-left-color: #10b981;">
                                 <div class="flex items-center gap-3">
-                                    
+
                                     <div class="flex-1 min-w-0">
                                         <div class="counter-number text-green-600">914</div>
                                         <div class="counter-label">Nivel Superior</div>
@@ -445,7 +445,7 @@
 
 
         <!-- Archivero MEJORADO con pestañas emergentes -->
-        <div  x-data="archiveroCargos()" x-init="initFromQuery('{{ request('nivel', 'inicial-primario') }}')">
+        <div x-data="archiveroCargos()" x-init="initFromQuery('{{ request('nivel', 'inicial-primario') }}')">
 
             {{-- Pestañas EMERGENTES --}}
             <div class="folder-container mb-4 md:mb-6">
@@ -485,7 +485,7 @@
                                 <div class="section-header"
                                     style="background:linear-gradient(135deg,#8b5cf6 0%,#7c3aed 100%);">
                                     <h3 class="text-base md:text-lg font-bold text-white">Asambleas Ordinarias</h3>
-                                    
+
                                 </div>
                                 <div class="p-4 max-h-96 overflow-y-auto mobile-optimized">
                                     <div class="assembly-card" style="border-left-color:#8b5cf6;">
@@ -562,7 +562,7 @@
                                 <div class="section-header"
                                     style="background:linear-gradient(135deg,#3b82f6 0%,#1d4ed8 100%);">
                                     <h3 class="text-base md:text-lg font-bold text-white">Asambleas Extraordinarias</h3>
-                                    
+
                                 </div>
                                 <div class="p-4 max-h-96 overflow-y-auto mobile-optimized">
                                     <div class="assembly-card" style="border-left-color:#3b82f6;">
@@ -649,7 +649,7 @@
                                 <div class="section-header"
                                     style="background:linear-gradient(135deg,#f59e0b 0%,#d97706 100%);">
                                     <h3 class="text-base md:text-lg font-bold text-white">Asambleas Ordinarias</h3>
-                                    
+
                                     </p>
                                 </div>
                                 <div class="p-4 max-h-96 overflow-y-auto mobile-optimized">
@@ -727,7 +727,7 @@
                                 <div class="section-header"
                                     style="background:linear-gradient(135deg,#ef4444 0%,#dc2626 100%);">
                                     <h3 class="text-base md:text-lg font-bold text-white">Asambleas Extraordinarias</h3>
-                                    
+
                                 </div>
                                 <div class="p-4 max-h-96 overflow-y-auto mobile-optimized">
                                     <div class="assembly-card" style="border-left-color:#ef4444;">
@@ -825,7 +825,7 @@
                                 <div class="section-header"
                                     style="background:linear-gradient(135deg,#06b6d4 0%,#0891b2 100%);">
                                     <h3 class="text-base md:text-lg font-bold text-white">Llamados a Concurso</h3>
-                            
+
                                 </div>
                                 <div class="p-4 max-h-96 overflow-y-auto mobile-optimized">
                                     <div class="assembly-card" style="border-left-color:#06b6d4;">
@@ -979,7 +979,7 @@
     </div>
     </div>
     </div>
-        @include('edudata.partials.coberturas-info')
+    @include('edudata.partials.coberturas-info')
 
     {{-- Alpine: controlador del archivero --}}
     <script>
