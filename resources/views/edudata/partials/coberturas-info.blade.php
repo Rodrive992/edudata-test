@@ -512,7 +512,254 @@
         animation: pulse-glow-info 2s infinite;
     }
 
-    /* Media queries actualizadas */
+    /* =========================== */
+    /* MEDIA QUERIES PARA MÓVILES  */
+    /* =========================== */
+    
+    /* Para tablets y móviles */
+    @media (max-width: 1024px) {
+        .info-panel {
+            position: fixed;
+            top: auto;
+            bottom: 20px;
+            right: 20px;
+            left: auto;
+            transform: none;
+            z-index: 89;
+        }
+
+        /* Solapa móvil - botón flotante */
+        .info-panel .info-trigger {
+            position: relative;
+            left: auto;
+            top: auto;
+            transform: none;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 2px solid var(--panel-border);
+            padding: 0;
+            flex-direction: row;
+            justify-content: center;
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.8);
+        }
+
+        .info-panel .info-trigger:hover {
+            transform: scale(1.1);
+        }
+
+        .info-panel .info-trigger .info-trigger-label {
+            display: none; /* Ocultar label en móvil */
+        }
+
+        .info-panel .info-trigger img {
+            width: 35px;
+            height: 35px;
+            margin: 0;
+        }
+
+        /* Panel móvil - ocupa toda la pantalla */
+        .info-panel .info-surface {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw;
+            max-width: none;
+            min-width: auto;
+            max-height: 100vh;
+            border-radius: 0;
+            border: none;
+            z-index: 100;
+        }
+
+        /* Header móvil más compacto */
+        .info-panel .info-head {
+            padding: 16px 20px;
+        }
+
+        .info-panel .info-head h3 {
+            font-size: 1.2rem;
+        }
+
+        .info-panel .info-head h3::after {
+            right: -30px;
+            font-size: 1rem;
+        }
+
+        /* Body móvil con mejor espaciado */
+        .info-panel .info-body {
+            padding: 20px;
+            gap: 1.25rem;
+            height: calc(100vh - 70px);
+        }
+
+        /* Viewport móvil - relación de aspecto optimizada */
+        .info-viewport {
+            padding-bottom: 80%; /* Más alto para flyers en móvil */
+            border-radius: 16px;
+        }
+
+        /* Flechas de navegación más grandes en móvil */
+        .info-nav-arrow {
+            width: 50px;
+            height: 50px;
+            font-size: 1.4rem;
+            opacity: 0.7; /* Siempre visibles en móvil */
+            transform: none;
+        }
+
+        .info-nav-arrow.prev {
+            transform: none;
+        }
+
+        .info-nav-arrow.next {
+            transform: none;
+        }
+
+        .info-viewport:hover .info-nav-arrow {
+            opacity: 0.9;
+        }
+
+        /* Indicador de zoom móvil */
+        .info-viewport::before {
+            width: 35px;
+            height: 35px;
+            font-size: 1rem;
+            top: 10px;
+            right: 10px;
+        }
+
+        /* Caption móvil más compacta */
+        .info-caption {
+            font-size: 1rem;
+            padding: 14px;
+            min-height: 55px;
+            border-radius: 12px;
+        }
+
+        /* Indicadores móviles */
+        .info-indicators {
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .info-indicator {
+            width: 8px;
+            height: 8px;
+        }
+
+        /* Lightbox móvil mejorado */
+        .info-lightbox-content {
+            max-width: 98%;
+            max-height: 98%;
+        }
+
+        .info-lightbox-image-container {
+            padding: 20px;
+        }
+
+        .info-lightbox-caption {
+            padding: 20px;
+            font-size: 1.1rem;
+        }
+
+        .info-lightbox-close {
+            top: 15px;
+            right: 15px;
+            width: 45px;
+            height: 45px;
+            font-size: 1.5rem;
+        }
+    }
+
+    /* Para móviles muy pequeños */
+    @media (max-width: 480px) {
+        .info-panel {
+            bottom: 15px;
+            right: 15px;
+        }
+
+        .info-panel .info-trigger {
+            width: 60px;
+            height: 60px;
+        }
+
+        .info-panel .info-trigger img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .info-panel .info-head h3 {
+            font-size: 1.1rem;
+        }
+
+        .info-panel .info-body {
+            padding: 16px;
+            gap: 1rem;
+        }
+
+        .info-viewport {
+            padding-bottom: 85%;
+            border-radius: 14px;
+        }
+
+        .info-nav-arrow {
+            width: 45px;
+            height: 45px;
+            font-size: 1.3rem;
+        }
+
+        .info-caption {
+            font-size: 0.95rem;
+            padding: 12px;
+            min-height: 50px;
+        }
+
+        .info-indicators {
+            gap: 5px;
+        }
+
+        .info-indicator {
+            width: 7px;
+            height: 7px;
+        }
+
+        .info-lightbox-image-container {
+            padding: 15px;
+        }
+
+        .info-lightbox-caption {
+            padding: 16px;
+            font-size: 1rem;
+        }
+
+        .info-lightbox-close {
+            width: 40px;
+            height: 40px;
+            font-size: 1.3rem;
+        }
+    }
+
+    /* Para tablets en orientación horizontal */
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+        .info-panel .info-surface {
+            max-height: 95vh;
+        }
+
+        .info-panel .info-body {
+            height: calc(95vh - 70px);
+        }
+
+        .info-viewport {
+            padding-bottom: 60%; /* Más ancho en landscape */
+        }
+    }
+
+    /* Media queries existentes para desktop */
     @media (max-width: 1400px) {
         .info-panel .info-surface {
             width: 55vw;
@@ -530,10 +777,6 @@
             font-size: 1rem;
             padding: 14px;
         }
-    }
-
-    @media (max-width: 1024px) { 
-        .info-panel { display: none; } 
     }
 </style>
 

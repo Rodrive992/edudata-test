@@ -541,7 +541,200 @@
         animation: pulse-glow 2s infinite;
     }
 
-    /* Media queries mejoradas */
+    /* =========================== */
+    /* MEDIA QUERIES PARA MÓVILES  */
+    /* =========================== */
+    
+    /* Para tablets y móviles */
+    @media (max-width: 1024px) {
+        .mdk-photo-panel {
+            position: fixed;
+            top: auto;
+            bottom: 20px;
+            right: 20px;
+            left: auto;
+            transform: none;
+            z-index: 90;
+        }
+
+        /* Solapa móvil - botón flotante */
+        .mdk-photo-panel .mdk-trigger {
+            position: relative;
+            left: auto;
+            top: auto;
+            transform: none;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 2px solid var(--panel-border);
+            padding: 0;
+            flex-direction: row;
+            justify-content: center;
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.8);
+        }
+
+        .mdk-photo-panel .mdk-trigger:hover {
+            transform: scale(1.1);
+        }
+
+        .mdk-photo-panel .mdk-trigger .mdk-trigger-label {
+            display: none; /* Ocultar label en móvil */
+        }
+
+        .mdk-photo-panel .mdk-trigger img {
+            width: 35px;
+            height: 35px;
+            margin: 0;
+        }
+
+        /* Panel móvil - ocupa toda la pantalla */
+        .mdk-photo-panel .mdk-surface {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100vw;
+            max-width: none;
+            min-width: auto;
+            max-height: 100vh;
+            border-radius: 0;
+            border: none;
+            z-index: 100;
+        }
+
+        /* Header móvil más compacto */
+        .mdk-photo-panel .mdk-head {
+            padding: 12px 16px;
+        }
+
+        .mdk-photo-panel .mdk-head h3 {
+            font-size: 1.1rem;
+        }
+
+        .mdk-photo-panel .mdk-head h3::after {
+            right: -25px;
+            font-size: 0.8rem;
+        }
+
+        /* Body móvil con mejor espaciado */
+        .mdk-photo-panel .mdk-body {
+            padding: 16px;
+            gap: 1rem;
+        }
+
+        /* Viewport móvil - relación de aspecto más cuadrada */
+        .mdk-viewport {
+            padding-bottom: 70%;
+        }
+
+        /* Flechas de navegación más grandes en móvil */
+        .mdk-nav-arrow {
+            width: 45px;
+            height: 45px;
+            font-size: 1.3rem;
+            opacity: 0.7; /* Siempre visibles en móvil */
+            transform: none;
+        }
+
+        .mdk-nav-arrow.prev {
+            transform: none;
+        }
+
+        .mdk-nav-arrow.next {
+            transform: none;
+        }
+
+        .mdk-viewport:hover .mdk-nav-arrow {
+            opacity: 0.9;
+        }
+
+        /* Caption móvil más compacta */
+        .mdk-caption {
+            font-size: 0.9rem;
+            padding: 12px;
+            min-height: 50px;
+        }
+
+        /* Lightbox móvil mejorado */
+        .mdk-lightbox-content {
+            max-width: 95%;
+            max-height: 90%;
+        }
+
+        .mdk-lightbox-image-container {
+            padding: 20px;
+        }
+
+        .mdk-lightbox-caption {
+            padding: 16px;
+            font-size: 1rem;
+        }
+
+        .mdk-lightbox-close {
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            font-size: 1.3rem;
+        }
+    }
+
+    /* Para móviles muy pequeños */
+    @media (max-width: 480px) {
+        .mdk-photo-panel {
+            bottom: 15px;
+            right: 15px;
+        }
+
+        .mdk-photo-panel .mdk-trigger {
+            width: 60px;
+            height: 60px;
+        }
+
+        .mdk-photo-panel .mdk-trigger img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .mdk-photo-panel .mdk-head h3 {
+            font-size: 1rem;
+        }
+
+        .mdk-photo-panel .mdk-body {
+            padding: 12px;
+        }
+
+        .mdk-viewport {
+            padding-bottom: 75%;
+        }
+
+        .mdk-caption {
+            font-size: 0.85rem;
+            padding: 10px;
+        }
+
+        .mdk-nav-arrow {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+        }
+    }
+
+    /* Para tablets en orientación horizontal */
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+        .mdk-photo-panel .mdk-surface {
+            max-height: 90vh;
+        }
+
+        .mdk-viewport {
+            padding-bottom: 50%;
+        }
+    }
+
+    /* Media queries existentes para desktop */
     @media (max-width: 1400px) {
         .mdk-photo-panel .mdk-surface {
             width: 45vw;
@@ -553,26 +746,6 @@
         .mdk-photo-panel .mdk-surface {
             width: 40vw;
             min-width: 380px;
-        }
-        
-        .mdk-caption {
-            font-size: 0.9rem;
-            padding: 14px;
-        }
-        
-        .mdk-head h3 {
-            font-size: 1.1rem;
-        }
-        
-        .mdk-head h3::after {
-            right: -25px;
-            font-size: 0.8rem;
-        }
-    }
-
-    @media (max-width: 1024px) {
-        .mdk-photo-panel {
-            display: none;
         }
     }
 
