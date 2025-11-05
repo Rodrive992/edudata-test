@@ -33,7 +33,7 @@
         font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     }
 
-    /* Solapa lateral - ESTILO INFORMACIÓN MÁS CLARO */
+    /* Solapa lateral */
     .info-panel .info-trigger {
         position: absolute;
         left: -100px;
@@ -92,7 +92,7 @@
         text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
     }
 
-    /* Panel principal - MÁS CLARO Y MODERNO */
+    /* Panel principal */
     .info-panel .info-surface {
         width: 60vw;
         max-width: 700px;
@@ -109,9 +109,11 @@
         overflow: hidden;
         pointer-events: all;
         backdrop-filter: blur(15px);
+        display: flex;
+        flex-direction: column;
     }
 
-    /* Header MEJORADO - TEMA INFORMACIÓN MÁS CLARO */
+    /* Header */
     .info-panel .info-head {
         padding: 20px 24px;
         border-bottom: 1px solid rgba(100, 116, 139, 0.1);
@@ -119,6 +121,7 @@
         background: linear-gradient(90deg, rgba(16, 185, 129, 0.05), rgba(139, 92, 246, 0.05));
         position: relative;
         overflow: hidden;
+        flex-shrink: 0;
     }
 
     .info-panel .info-head::before {
@@ -155,24 +158,54 @@
         filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
     }
 
-    /* Body MÁS CLARO Y LEGIBLE */
+    /* Botón de cerrar - NUEVO */
+    .info-panel .info-close {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.9);
+        color: #64748b;
+        border: 2px solid rgba(100, 116, 139, 0.2);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1.2rem;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        z-index: 10;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .info-panel .info-close:hover {
+        background: rgba(239, 68, 68, 0.1);
+        color: #dc2626;
+        border-color: rgba(239, 68, 68, 0.3);
+        transform: scale(1.1);
+    }
+
+    /* Body */
     .info-panel .info-body {
         padding: 24px;
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
-        height: calc(90vh - 80px);
+        flex: 1;
         background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.95));
         overflow-y: auto;
+        overflow-x: hidden;
     }
 
-    /* Viewport para flyers - MÁS CLARO */
+    /* Viewport para flyers */
     .info-viewport {
         position: relative;
         border-radius: 18px;
         overflow: hidden;
         height: 0;
-        padding-bottom: 70%; /* Más alto para flyers */
+        padding-bottom: 70%;
         background:
             linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(139, 92, 246, 0.05)),
             repeating-linear-gradient(
@@ -186,6 +219,7 @@
         border: 2px solid rgba(100, 116, 139, 0.1);
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        flex-shrink: 0;
     }
 
     .info-viewport:hover {
@@ -213,7 +247,7 @@
     .info-viewport img {
         width: 100%;
         height: 100%;
-        object-fit: contain; /* Contiene la imagen completa */
+        object-fit: contain;
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         border-radius: 12px;
         background: rgba(255, 255, 255, 0.5);
@@ -223,34 +257,7 @@
         transform: scale(1.02);
     }
 
-    /* Indicador de zoom en hover - MÁS CLARO */
-    .info-viewport::before {
-        content: "🔍";
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        background: rgba(255, 255, 255, 0.9);
-        color: #475569;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2rem;
-        opacity: 0;
-        transform: scale(0.8);
-        transition: all 0.3s ease;
-        z-index: 2;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .info-viewport:hover::before {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    /* Flechas de navegación - MÁS CLARAS */
+    /* Flechas de navegación */
     .info-viewport-nav {
         position: absolute;
         top: 0;
@@ -313,7 +320,7 @@
         transform: translateX(0);
     }
 
-    /* Caption MEJORADA - MÁS CLARA */
+    /* Caption */
     .info-caption {
         text-align: center;
         font-size: 1.1rem;
@@ -338,13 +345,14 @@
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
 
-    /* Indicadores de diapositiva - NUEVO DISEÑO */
+    /* Indicadores de diapositiva */
     .info-indicators {
         display: flex;
         justify-content: center;
         gap: 8px;
         flex-wrap: wrap;
         margin-top: 10px;
+        flex-shrink: 0;
     }
 
     .info-indicator {
@@ -369,7 +377,7 @@
         box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
     }
 
-    /* Lightbox MÁS CLARO */
+    /* Lightbox */
     .info-lightbox {
         position: fixed;
         inset: 0;
@@ -434,7 +442,7 @@
         pointer-events: none;
     }
 
-    /* Lightbox caption - MÁS CLARO */
+    /* Lightbox caption */
     .info-lightbox-caption {
         background: linear-gradient(transparent, rgba(255, 255, 255, 0.9));
         color: #334155;
@@ -476,7 +484,7 @@
         transform: scale(1.15);
     }
 
-    /* Scrollbar personalizado - MÁS CLARO */
+    /* Scrollbar personalizado */
     .info-body::-webkit-scrollbar {
         width: 8px;
     }
@@ -495,7 +503,7 @@
         background: linear-gradient(135deg, #34d399, #a78bfa);
     }
 
-    /* Animaciones adicionales para dinamismo */
+    /* Animaciones */
     @keyframes pulse-glow-info {
         0% {
             box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
@@ -551,7 +559,7 @@
         }
 
         .info-panel .info-trigger .info-trigger-label {
-            display: none; /* Ocultar label en móvil */
+            display: none;
         }
 
         .info-panel .info-trigger img {
@@ -579,10 +587,15 @@
         /* Header móvil más compacto */
         .info-panel .info-head {
             padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
         }
 
         .info-panel .info-head h3 {
             font-size: 1.2rem;
+            margin: 0;
         }
 
         .info-panel .info-head h3::after {
@@ -590,17 +603,29 @@
             font-size: 1rem;
         }
 
+        /* Botón cerrar móvil */
+        .info-panel .info-close {
+            top: 12px;
+            right: 16px;
+            width: 36px;
+            height: 36px;
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
         /* Body móvil con mejor espaciado */
         .info-panel .info-body {
             padding: 20px;
             gap: 1.25rem;
-            height: calc(100vh - 70px);
+            height: auto;
+            flex: 1;
         }
 
         /* Viewport móvil - relación de aspecto optimizada */
         .info-viewport {
-            padding-bottom: 80%; /* Más alto para flyers en móvil */
+            padding-bottom: 80%;
             border-radius: 16px;
+            flex-shrink: 0;
         }
 
         /* Flechas de navegación más grandes en móvil */
@@ -608,14 +633,11 @@
             width: 50px;
             height: 50px;
             font-size: 1.4rem;
-            opacity: 0.7; /* Siempre visibles en móvil */
+            opacity: 0.7;
             transform: none;
         }
 
-        .info-nav-arrow.prev {
-            transform: none;
-        }
-
+        .info-nav-arrow.prev,
         .info-nav-arrow.next {
             transform: none;
         }
@@ -624,27 +646,20 @@
             opacity: 0.9;
         }
 
-        /* Indicador de zoom móvil */
-        .info-viewport::before {
-            width: 35px;
-            height: 35px;
-            font-size: 1rem;
-            top: 10px;
-            right: 10px;
-        }
-
         /* Caption móvil más compacta */
         .info-caption {
             font-size: 1rem;
             padding: 14px;
             min-height: 55px;
             border-radius: 12px;
+            flex-shrink: 0;
         }
 
         /* Indicadores móviles */
         .info-indicators {
             gap: 6px;
             margin-top: 8px;
+            flex-shrink: 0;
         }
 
         .info-indicator {
@@ -695,6 +710,19 @@
 
         .info-panel .info-head h3 {
             font-size: 1.1rem;
+        }
+
+        .info-panel .info-head h3::after {
+            right: -25px;
+            font-size: 0.9rem;
+        }
+
+        .info-panel .info-close {
+            top: 10px;
+            right: 12px;
+            width: 32px;
+            height: 32px;
+            font-size: 1rem;
         }
 
         .info-panel .info-body {
@@ -751,15 +779,15 @@
         }
 
         .info-panel .info-body {
-            height: calc(95vh - 70px);
+            height: auto;
         }
 
         .info-viewport {
-            padding-bottom: 60%; /* Más ancho en landscape */
+            padding-bottom: 60%;
         }
     }
 
-    /* Media queries existentes para desktop */
+    /* Media queries para desktop */
     @media (max-width: 1400px) {
         .info-panel .info-surface {
             width: 55vw;
@@ -799,6 +827,7 @@
         
         <header class="info-head">
             <h3>Información Importante</h3>
+            <button class="info-close" @click="toggle()" aria-label="Cerrar panel de información">×</button>
         </header>
 
         <div class="info-body">
