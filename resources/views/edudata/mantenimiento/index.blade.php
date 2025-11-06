@@ -531,8 +531,7 @@
                                     <div class="flex-1 min-w-0">
                                         <h4 class="text-base md:text-lg font-bold text-gray-800 mb-1">Tareas de
                                             Mantenimiento Edilicio</h4>
-                                        <p class="text-xs text-gray-600 leading-relaxed">Consulta el historial de tareas
-                                            realizadas, pendientes y comisiones</p>
+                                        
                                     </div>
                                 </div>
                                 <div class="flex justify-center">
@@ -563,9 +562,7 @@
                                     <div class="flex-1 min-w-0">
                                         <h4 class="text-base md:text-lg font-bold text-gray-800 mb-1">Ubicación de
                                             Establecimientos</h4>
-                                        <p class="text-xs text-gray-600 leading-relaxed">Mapa completo con la
-                                            localización
-                                            de instituciones educativas provinciales</p>
+                                        
                                     </div>
                                 </div>
                                 <div class="flex justify-center">
@@ -594,10 +591,7 @@
                                     </div>
                                     <div class="flex-1 min-w-0">
                                         <h4 class="text-base md:text-lg font-bold text-gray-800 mb-1">Solicitudes de
-                                            Mantenimiento</h4>
-                                        <p class="text-xs text-gray-600 leading-relaxed">Generá solicitudes si pertenecés
-                                            a
-                                            la comunidad educativa provincial</p>
+                                            Mantenimiento Edilicio</h4>                                        
                                     </div>
                                 </div>
                                 <div class="flex justify-center">
@@ -634,6 +628,9 @@
                         </div>
                     </div>
                 </div>
+
+                @include('edudata.partials.mantenimiento-fotos')
+
                 <!-- Archivero MEJORADO con pestañas emergentes -->
                 <div id="tareas" class="pt-4" x-data="archivero()" x-init="initFromQuery('{{ request('tarea', 'realizadas') }}')">
 
@@ -1165,7 +1162,7 @@
     </div>
    
 
-    @include('edudata.partials.mantenimiento-fotos')
+    @include('edudata.partials.mantenimiento-info')
     {{-- === FIN: incluir la solapa lateral como partial reutilizable === --}}  
     {{-- Alpine: controlador del archivero --}}
     <script>
