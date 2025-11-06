@@ -26,7 +26,7 @@
 <style>
     .mantenimiento-panel {
         --panel-bg: {{ $panelColor }};
-        --panel-grad: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+        --panel-grad: linear-gradient(180deg, #f5cb58 0%, #e2e8f0 100%);
         --panel-text: #334155;
         --panel-border: rgba(100, 116, 139, 0.2);
         --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -57,7 +57,7 @@
         transform: translateY(-50%);
         width: 90px;
         border-radius: 20px 0 0 20px;
-        background: var(--panel-grad);
+        background: #6bbde5;
         color: var(--panel-text);
         border: 2px solid var(--panel-border);
         border-right: none;
@@ -69,7 +69,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: .75rem;
+        gap: .45rem;
         pointer-events: all;
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         backdrop-filter: blur(10px);
@@ -81,7 +81,7 @@
             var(--hover-glow),
             0 8px 25px rgba(0, 0, 0, 0.15),
             0 0 0 1px rgba(59, 130, 246, 0.3);
-        background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 100%);
+        background: linear-gradient(180deg, #f1f5f9   0%, #6bbde5 100%);
     }
 
     .mantenimiento-panel .mantenimiento-trigger img {
@@ -104,8 +104,8 @@
         letter-spacing: .15em;
         font-weight: 700;
         text-transform: uppercase;
-        color: #475569;
-        text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+        color: #ffffff;
+        
     }
     /* Panel principal - MÁS COMPACTO */
     .mantenimiento-panel .mantenimiento-surface {
@@ -159,7 +159,7 @@
         margin: 0;
         position: relative;
         display: inline-block;
-        background: linear-gradient(135deg, #1e40af, #059669, #d97706);
+        background: linear-gradient(135deg, #162172, #132172, #162172);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -219,8 +219,8 @@
 
     /* Tarjeta de total general - MÁS COMPACTA */
     .total-card {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
+        background: #162172;
+        color: white; 
         border-radius: 12px;
         padding: 1rem;
         text-align: center;

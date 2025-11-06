@@ -232,7 +232,7 @@
         .folder-container {
             background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
             border: 2px solid #e2e8f0;
-            border-radius: 0 12px 12px 12px;
+            border-radius: 12px 12px 12px 12px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
             position: relative;
             overflow: visible;
