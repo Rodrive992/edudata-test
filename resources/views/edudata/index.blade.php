@@ -40,7 +40,7 @@
 
                         <!-- Descripción unificada con efecto de escritura -->
                         <div x-data="{
-                            fullText: 'Acceso a la Información Pública del Ministerio de Educación, Ciencia y Tecnología de la provincia de Catamarca. ',
+                            fullText: 'Acceso a la Información Pública del Ministerio de Educación, Ciencia y Tecnología de la provincia de Catamarca.',
                             displayedText: '',
                             index: 0,
                             isTyping: false,
@@ -72,6 +72,14 @@
                                 <span x-show="isTyping" class="inline-block w-1 h-4 bg-white/80 ml-1 animate-pulse"></span>
                             </p>
                         </div>
+
+                        <!-- Dirección de Transparencia Activa en negrita -->
+                        <div class="mt-4">
+                            <p class="text-[16px] font-bold text-white/95">
+                                Dirección de Transparencia Activa
+                            </p>
+                        </div>
+
                         <!-- Logo del ministerio - más grande y antes del botón -->
                         <div class="mt-7 mb-6 flex justify-center">
                             <div class="p-3">
@@ -104,7 +112,6 @@
                 </div>
             </div>
         </section>
-
         <!-- Animación keyframes -->
         <style>
             @keyframes sweep {
