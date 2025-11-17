@@ -3,7 +3,7 @@
 <div
     x-data="estadisticas($el)"
     x-init="init()"
-    data-total-matricula="{{ (int) ($totalMatricula ?? 0) }}"
+    data-total-matricula="130125"
     data-total-estab="{{ (int) ($totalEstablecimientos ?? 0) }}"
     class="bg-transparent"
 >
@@ -11,12 +11,12 @@
     <div x-data="{show:false}" x-init="setTimeout(()=>show=true,120)" class="mb-3 text-center">
         <h2 x-show="show"
             x-transition.opacity.duration.400ms
-            class="text-xl md:text-3xl font-extrabold tracking-tight text-[color:var(--pri-700)]">
+            class="text-xl md:text-3xl font-extrabold tracking-tight text-[color:var(--pri-900)] font-primary">
             Datos del Ministerio de Educación, Ciencia y Tecnología
         </h2>
         <span x-show="show"
               x-transition.scale.origin-center.duration.500ms
-              class="mt-1 mx-auto block h-[3px] w-20 bg-gradient-to-r from-[color:var(--pri-300)] via-[color:var(--pri-500)] to-[color:var(--pri-600)] rounded"></span>
+              class="mt-1 mx-auto block h-[3px] w-20 bg-gradient-to-r from-[color:var(--pri-500)] via-[color:var(--pri-700)] to-[color:var(--pri-900)] rounded"></span>
     </div>
 
     {{-- Recuadros (compactos) --}}
@@ -25,15 +25,15 @@
         {{-- MATRÍCULA --}}
         <button type="button"
                 @click="openModal('matricula', $event)"
-                class="group relative overflow-hidden rounded-xl border-2 border-[color:var(--pri-300)] bg-white px-4 py-5
+                class="group relative overflow-hidden rounded-xl border-2 border-[color:var(--pri-500)] bg-white px-4 py-5
                        shadow-sm transition-all duration-150 hover:shadow-md hover:-translate-y-0.5 focus:outline-none
-                       focus:ring-2 focus:ring-[color:var(--pri-300)] min-h-[140px]">
+                       focus:ring-2 focus:ring-[color:var(--pri-500)] min-h-[140px]">
             <div class="flex flex-col items-center text-center">
-                <div class="h-12 w-12 rounded-lg bg-[color:var(--pri-100)] flex items-center justify-center mb-2.5">
-                    <i class="fas fa-user-graduate text-[color:var(--pri-600)] text-xl"></i>
+                <div class="h-12 w-12 rounded-lg bg-[#e8f1fb] flex items-center justify-center mb-2.5">
+                    <i class="fas fa-user-graduate text-[color:var(--pri-700)] text-xl"></i>
                 </div>
                 <div class="text-gray-800 font-semibold leading-tight">Matrícula</div>
-                <div class="text-[32px] leading-none font-extrabold text-[color:var(--pri-600)] tabular-nums my-0.5">
+                <div class="text-[32px] leading-none font-extrabold text-[color:var(--pri-700)] tabular-nums my-0.5">
                     <span x-text="formatNumber(counters.matricula)"></span>
                 </div>
                 <div class="text-[11px] text-gray-500">estudiantes</div>
@@ -43,15 +43,15 @@
         {{-- ESTABLECIMIENTOS --}}
         <button type="button"
                 @click="openModal('establecimientos', $event)"
-                class="group relative overflow-hidden rounded-xl border-2 border-[color:var(--pri-300)] bg-white px-4 py-5
+                class="group relative overflow-hidden rounded-xl border-2 border-[color:var(--pri-500)] bg-white px-4 py-5
                        shadow-sm transition-all duration-150 hover:shadow-md hover:-translate-y-0.5 focus:outline-none
-                       focus:ring-2 focus:ring-[color:var(--pri-300)] min-h-[140px]">
+                       focus:ring-2 focus:ring-[color:var(--pri-500)] min-h-[140px]">
             <div class="flex flex-col items-center text-center">
-                <div class="h-12 w-12 rounded-lg bg-[color:var(--pri-100)] flex items-center justify-center mb-2.5">
-                    <i class="fas fa-school text-[color:var(--pri-600)] text-xl"></i>
+                <div class="h-12 w-12 rounded-lg bg-[#e8f1fb] flex items-center justify-center mb-2.5">
+                    <i class="fas fa-school text-[color:var(--pri-700)] text-xl"></i>
                 </div>
                 <div class="text-gray-800 font-semibold leading-tight">Establecimientos</div>
-                <div class="text-[32px] leading-none font-extrabold text-[color:var(--pri-600)] tabular-nums my-0.5">
+                <div class="text-[32px] leading-none font-extrabold text-[color:var(--pri-700)] tabular-nums my-0.5">
                     <span x-text="formatNumber(counters.establecimientos)"></span>
                 </div>
                 <div class="text-[11px] text-gray-500">instituciones</div>
@@ -66,7 +66,7 @@
          @click.self="closeModal()"
          @keydown.escape.window="closeModal()"></div>
 
-    {{-- ===== MODAL MATRÍCULA (restaurado completo) ===== --}}
+    {{-- ===== MODAL MATRÍCULA ===== --}}
     <div x-cloak x-show="modal === 'matricula'"
          x-transition:enter="transition ease-out duration-300"
          x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
@@ -77,23 +77,37 @@
          class="fixed inset-0 z-[101] flex items-end sm:items-center justify-center p-0 sm:p-4">
         <div class="w-full sm:max-w-5xl sm:max-h-[88vh] h-[92vh] sm:h-auto bg-white rounded-t-2xl sm:rounded-2xl overflow-hidden">
             {{-- Header --}}
-            <div class="sticky top-0 z-10 bg-gradient-to-r from-[color:var(--pri-500)] to-[color:var(--pri-600)]">
+            <div class="sticky top-0 z-10 bg-gradient-to-r from-[color:var(--pri-700)] to-[color:var(--pri-900)]">
                 <div class="px-6 py-4 text-white flex justify-between items-center">
                     <div class="flex items-center gap-3">
                         <div class="h-9 w-9 rounded-lg bg-white/20 flex items-center justify-center">
                             <i class="fas fa-user-graduate text-base"></i>
                         </div>
                         <div>
-                            <h3 class="font-bold text-lg">Distribución de Matrícula</h3>
+                            <h3 class="font-bold text-lg font-primary">Distribución de Matrícula</h3>
                             <p class="text-[color:var(--pri-100)] text-xs mt-0.5">
-                                Total: <span x-text="formatNumber(totalMatricula)" class="font-semibold"></span> estudiantes
+                                Total: <span class="font-semibold">130.125</span> estudiantes
                             </p>
                         </div>
                     </div>
-                    <button @click="closeModal()"
-                            class="h-9 px-3 rounded-lg bg-white/20 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white">
-                        <i class="fas fa-times"></i>
-                    </button>
+                    <div class="flex items-center gap-4">
+                        <!-- Leyenda agregada aquí -->
+                        <div class="hidden sm:flex items-center text-white/80 text-xs italic">
+                            <i class="fas fa-info-circle mr-1 text-white/70"></i>
+                            Datos proporcionados por la ecretaría de Planeamiento Educativo
+                        </div>
+                        <button @click="closeModal()"
+                                class="h-9 px-3 rounded-lg bg-white/20 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- Leyenda para móvil -->
+                <div class="sm:hidden px-6 pb-2">
+                    <div class="flex items-center text-white/80 text-xs italic">
+                        <i class="fas fa-info-circle mr-1 text-white/70"></i>
+                        Datos proporcionados por la Secretaría de Planeamiento Educativo
+                    </div>
                 </div>
             </div>
 
@@ -102,110 +116,227 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
                     {{-- Por Modalidad --}}
                     <div class="space-y-3">
-                        <h4 class="font-bold text-[color:var(--pri-700)] flex items-center">
-                            <i class="fas fa-layer-group text-[color:var(--pri-500)] mr-3"></i>
+                        <h4 class="font-bold text-[color:var(--pri-900)] flex items-center font-primary">
+                            <i class="fas fa-layer-group text-[color:var(--pri-700)] mr-3"></i>
                             Por Modalidad
                         </h4>
-                        @php $totalModalidad = max(1, (int) ($totalMatricula ?? 0)); @endphp
                         <div class="space-y-2.5">
-                            @forelse(($matriculaPorModalidad ?? collect()) as $fila)
-                                @php
-                                    $pct = round(($fila->total / $totalModalidad) * 100, 1);
-                                    $modalidad = ucfirst(mb_strtolower($fila->modalidad ?? 'Sin dato'));
-                                @endphp
-                                <div class="flex items-center justify-between p-3.5 bg-white rounded-md border border-gray-200 hover:border-[color:var(--pri-300)] transition">
-                                    <div>
-                                        <div class="font-semibold text-gray-800">{{ $modalidad }}</div>
-                                        <div class="text-xs text-gray-600 mt-0.5">{{ number_format($fila->total, 0, ',', '.') }} estudiantes</div>
-                                    </div>
-                                    <div class="text-right ml-4">
-                                        <div class="font-bold text-gray-900 text-base mb-1">{{ $pct }}%</div>
-                                        <div class="w-24 h-2 bg-gray-200 rounded-full overflow-hidden">
-                                            <div class="h-2 bg-gradient-to-r from-[color:var(--pri-500)] to-[color:var(--pri-600)] rounded-full" style="width: {{ $pct }}%"></div>
-                                        </div>
+                            {{-- Común --}}
+                            <div class="flex items-center justify-between p-3.5 bg-white rounded-md border border-gray-200 hover:border-[color:var(--pri-500)] transition">
+                                <div>
+                                    <div class="font-semibold text-gray-800">Común</div>
+                                    <div class="text-xs text-gray-600 mt-0.5">113.065 estudiantes</div>
+                                </div>
+                                <div class="text-right ml-4">
+                                    <div class="font-bold text-gray-900 text-base mb-1">86,9%</div>
+                                    <div class="w-24 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                        <div class="h-2 bg-gradient-to-r from-[color:var(--pri-700)] to-[color:var(--pri-900)] rounded-full" style="width: 86.9%"></div>
                                     </div>
                                 </div>
-                            @empty
-                                <div class="text-center py-6 text-gray-500 bg-white rounded-md border-2 border-dashed border-gray-200">
-                                    <i class="fas fa-inbox text-2xl mb-2 opacity-50"></i>
-                                    <p class="text-sm">No hay datos de matrícula disponibles.</p>
+                            </div>
+                            
+                            {{-- Adultos --}}
+                            <div class="flex items-center justify-between p-3.5 bg-white rounded-md border border-gray-200 hover:border-[color:var(--pri-500)] transition">
+                                <div>
+                                    <div class="font-semibold text-gray-800">Adultos</div>
+                                    <div class="text-xs text-gray-600 mt-0.5">14.873 estudiantes</div>
                                 </div>
-                            @endforelse
+                                <div class="text-right ml-4">
+                                    <div class="font-bold text-gray-900 text-base mb-1">11,14%</div>
+                                    <div class="w-24 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                        <div class="h-2 bg-gradient-to-r from-[color:var(--pri-700)] to-[color:var(--pri-900)] rounded-full" style="width: 11.14%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            {{-- Especial --}}
+                            <div class="flex items-center justify-between p-3.5 bg-white rounded-md border border-gray-200 hover:border-[color:var(--pri-500)] transition">
+                                <div>
+                                    <div class="font-semibold text-gray-800">Especial</div>
+                                    <div class="text-xs text-gray-600 mt-0.5">2.178 estudiantes</div>
+                                </div>
+                                <div class="text-right ml-4">
+                                    <div class="font-bold text-gray-900 text-base mb-1">1,7%</div>
+                                    <div class="w-24 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                        <div class="h-2 bg-gradient-to-r from-[color:var(--pri-700)] to-[color:var(--pri-900)] rounded-full" style="width: 1.7%"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     {{-- Por Dependencia --}}
                     <div class="space-y-3">
-                        <h4 class="font-bold text-[color:var(--pri-700)] flex items-center">
-                            <i class="fas fa-building text-[color:var(--pri-500)] mr-3"></i>
-                            Por Dependencia
+                        <h4 class="font-bold text-[color:var(--pri-900)] flex items-center font-primary">
+                            <i class="fas fa-building text-[color:var(--pri-700)] mr-3"></i>
+                            Por Gestión
                         </h4>
-                        @php
-                            if (isset($matriculaPorDependencia) && $matriculaPorDependencia->count() > 0) {
-                                $dependencias = $matriculaPorDependencia;
-                            } else {
-                                $soloTotal = ($matriculaPorModalidad ?? collect())->sum('total');
-                                $dependencias = collect([
-                                    (object) ['dependencia_tipo' => 'Estatal', 'total' => $soloTotal],
-                                    (object) ['dependencia_tipo' => 'Privada', 'total' => 0],
-                                ]);
-                            }
-                            $totalDependencia = max(1, $dependencias->sum('total'));
-                        @endphp
                         <div class="space-y-2.5">
-                            @foreach ($dependencias as $fila)
-                                @php
-                                    $pct = round(($fila->total / $totalDependencia) * 100, 1);
-                                    $dependencia = ucfirst(mb_strtolower($fila->dependencia_tipo ?? 'Sin dato'));
-                                    $color = $dependencia === 'Estatal' ? 'from-emerald-500 to-emerald-600' : 'from-purple-500 to-purple-600';
-                                @endphp
-                                <div class="flex items-center justify-between p-3.5 bg-white rounded-md border border-gray-200 hover:border-[color:var(--pri-300)] transition">
-                                    <div>
-                                        <div class="font-semibold text-gray-800">{{ $dependencia }}</div>
-                                        <div class="text-xs text-gray-600 mt-0.5">{{ number_format($fila->total, 0, ',', '.') }} estudiantes</div>
-                                    </div>
-                                    <div class="text-right ml-4">
-                                        <div class="font-bold text-gray-900 text-base mb-1">{{ $pct }}%</div>
-                                        <div class="w-24 h-2 bg-gray-200 rounded-full overflow-hidden">
-                                            <div class="h-2 bg-gradient-to-r {{ $color }} rounded-full" style="width: {{ $pct }}%"></div>
-                                        </div>
+                            {{-- Estatal --}}
+                            <div class="flex items-center justify-between p-3.5 bg-white rounded-md border border-gray-200 hover:border-[color:var(--pri-500)] transition">
+                                <div>
+                                    <div class="font-semibold text-gray-800">Estatal</div>
+                                    <div class="text-xs text-gray-600 mt-0.5">103.542 estudiantes</div>
+                                </div>
+                                <div class="text-right ml-4">
+                                    <div class="font-bold text-gray-900 text-base mb-1">79,57%</div>
+                                    <div class="w-24 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                        <div class="h-2 bg-gradient-to-r from-[var(--ter-500)] to-[#5a9792] rounded-full" style="width: 79.57%"></div>
                                     </div>
                                 </div>
-                            @endforeach
+                            </div>
+                            
+                            {{-- Privado --}}
+                            <div class="flex items-center justify-between p-3.5 bg-white rounded-md border border-gray-200 hover:border-[color:var(--pri-500)] transition">
+                                <div>
+                                    <div class="font-semibold text-gray-800">Privado</div>
+                                    <div class="text-xs text-gray-600 mt-0.5">26.583 estudiantes</div>
+                                </div>
+                                <div class="text-right ml-4">
+                                    <div class="font-bold text-gray-900 text-base mb-1">20,43%</div>
+                                    <div class="w-24 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                        <div class="h-2 bg-gradient-to-r from-[var(--acc-500)] to-[#726f98] rounded-full" style="width: 20.43%"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    {{-- Por Nivel / Oferta Académica (restaurado) --}}
-                    @php $totalNivel = max(1, (int) ($matriculaPorNivel?->sum('total') ?? 0)); @endphp
+                    {{-- Por Nivel / Oferta Académica --}}
                     <div class="lg:col-span-2 mt-2">
-                        <h4 class="font-bold text-[color:var(--pri-700)] flex items-center mb-3">
-                            <i class="fas fa-sitemap text-[color:var(--pri-500)] mr-3"></i>
+                        <h4 class="font-bold text-[color:var(--pri-900)] flex items-center mb-3 font-primary">
+                            <i class="fas fa-sitemap text-[color:var(--pri-700)] mr-3"></i>
                             Por Nivel / Oferta Académica
                         </h4>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                            @forelse(($matriculaPorNivel ?? collect()) as $fila)
-                                @php
-                                    $nivel = ucfirst(mb_strtolower($fila->oferta_tipo ?? 'Sin dato'));
-                                    $pct = round(($fila->total / $totalNivel) * 100, 1);
-                                @endphp
-                                <div class="flex items-center justify-between p-3.5 bg-white rounded-md border border-gray-200 hover:border-[color:var(--pri-300)] transition">
-                                    <div class="pr-3">
-                                        <div class="font-semibold text-gray-800">{{ $nivel }}</div>
-                                        <div class="text-xs text-gray-600 mt-0.5">{{ number_format($fila->total, 0, ',', '.') }} estudiantes</div>
+                            {{-- Común --}}
+                            <div class="col-span-1 md:col-span-2">
+                                <div class="font-semibold text-gray-700 mb-2 text-sm uppercase tracking-wide">Común</div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 ml-2">
+                                    <div class="flex items-center justify-between p-3 bg-white rounded-md border border-gray-200 hover:border-[color:var(--pri-500)] transition">
+                                        <div class="pr-3">
+                                            <div class="font-medium text-gray-800 text-sm">Inicial - Común</div>
+                                            <div class="text-xs text-gray-600 mt-0.5">13.911 estudiantes</div>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="font-bold text-gray-900 text-sm mb-1">10,7%</div>
+                                            <div class="w-20 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                                                <div class="h-1.5 bg-gradient-to-r from-[color:var(--pri-700)] to-[color:var(--pri-900)] rounded-full" style="width: 10.7%"></div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="text-right">
-                                        <div class="font-bold text-gray-900 text-base mb-1">{{ $pct }}%</div>
-                                        <div class="w-28 h-2 bg-gray-200 rounded-full overflow-hidden">
-                                            <div class="h-2 bg-gradient-to-r from-[color:var(--pri-500)] to-[color:var(--pri-600)] rounded-full" style="width: {{ $pct }}%"></div>
+                                    <div class="flex items-center justify-between p-3 bg-white rounded-md border border-gray-200 hover:border-[color:var(--pri-500)] transition">
+                                        <div class="pr-3">
+                                            <div class="font-medium text-gray-800 text-sm">Primario - Común</div>
+                                            <div class="text-xs text-gray-600 mt-0.5">40.887 estudiantes</div>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="font-bold text-gray-900 text-sm mb-1">31,4%</div>
+                                            <div class="w-20 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                                                <div class="h-1.5 bg-gradient-to-r from-[color:var(--pri-700)] to-[color:var(--pri-900)] rounded-full" style="width: 31.4%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between p-3 bg-white rounded-md border border-gray-200 hover:border-[color:var(--pri-500)] transition">
+                                        <div class="pr-3">
+                                            <div class="font-medium text-gray-800 text-sm">Secundario - Común</div>
+                                            <div class="text-xs text-gray-600 mt-0.5">40.350 estudiantes</div>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="font-bold text-gray-900 text-sm mb-1">31,0%</div>
+                                            <div class="w-20 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                                                <div class="h-1.5 bg-gradient-to-r from-[color:var(--pri-700)] to-[color:var(--pri-900)] rounded-full" style="width: 31.0%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between p-3 bg-white rounded-md border border-gray-200 hover:border-[color:var(--pri-500)] transition">
+                                        <div class="pr-3">
+                                            <div class="font-medium text-gray-800 text-sm">SNU (Superior)</div>
+                                            <div class="text-xs text-gray-600 mt-0.5">14.636 estudiantes</div>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="font-bold text-gray-900 text-sm mb-1">11,2%</div>
+                                            <div class="w-20 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                                                <div class="h-1.5 bg-gradient-to-r from-[color:var(--pri-700)] to-[color:var(--pri-900)] rounded-full" style="width: 11.2%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between p-3 bg-white rounded-md border border-gray-200 hover:border-[color:var(--pri-500)] transition">
+                                        <div class="pr-3">
+                                            <div class="font-medium text-gray-800 text-sm">Otros</div>
+                                            <div class="text-xs text-gray-600 mt-0.5">33.281 estudiantes</div>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="font-bold text-gray-900 text-sm mb-1">25,6%</div>
+                                            <div class="w-20 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                                                <div class="h-1.5 bg-gradient-to-r from-[color:var(--pri-700)] to-[color:var(--pri-900)] rounded-full" style="width: 25.6%"></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            @empty
-                                <div class="col-span-1 md:col-span-2 text-center py-6 text-gray-500 bg-white rounded-md border-2 border-dashed border-gray-200">
-                                    <i class="fas fa-inbox text-2xl mb-2 opacity-50"></i>
-                                    <p class="text-sm">Sin datos por nivel.</p>
+                            </div>
+
+                            {{-- Adultos --}}
+                            <div class="col-span-1 md:col-span-2 mt-3">
+                                <div class="font-semibold text-gray-700 mb-2 text-sm uppercase tracking-wide">Adultos</div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 ml-2">
+                                    <div class="flex items-center justify-between p-3 bg-white rounded-md border border-gray-200 hover:border-[color:var(--pri-500)] transition">
+                                        <div class="pr-3">
+                                            <div class="font-medium text-gray-800 text-sm">Primario - Adultos</div>
+                                            <div class="text-xs text-gray-600 mt-0.5">309 estudiantes</div>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="font-bold text-gray-900 text-sm mb-1">0,2%</div>
+                                            <div class="w-20 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                                                <div class="h-1.5 bg-gradient-to-r from-[color:var(--pri-700)] to-[color:var(--pri-900)] rounded-full" style="width: 0.2%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between p-3 bg-white rounded-md border border-gray-200 hover:border-[color:var(--pri-500)] transition">
+                                        <div class="pr-3">
+                                            <div class="font-medium text-gray-800 text-sm">Secundario - Adultos</div>
+                                            <div class="text-xs text-gray-600 mt-0.5">2.553 estudiantes</div>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="font-bold text-gray-900 text-sm mb-1">2,0%</div>
+                                            <div class="w-20 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                                                <div class="h-1.5 bg-gradient-to-r from-[color:var(--pri-700)] to-[color:var(--pri-900)] rounded-full" style="width: 2.0%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between p-3 bg-white rounded-md border border-gray-200 hover:border-[color:var(--pri-500)] transition">
+                                        <div class="pr-3">
+                                            <div class="font-medium text-gray-800 text-sm">Otros</div>
+                                            <div class="text-xs text-gray-600 mt-0.5">12.011 estudiantes</div>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="font-bold text-gray-900 text-sm mb-1">9,2%</div>
+                                            <div class="w-20 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                                                <div class="h-1.5 bg-gradient-to-r from-[color:var(--pri-700)] to-[color:var(--pri-900)] rounded-full" style="width: 9.2%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            @endforelse
+                            </div>
+
+                            {{-- Especial --}}
+                            <div class="col-span-1 md:col-span-2 mt-3">
+                                <div class="font-semibold text-gray-700 mb-2 text-sm uppercase tracking-wide">Especial</div>
+                                <div class="ml-2">
+                                    <div class="flex items-center justify-between p-3 bg-white rounded-md border border-gray-200 hover:border-[color:var(--pri-500)] transition">
+                                        <div class="pr-3">
+                                            <div class="font-medium text-gray-800 text-sm">Matrícula Total</div>
+                                            <div class="text-xs text-gray-600 mt-0.5">2.178 estudiantes</div>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="font-bold text-gray-900 text-sm mb-1">1,7%</div>
+                                            <div class="w-20 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                                                <div class="h-1.5 bg-gradient-to-r from-[color:var(--pri-700)] to-[color:var(--pri-900)] rounded-full" style="width: 1.7%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -220,7 +351,7 @@
         </div>
     </div>
 
-    {{-- ===== MODAL ESTABLECIMIENTOS (restaurado completo) ===== --}}
+    {{-- ===== MODAL ESTABLECIMIENTOS ===== --}}
     <div x-cloak x-show="modal === 'establecimientos'"
          x-transition:enter="transition ease-out duration-300"
          x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
@@ -231,23 +362,37 @@
          class="fixed inset-0 z-[101] flex items-end sm:items-center justify-center p-0 sm:p-4">
         <div class="w-full sm:max-w-5xl sm:max-h-[88vh] h-[92vh] sm:h-auto bg-white rounded-t-2xl sm:rounded-2xl overflow-hidden">
             {{-- Header --}}
-            <div class="sticky top-0 z-10 bg-gradient-to-r from-emerald-500 to-emerald-600">
+            <div class="sticky top-0 z-10 bg-gradient-to-r from-[var(--ter-500)] to-[#5a9792]">
                 <div class="px-6 py-4 text-white flex justify-between items-center">
                     <div class="flex items-center gap-3">
                         <div class="h-9 w-9 rounded-lg bg-white/20 flex items-center justify-center">
                             <i class="fas fa-school text-base"></i>
                         </div>
                         <div>
-                            <h3 class="font-bold text-lg">Establecimientos Educativos</h3>
+                            <h3 class="font-bold text-lg font-primary">Establecimientos Educativos</h3>
                             <p class="text-emerald-100 text-xs mt-0.5">
                                 Total: <span x-text="formatNumber(totalEstab)" class="font-semibold"></span> establecimientos
                             </p>
                         </div>
                     </div>
-                    <button @click="closeModal()"
-                            class="h-9 px-3 rounded-lg bg-white/20 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white">
-                        <i class="fas fa-times"></i>
-                    </button>
+                    <div class="flex items-center gap-4">
+                        <!-- Leyenda agregada aquí -->
+                        <div class="hidden sm:flex items-center text-white/80 text-xs italic">
+                            <i class="fas fa-info-circle mr-1 text-white/70"></i>
+                            Datos proporcionados por la Secretaría de Planeamiento Educativo
+                        </div>
+                        <button @click="closeModal()"
+                                class="h-9 px-3 rounded-lg bg-white/20 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- Leyenda para móvil -->
+                <div class="sm:hidden px-6 pb-2">
+                    <div class="flex items-center text-white/80 text-xs italic">
+                        <i class="fas fa-info-circle mr-1 text-white/70"></i>
+                        Datos proporcionados por la Secretaría de Planeamiento Educativo
+                    </div>
                 </div>
             </div>
 
@@ -256,8 +401,8 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
                     {{-- Por Departamento --}}
                     <div class="space-y-3">
-                        <h4 class="font-bold text-[color:var(--pri-700)] flex items-center">
-                            <i class="fas fa-map-marked-alt text-emerald-500 mr-3"></i>
+                        <h4 class="font-bold text-[color:var(--pri-900)] flex items-center font-primary">
+                            <i class="fas fa-map-marked-alt text-[var(--ter-500)] mr-3"></i>
                             Por Departamento
                         </h4>
                         @php $totalDepto = max(1, (int) ($estabPorDepartamento?->sum('total') ?? 0)); @endphp
@@ -267,15 +412,15 @@
                                     $pct = round(($fila->total / $totalDepto) * 100, 1);
                                     $departamento = ucfirst(mb_strtolower($fila->departamento ?? 'Sin dato'));
                                 @endphp
-                                <div class="flex items-center justify-between p-3.5 bg-white rounded-md border border-gray-200 hover:border-emerald-300 transition">
+                                <div class="flex items-center justify-between p-3.5 bg-white rounded-md border border-gray-200 hover:border-[var(--ter-500)] transition">
                                     <div class="flex items-center gap-3 flex-1">
-                                        <div class="h-8 w-8 rounded-full bg-emerald-100 flex items-center justify-center font-bold text-emerald-600 text-xs">{{ $loop->iteration }}</div>
+                                        <div class="h-8 w-8 rounded-full bg-[#e8f6f5] flex items-center justify-center font-bold text-[var(--ter-500)] text-xs">{{ $loop->iteration }}</div>
                                         <div class="font-semibold text-gray-800">{{ $departamento }}</div>
                                     </div>
                                     <div class="text-right ml-3">
                                         <div class="font-bold text-gray-900 text-sm mb-1">{{ $pct }}%</div>
                                         <div class="w-24 h-2 bg-gray-200 rounded-full overflow-hidden">
-                                            <div class="h-2 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full" style="width: {{ $pct }}%"></div>
+                                            <div class="h-2 bg-gradient-to-r from-[var(--ter-500)] to-[#5a9792] rounded-full" style="width: {{ $pct }}%"></div>
                                         </div>
                                         <div class="text-xs text-gray-600 mt-1">{{ $fila->total }} establecimientos</div>
                                     </div>
@@ -289,10 +434,10 @@
                         </div>
                     </div>
 
-                    {{-- Por Localidad (restaurado) --}}
+                    {{-- Por Localidad --}}
                     <div class="space-y-3">
-                        <h4 class="font-bold text-[color:var(--pri-700)] flex items-center">
-                            <i class="fas fa-city text-emerald-500 mr-3"></i>
+                        <h4 class="font-bold text-[color:var(--pri-900)] flex items-center font-primary">
+                            <i class="fas fa-city text-[var(--ter-500)] mr-3"></i>
                             Por Localidad
                         </h4>
                         @php $totalLoc = max(1, (int) ($estabPorLocalidad?->sum('total') ?? 0)); @endphp
@@ -302,9 +447,9 @@
                                     $pct = round(($fila->total / $totalLoc) * 100, 1);
                                     $localidad = ucfirst(mb_strtolower($fila->localidad ?? 'Sin dato'));
                                 @endphp
-                                <div class="flex items-center justify-between p-2.5 bg-white rounded-md border border-gray-100 hover:border-emerald-300 transition">
+                                <div class="flex items-center justify-between p-2.5 bg-white rounded-md border border-gray-100 hover:border-[var(--ter-500)] transition">
                                     <div class="flex items-center gap-2.5 flex-1">
-                                        <div class="h-7 w-7 rounded-full bg-emerald-50 flex items-center justify-center font-bold text-emerald-600 text-[11px]">{{ $loop->iteration }}</div>
+                                        <div class="h-7 w-7 rounded-full bg-[#e8f6f5] flex items-center justify-center font-bold text-[var(--ter-500)] text-[11px]">{{ $loop->iteration }}</div>
                                         <div class="font-medium text-gray-800 text-sm truncate">{{ $localidad }}</div>
                                     </div>
                                     <div class="text-right ml-3">
@@ -312,7 +457,7 @@
                                             {{ $fila->total }} <span class="text-gray-600 text-xs">({{ $pct }}%)</span>
                                         </div>
                                         <div class="w-20 h-1.5 bg-gray-200 rounded-full overflow-hidden">
-                                            <div class="h-1.5 bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-full" style="width: {{ $pct }}%"></div>
+                                            <div class="h-1.5 bg-gradient-to-r from-[var(--ter-500)] to-[#5a9792] rounded-full" style="width: {{ $pct }}%"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -348,7 +493,6 @@ function estadisticas($el) {
     counters: { matricula: 0, establecimientos: 0 },
 
     init() {
-      // más rápido o más lento: ajustar 3° parámetro (ms)
       this.animateTo('matricula', this.totalMatricula, 3500);
       this.animateTo('establecimientos', this.totalEstab, 3500);
     },

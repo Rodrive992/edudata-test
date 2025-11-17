@@ -6,7 +6,7 @@
     <div class="bg-[#FFFFFF]">
         {{-- ==================== HERO (solo texto) móvil – versión profesional ==================== --}}
         <section class="md:hidden relative left-1/2 right-1/2 -mx-[50vw] w-screen">
-            <div class="relative overflow-hidden bg-gradient-to-br from-[#6bbde5] via-[#4aa8df] to-[#1d4ed8]">
+            <div class="relative overflow-hidden bg-gradient-to-br from-[var(--pri-500)] via-[var(--pri-700)] to-[var(--pri-900)]">
 
                 <!-- Efecto de brillo diagonal animado -->
                 <div class="absolute inset-0 pointer-events-none">
@@ -34,7 +34,7 @@
 
                         <!-- Título -->
                         <h1 x-show="showTitle" x-transition.opacity.duration.600ms
-                            class="text-[30px] leading-tight font-extrabold tracking-tight drop-shadow-sm">
+                            class="text-[30px] leading-tight font-extrabold tracking-tight drop-shadow-sm font-primary">
                             Portal de Transparencia
                         </h1>
 
@@ -91,7 +91,7 @@
                         <!-- Botón CTA - más llamativo y con efectos mejorados -->
                         <div class="flex items-center justify-center">
                             <a href="{{ route('edudata.solicitud-info') }}"
-                                class="group relative inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-white to-blue-50 text-[#0A1143]
+                                class="group relative inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-white to-blue-50 text-[var(--pri-900)]
                         font-bold text-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1
                         border border-white/30 overflow-hidden">
 
@@ -129,76 +129,24 @@
             }
         </style>
 
-
-
-        {{-- ==================== Carrusel (sólo desktop/tablet) ==================== --}}
-        <section class="relative left-1/2 right-1/2 -mx-[50vw] w-screen hidden md:block" x-data="{
-            i: 0,
-            imgs: [
-                '{{ asset('images/banner-portal-v6.png') }}',
-                '{{ asset('images/banner-portal2-v6.png') }}'
-            ],
-            intervalId: null,
-            start() { this.intervalId = setInterval(() => this.next(), 4000) },
-            stop() { if (this.intervalId) clearInterval(this.intervalId) },
-            next() { this.i = (this.i + 1) % this.imgs.length },
-            prev() { this.i = (this.i - 1 + this.imgs.length) % this.imgs.length }
-        }"
-            x-init="start()" @mouseenter="stop()" @mouseleave="start()">
-
-            <div class="relative w-full h-[340px] lg:h-[435px] bg-white">
-                <template x-for="(src, idx) in imgs" :key="idx">
-                    <div x-show="i === idx" x-transition.opacity.duration.500ms class="absolute inset-0">
-                        <img :src="src" :alt="`Banner ${idx+1}`" class="w-full h-full object-cover block"
-                            loading="eager" fetchpriority="high" />
-                    </div>
-                </template>
-
-                <!-- Controles -->
-                <button @click="prev()"
-                    class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white rounded-full p-2 shadow outline-none"
-                    aria-label="Anterior">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-800" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </button>
-                <button @click="next()"
-                    class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white rounded-full p-2 shadow outline-none"
-                    aria-label="Siguiente">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-800" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                </button>
-
-                <!-- Indicadores -->
-                <div class="absolute bottom-3 w-full flex items-center justify-center gap-2">
-                    <template x-for="(src, idx) in imgs" :key="idx">
-                        <button @click="i = idx" class="h-2.5 w-2.5 rounded-full transition-all"
-                            :class="i === idx ? 'bg-white w-4' : 'bg-white/40'" aria-label="Ir a la imagen"></button>
-                    </template>
-                </div>
-            </div>
-        </section>
+        {{-- ==================== Presentación (solo desktop/tablet) ==================== --}}
+        @include('edudata.partials.presentacion-index')
 
         {{-- ==================== Sección de estadísticas (compacta) ==================== --}}
         <section class="relative">
-            {{-- Línea superior --}}
+         
             <div
-                class="absolute inset-x-0 -top-2 h-[2px] bg-gradient-to-r from-transparent via-[color:var(--pri-300)] to-transparent">
+                class="absolute inset-x-0 -top-2 h-[2px] bg-gradient-to-r from-transparent via-[color:var(--pri-500)] to-transparent">
             </div>
 
-            {{-- Fondo con patrón sutil + degradé lateral suave --}}
             <div class="estadisticas-bg">
-                <div class="container mx-auto px-4 py-4"> {{-- py más bajo para reducir altura --}}
+                <div class="container mx-auto px-4 py-4"> 
                     @include('edudata.partials.estadisticas-index')
                 </div>
             </div>
 
-            {{-- Línea inferior --}}
             <div
-                class="absolute inset-x-0 -bottom-2 h-[2px] bg-gradient-to-r from-transparent via-[color:var(--pri-300)] to-transparent">
+                class="absolute inset-x-0 -bottom-2 h-[2px] bg-gradient-to-r from-transparent via-[color:var(--pri-500)] to-transparent">
             </div>
         </section>
 
@@ -206,19 +154,15 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-3">
             @php
                 $colorPalette = [
-                    'border-blue-500',
-                    'border-cyan-500',
-                    'border-indigo-500',
-                    'border-sky-500',
-                    'border-blue-600',
-                    'border-cyan-600',
-                    'border-indigo-600',
-                    'border-sky-600',
-                    'border-blue-400',
-                    'border-cyan-400',
+                    'border-[var(--pri-900)]',
+                    'border-[var(--pri-700)]',
+                    'border-[var(--pri-500)]',
+                    'border-[var(--sec-500)]',
+                    'border-[var(--ter-500)]',
+                    'border-[var(--acc-500)]',
                 ];
                 $imgBasePath = 'images/tarjeta-';
-                $imgExtension = '-v6.png';
+                $imgExtension = '-v6-v2.png';
                 $cards = [
                     [
                         'href' => route('edudata.mantenimiento'),
@@ -247,7 +191,7 @@
                     [
                         'href' => route('edudata.programas'),
                         'alt' => 'Programas y Proyectos',
-                        'color' => $colorPalette[8],
+                        'color' => $colorPalette[4],
                         'image' => $imgBasePath . 'programas' . $imgExtension,
                     ],
                     [
@@ -265,19 +209,19 @@
                     [
                         'href' => route('edudata.asuntos'),
                         'alt' => 'Asuntos Jurídicos',
-                        'color' => $colorPalette[6],
+                        'color' => $colorPalette[0],
                         'image' => $imgBasePath . 'asuntos' . $imgExtension,
                     ],
                     [
                         'href' => route('edudata.titulos'),
                         'alt' => 'Títulos y Certificaciones',
-                        'color' => $colorPalette[7],
+                        'color' => $colorPalette[5],
                         'image' => $imgBasePath . 'titulos' . $imgExtension,
                     ],
                     [
                         'href' => route('edudata.residencia'),
                         'alt' => 'Residencia Universitaria',
-                        'color' => $colorPalette[9],
+                        'color' => $colorPalette[4],
                         'image' => $imgBasePath . 'residencia' . $imgExtension,
                     ],
                 ];
@@ -287,7 +231,7 @@
                 {{-- Columna izquierda: Transparencia --}}
                 <div class="lg:col-span-1">
                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden h-full">
-                        <div class="bg-gradient-to-r from-[#f5cb58] to-[#ddb954] px-6 py-3">
+                        <div class="bg-gradient-to-r from-[var(--sec-500)] to-[#b8bd37] px-6 py-3">
                             <div class="flex items-center justify-center">
                                 <div class="w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center mr-3">
                                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
@@ -296,18 +240,18 @@
                                             d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                                     </svg>
                                 </div>
-                                <h2 class="text-white font-bold text-lg text-center">Transparencia</h2>
+                                <h2 class="text-white font-bold text-lg text-center font-primary">Transparencia</h2>
                             </div>
                         </div>
                         <div class="p-6">
                             <div class="space-y-4 text-gray-700 text-sm leading-relaxed text-justify">
-                                <p>En el marco de la <strong class="text-blue-600">Ley N.º 27.275 de Acceso a la
+                                <p>En el marco de la <strong class="text-[var(--pri-700)]">Ley N.º 27.275 de Acceso a la
                                         Información
                                         Pública</strong>,
                                     el Ministerio de Educación, Ciencia y Tecnología de Catamarca pone a disposición de la
                                     ciudadanía
                                     un portal para conocer el funcionamiento y uso de los recursos públicos.</p>
-                                <p>El portal integra el sistema <strong class="text-blue-600">EDUDATA</strong>,
+                                <p>El portal integra el sistema <strong class="text-[var(--pri-700)]">EDUDATA</strong>,
                                     desarrollado
                                     por la Dirección de
                                     Transparencia Activa, promoviendo una gestión abierta, eficiente y accesible con
@@ -319,7 +263,7 @@
                                         <div class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
                                         <span class="font-medium">Información actualizada</span>
                                     </div>
-                                    <div class="text-xs text-gray-500">Ley 2.275</div>
+                                    <span class="bg-[#64A1D5] text-white px-1 py-1 ">17-11-2025</span>
                                 </div>
                             </div>
                         </div>
@@ -329,11 +273,11 @@
                 {{-- Columna centro: Tarjetas --}}
                 <div class="lg:col-span-2">
                     <div class="bg-white rounded-lg border border-gray-300 shadow-md overflow-hidden h-full">
-                        <div class="bg-gradient-to-r from-[#6bbde5] to-blue-500 px-4 py-3">
-                            <h2 class="text-white font-bold text-lg text-center">Consultar información por área</h2>
+                        <div class="bg-[#64A1D5] px-4 py-3">
+                            <h2 class="text-white font-bold text-lg text-center font-primary">Consultar información por área</h2>
                         </div>
                         <div
-                            class="h-[540px] overflow-y-auto scrollbar-thin scrollbar-thumb-blue-300 scrollbar-track-blue-100">
+                            class="h-[540px] overflow-y-auto scrollbar-thin scrollbar-thumb-[var(--pri-500)] scrollbar-track-blue-100">
                             <div class="flex flex-col">
                                 @foreach ($cards as $index => $card)
                                     <a href="{{ $card['href'] }}"
@@ -364,7 +308,7 @@
                                             </div>
                                         </div>
                                         <div
-                                            class="absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-b from-blue-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                            class="absolute left-0 top-0 bottom-0 w-2 bg-gradient-to-b from-[var(--pri-500)] to-[var(--pri-700)] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                         </div>
                                     </a>
                                 @endforeach
@@ -376,7 +320,7 @@
                 {{-- Columna derecha: Solicitud --}}
                 <div class="lg:col-span-1">
                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden h-full">
-                        <div class="bg-gradient-to-r from-green-500 to-emerald-600 px-6 py-3">
+                        <div class="bg-gradient-to-r from-[var(--ter-500)] to-[#5a9792] px-6 py-3">
                             <div class="flex items-center justify-center">
                                 <div class="w-7 h-7 bg-white/20 rounded-lg flex items-center justify-center mr-3">
                                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor"
@@ -385,7 +329,7 @@
                                             d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                     </svg>
                                 </div>
-                                <h2 class="text-white font-bold text-lg text-center">Solicitud</h2>
+                                <h2 class="text-white font-bold text-lg text-center font-primary">Solicitud</h2>
                             </div>
                         </div>
                         <div class="p-6">
@@ -461,7 +405,7 @@
 
                             <div class="mt-6 pt-4 border-t border-gray-200">
                                 <a href="{{ route('edudata.solicitud-info') }}"
-                                    class="block w-full bg-green-500 hover:bg-green-600 text-white text-center py-2 px-4 rounded-lg font-medium transition-colors duration-200">
+                                    class="block w-full bg-[var(--ter-500)] hover:bg-[#5a9792] text-white text-center py-2 px-4 rounded-lg font-medium transition-colors duration-200">
                                     Iniciar Solicitud
                                 </a>
                             </div>
@@ -479,7 +423,7 @@
             .estadisticas-bg {
                 position: relative;
                 background:
-                    radial-gradient(circle at 24px 24px, rgba(99, 163, 214, .14) 1px, transparent 1.2px) 0 0/32px 32px,
+                    radial-gradient(circle at 24px 24px, rgba(100, 161, 213, .14) 1px, transparent 1.2px) 0 0/32px 32px,
                     linear-gradient(90deg, rgba(255, 255, 255, .95) 0%, rgba(255, 255, 255, .97) 18%, rgba(255, 255, 255, 1) 40%) left/45% 100% no-repeat,
                     linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
             }
@@ -490,16 +434,16 @@
             }
 
             .scrollbar-thumb-blue-300::-webkit-scrollbar-thumb {
-                background-color: #93c5fd;
+                background-color: var(--pri-500);
                 border-radius: 4px;
             }
 
             .scrollbar-thumb-blue-300::-webkit-scrollbar-thumb:hover {
-                background-color: #60a5fa;
+                background-color: var(--pri-700);
             }
 
             .scrollbar-track-blue-100::-webkit-scrollbar-track {
-                background-color: #dbeafe;
+                background-color: #e8f1fb;
             }
         </style>
     @endpush

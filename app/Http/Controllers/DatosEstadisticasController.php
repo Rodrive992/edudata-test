@@ -48,7 +48,7 @@ class DatosEstadisticasController extends Controller
         $estabPorLocalidad = DatosEstablecimientos::select('localidad', DB::raw('COUNT(*) AS total'))
             ->groupBy('localidad')
             ->orderByDesc('total')
-            ->limit(30)
+            ->limit(300)
             ->get();
 
         // (Opcional) Matrícula por dependencia_tipo si lo tenías
