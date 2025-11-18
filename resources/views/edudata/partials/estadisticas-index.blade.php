@@ -94,7 +94,7 @@
                         <!-- Leyenda agregada aquí -->
                         <div class="hidden sm:flex items-center text-white/80 text-xs italic">
                             <i class="fas fa-info-circle mr-1 text-white/70"></i>
-                            Datos proporcionados por la ecretaría de Planeamiento Educativo
+                            Datos proporcionados por la Secretaría de Planeamiento Educativo
                         </div>
                         <button @click="closeModal()"
                                 class="h-9 px-3 rounded-lg bg-white/20 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white">

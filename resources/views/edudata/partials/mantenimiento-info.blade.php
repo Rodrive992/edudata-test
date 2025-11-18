@@ -105,7 +105,7 @@
         font-weight: 700;
         text-transform: uppercase;
         color: #ffffff;
-        font-family: 'Helvetica Neue', Arial, sans-serif;
+        font-family: 'Open Sans', sans-serif;
     }
 
     /* Panel principal - MÁS COMPACTO */
@@ -165,7 +165,7 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
         letter-spacing: -0.01em;
-        font-family: 'Helvetica Neue', Arial, sans-serif;
+        font-family: 'Open Sans', sans-serif;
     }
 
     .mantenimiento-panel .mantenimiento-head h3::after {
@@ -255,7 +255,7 @@
         margin-bottom: 0.1rem;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        font-family: 'Helvetica Neue', Arial, sans-serif;
+        font-family: 'Open Sans', sans-serif;
     }
 
     .total-value {
@@ -264,7 +264,7 @@
         line-height: 1;
         margin-bottom: 0.25rem;
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        font-family: 'Helvetica Neue', Arial, sans-serif;
+        font-family: 'Open Sans', sans-serif;
     }
 
     .total-subtitle {
@@ -345,7 +345,7 @@
         font-weight: 600;
         color: #374151;
         margin-bottom: 0.1rem;
-        font-family: 'Helvetica Neue', Arial, sans-serif;
+        font-family: 'Open Sans', sans-serif;
     }
 
     .category-description {
@@ -361,7 +361,7 @@
         color: #1f2937;
         min-width: 45px;
         text-align: right;
-        font-family: 'Helvetica Neue', Arial, sans-serif;
+        font-family: 'Open Sans', sans-serif;
     }
 
     .category-card.aph .category-count {
@@ -388,7 +388,7 @@
         font-weight: 600;
         color: #475569;
         margin-bottom: 0.4rem;
-        font-family: 'Helvetica Neue', Arial, sans-serif;
+        font-family: 'Open Sans', sans-serif;
     }
 
     .progress-bar {

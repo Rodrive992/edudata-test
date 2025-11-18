@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Edudata - Solicitud de Información Pública')
+@section('title', 'Solicitud de Información Pública')
 
 @section('content')
 <div class="container mx-auto px-4 py-6 max-w-4xl">
