@@ -6,14 +6,15 @@
     <div class="bg-[#FFFFFF]">
         {{-- ==================== HERO (solo texto) móvil – versión profesional ==================== --}}
         <section class="md:hidden relative left-1/2 right-1/2 -mx-[50vw] w-screen">
-            <div class="relative overflow-hidden bg-gradient-to-br from-[var(--pri-500)] via-[var(--pri-700)] to-[var(--pri-900)]">
+            <div
+                class="relative overflow-hidden bg-gradient-to-br from-[var(--pri-500)] via-[var(--pri-700)] to-[var(--pri-900)]">
 
                 <!-- Efecto de brillo diagonal animado -->
                 <div class="absolute inset-0 pointer-events-none">
                     <div
                         class="absolute -inset-x-1 top-0 h-[140%] opacity-[0.08]
-          bg-gradient-to-tr from-white via-transparent to-white
-          animate-[sweep_6s_linear_infinite]">
+                        bg-gradient-to-tr from-white via-transparent to-white
+                        animate-[sweep_6s_linear_infinite]">
                     </div>
                 </div>
 
@@ -130,21 +131,24 @@
         </style>
 
         {{-- ==================== Presentación (solo desktop/tablet) ==================== --}}
-        @include('edudata.partials.presentacion-index')
+        {{-- ==================== Presentación (solo desktop/tablet) ==================== --}}
+        <section class="hidden md:block" x-data x-cloak>
+            @include('edudata.partials.presentacion-index')
+        </section>
 
         {{-- ==================== Sección de estadísticas (compacta) ==================== --}}
         <section class="relative">
-         
+
             <div
                 class="absolute inset-x-0 -top-2 h-[2px] bg-gradient-to-r from-transparent via-[color:var(--pri-500)] to-transparent">
             </div>
-
-            <div class="estadisticas-bg">
-                <div class="container mx-auto px-4 py-4"> 
-                    @include('edudata.partials.estadisticas-index')
+            <section class="hidden md:block" x-data x-cloak>
+                <div class="estadisticas-bg">
+                    <div class="container mx-auto px-4 py-4">
+                        @include('edudata.partials.estadisticas-index')
+                    </div>
                 </div>
-            </div>
-
+            </section>
             <div
                 class="absolute inset-x-0 -bottom-2 h-[2px] bg-gradient-to-r from-transparent via-[color:var(--pri-500)] to-transparent">
             </div>
@@ -224,6 +228,12 @@
                         'color' => $colorPalette[4],
                         'image' => $imgBasePath . 'residencia' . $imgExtension,
                     ],
+                    [
+                        'href' => route('edudata.sumario'),
+                        'alt' => 'Sumario Docente',
+                        'color' => $colorPalette[1],
+                        'image' => $imgBasePath . 'sumario' . $imgExtension,
+                    ],
                 ];
             @endphp
 
@@ -263,7 +273,7 @@
                                         <div class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
                                         <span class="font-medium">Información actualizada</span>
                                     </div>
-                                    <span class="bg-[#64A1D5] text-white px-1 py-1 ">17-11-2025</span>
+                                    <span class="bg-[#64A1D5] text-white px-1 py-1 ">24-11-2025</span>
                                 </div>
                             </div>
                         </div>
@@ -274,7 +284,8 @@
                 <div class="lg:col-span-2">
                     <div class="bg-white rounded-lg border border-gray-300 shadow-md overflow-hidden h-full">
                         <div class="bg-[#64A1D5] px-4 py-3">
-                            <h2 class="text-white font-bold text-lg text-center font-primary">Consultar información por área</h2>
+                            <h2 class="text-white font-bold text-lg text-center font-primary">Consultar información por área
+                            </h2>
                         </div>
                         <div
                             class="h-[540px] overflow-y-auto scrollbar-thin scrollbar-thumb-[var(--pri-500)] scrollbar-track-blue-100">
@@ -299,8 +310,8 @@
                                                 class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300">
                                                 <div
                                                     class="bg-white/95 backdrop-blur-sm rounded-full p-2 shadow-lg border border-blue-200">
-                                                    <svg class="w-4 h-4 text-blue-600" fill="none"
-                                                        stroke="currentColor" viewBox="0 0 24 24">
+                                                    <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24">
                                                         <path stroke-linecap="round" stroke-linejoin="round"
                                                             stroke-width="2" d="M9 5l7 7-7 7" />
                                                     </svg>

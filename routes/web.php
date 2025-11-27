@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EduRedController;
 use App\Http\Controllers\AuthController;
@@ -20,7 +19,7 @@ use App\Models\MantenimientoRealizadas;
 use App\Http\Controllers\SolicitudInformacionController;
 use App\Http\Controllers\CoberturaCargosController;
 use App\Http\Controllers\DatosEstadisticasController;
-
+use App\Http\Controllers\SumarioController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -53,6 +52,7 @@ Route::prefix('edudata')->group(function () {
     Route::post('/solicitud-info', [SolicitudInformacionController::class, 'store'])->name('edudata.solicitud-info.store');
     Route::get('/registro-solicitudes', [SolicitudInformacionController::class, 'registro'])->name('edudata.solicitud-info.registro_solicitudes_info');
     Route::get('/asambleas', [CoberturaCargosController::class, 'index'])->name('edudata.asambleas');
+    Route::get('/sumario', [SumarioController::class, 'index'])->name('edudata.sumario');
 });
 
 // Autenticación manual
@@ -150,3 +150,4 @@ Route::prefix('edured')->middleware('auth')->group(function () {
         });
     });
 });
+
