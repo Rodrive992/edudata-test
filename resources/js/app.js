@@ -1,9 +1,6 @@
 import './bootstrap';
 import '../css/app.css';
 
-import Alpine from 'alpinejs';
-window.Alpine = Alpine;
-
 // Componente global: lee totales desde data-attributes del elemento raíz
 window.estadisticas = function(el) {
     const totalMatricula = Number(el?.dataset?.totalMatricula ?? 0);
@@ -46,4 +43,3 @@ window.estadisticas = function(el) {
     }
 };
 
-Alpine.start();
