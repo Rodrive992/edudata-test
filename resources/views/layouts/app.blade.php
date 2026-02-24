@@ -20,31 +20,81 @@
         rel="stylesheet">
 
     <style>
-        :root {
-            /* Nueva paleta de colores */
-            --pri-900: #222A59;
-            /* Azul oscuro principal */
-            --pri-700: #405CA4;
-            /* Azul medio */
-            --pri-500: #64A1D5;
-            /* Azul claro */
-            --sec-500: #CBD03E;
-            /* Verde institucional */
-            --ter-500: #65A8A3;
-            /* Verde azulado */
-            --acc-500: #807DA8;
-            /* Violeta complementario */
+        /* ====== ORGANIGRAMA: COLORES POR JERARQUÍA (PALETA 01–08) ====== */
 
-            /* Colores neutros */
-            --ink: #1f2937;
-            /* Texto base */
-            --gray-200: #e5e7eb;
-            /* Bordes */
-            --gray-100: #f3f4f6;
-            /* Fondos claros */
+        /* MINISTRO (07) */
+        .role-ministro .card-accent {
+            background: #C8217E;
         }
 
-        /* Definición de fuentes */
+        .role-ministro .role-badge {
+            background: rgba(200, 33, 126, .14);
+            color: #C8217E;
+            border-color: rgba(200, 33, 126, .38);
+        }
+
+        .role-ministro .action-btn {
+            background: #C8217E;
+            color: #fff;
+        }
+
+        .role-ministro .action-btn:hover {
+            background: #222A59;
+        }
+
+        /* SECRETARÍAS (05) */
+        .role-secretaria .card-accent {
+            background: #65A8A3;
+        }
+
+        .role-secretaria .role-badge {
+            background: rgba(101, 168, 163, .16);
+            color: #222A59;
+            border-color: rgba(101, 168, 163, .45);
+        }
+
+        .role-secretaria .action-btn {
+            background: #65A8A3;
+            color: #fff;
+        }
+
+        .role-secretaria .action-btn:hover {
+            background: #405CA4;
+        }
+
+        /* DIRECCIONES (03) */
+        .role-direccion .card-accent {
+            background: #64A1D5;
+        }
+
+        .role-direccion .role-badge {
+            background: rgba(100, 161, 213, .18);
+            color: #222A59;
+            border-color: rgba(100, 161, 213, .48);
+        }
+
+        .role-direccion .action-btn {
+            background: #64A1D5;
+            color: #222A59;
+        }
+
+        .role-direccion .action-btn:hover {
+            background: #807DA8;
+            color: #fff;
+        }
+
+        :root {
+            --pri-900: #222A59;
+            --pri-700: #405CA4;
+            --pri-500: #64A1D5;
+            --sec-500: #CBD03E;
+            --ter-500: #65A8A3;
+            --acc-500: #807DA8;
+            --ink: #1f2937;
+            --gray-200: #e5e7eb;
+            --gray-100: #f3f4f6;
+        }
+
         body {
             font-family: 'Open Sans', sans-serif;
         }
@@ -57,7 +107,6 @@
             display: none !important;
         }
 
-        /* Scrollbars coherentes */
         .scrollbar-thin::-webkit-scrollbar {
             width: 8px;
         }
@@ -75,7 +124,6 @@
             background-color: #e8f1fb;
         }
 
-        /* Fondo con patrón para la sección de estadísticas */
         .estadisticas-bg {
             position: relative;
         }
@@ -87,7 +135,6 @@
             pointer-events: none;
         }
 
-        /* Utilitarios opcionales para unificar tarjetas */
         .surface {
             background: #fff;
             border: 1px solid var(--gray-200);
@@ -103,10 +150,8 @@
         }
     </style>
 
-
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Configuración de Tailwind con la nueva paleta -->
     <script>
         tailwind.config = {
             theme: {
@@ -143,8 +188,8 @@
     {{-- Top navbar --}}
     @if (Request::is('edured*'))
         @include('edured.partials.top-navbar')
-    @else                   
-                @include('edudata.partials.top-navbar')       
+    @else
+        @include('edudata.partials.top-navbar')
     @endif
 
     {{-- Contenido principal --}}
