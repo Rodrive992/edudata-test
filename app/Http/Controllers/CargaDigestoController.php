@@ -8,12 +8,10 @@ use App\Models\Digesto;
 
 class CargaDigestoController extends Controller
 {
-    // Muestra el formulario (vista herramientas/digesto.blade.php)
+    // Muestra el formulario
     public function index()
     {
-        // Podés traer últimos documentos si querés listarlos
         $docs = Digesto::orderByDesc('fecha_subida')->limit(20)->get();
-
         return view('edured.herramientas.digesto.index', compact('docs'));
     }
 
@@ -33,14 +31,19 @@ class CargaDigestoController extends Controller
 
         // Guardar en storage/app/public/digesto/AAAA/MM/
         $folder = 'digesto/' . now()->format('Y') . '/' . now()->format('m');
-        $path   = $file->store($folder, 'public'); // requiere storage:link
 
-        // Crear registro
+        // nombre limpio (evita espacios, acentos, símbolos raros)
+        $original = $file->getClientOriginalName();
+        $safeName = preg_replace('/[^A-Za-z0-9\.\-_]/', '_', $original);
+        $safeName = time() . '_' . $safeName;
+
+        $path = $file->storeAs($folder, $safeName, 'public');
+
         Digesto::create([
             'titulo'         => $request->titulo,
             'descripcion'    => $request->descripcion,
-            'nombre_archivo' => $file->getClientOriginalName(),
-            'ruta_archivo'   => $path, // ej: digesto/2025/09/archivo.pdf
+            'nombre_archivo' => $original,
+            'ruta_archivo'   => $path, // ej: digesto/2026/02/170xxx_doc.pdf
             'tipo_archivo'   => $file->getClientMimeType(),
             'tamano_archivo' => $file->getSize(),
             'usuario_id'     => auth()->id(),
@@ -56,12 +59,10 @@ class CargaDigestoController extends Controller
     public function destroy(Digesto $digesto)
     {
         try {
-            // borrar archivo físico si existe
             if ($digesto->ruta_archivo && Storage::disk('public')->exists($digesto->ruta_archivo)) {
                 Storage::disk('public')->delete($digesto->ruta_archivo);
             }
 
-            // borrar registro
             $digesto->delete();
 
             return back()->with('ok', 'Documento eliminado correctamente.');
