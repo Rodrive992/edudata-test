@@ -17,8 +17,8 @@
 </script>
 
 <style>
-    /* --- Panel de estadísticas con solapa azul (estilo original mejorado) --- */
-    .mantenimiento-panel {
+    /* --- Panel de estadísticas con solapa azul (solo desktop) --- */
+    .mantenimiento-panel-desktop {
         --panel-bg: {{ $panelColor }};
         --panel-grad: linear-gradient(180deg, var(--sec-500) 0%, var(--pri-500) 100%);
         --panel-text: #334155;
@@ -39,17 +39,24 @@
         z-index: 9999;
         pointer-events: none;
         font-family: 'Open Sans', sans-serif;
+        display: none;
     }
 
-    /* Solapa azul - estilo original mejorado */
-    .mantenimiento-panel .mantenimiento-trigger {
+    @media (min-width: 1025px) {
+        .mantenimiento-panel-desktop {
+            display: block;
+        }
+    }
+
+    /* Solapa azul desktop */
+    .mantenimiento-panel-desktop .mantenimiento-trigger {
         position: absolute;
         left: -100px;
         top: 50%;
         transform: translateY(-50%);
         width: 90px;
         border-radius: 20px 0 0 20px;
-        background: #1e3a8a; /* Azul oscuro profesional */
+        background: #1e3a8a;
         color: white;
         border: 2px solid rgba(255, 255, 255, 0.1);
         border-right: none;
@@ -65,14 +72,14 @@
         backdrop-filter: blur(10px);
     }
 
-    .mantenimiento-panel .mantenimiento-trigger:hover {
+    .mantenimiento-panel-desktop .mantenimiento-trigger:hover {
         transform: translateY(-50%) scale(1.05);
         box-shadow: var(--hover-glow), 0 8px 25px rgba(0, 0, 0, 0.15);
-        background: #2563eb; /* Azul más claro al hover */
+        background: #2563eb;
         left: -105px;
     }
 
-    .mantenimiento-panel .mantenimiento-trigger img {
+    .mantenimiento-panel-desktop .mantenimiento-trigger img {
         width: 42px;
         height: 42px;
         object-fit: contain;
@@ -80,12 +87,12 @@
         transition: all 0.3s ease;
     }
 
-    .mantenimiento-panel .mantenimiento-trigger:hover img {
+    .mantenimiento-panel-desktop .mantenimiento-trigger:hover img {
         transform: scale(1.1);
         filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.3));
     }
 
-    .mantenimiento-panel .mantenimiento-trigger .mantenimiento-trigger-label {
+    .mantenimiento-panel-desktop .mantenimiento-trigger .mantenimiento-trigger-label {
         writing-mode: vertical-rl;
         transform: rotate(180deg);
         font-size: .85rem;
@@ -93,11 +100,10 @@
         font-weight: 600;
         text-transform: uppercase;
         color: #ffffff;
-        font-family: 'Open Sans', sans-serif;
     }
 
-    /* Superficie del panel */
-    .mantenimiento-panel .mantenimiento-surface {
+    /* Superficie del panel desktop */
+    .mantenimiento-panel-desktop .mantenimiento-surface {
         width: 380px;
         max-height: 80vh;
         background: #ffffff;
@@ -112,20 +118,18 @@
         flex-direction: column;
     }
 
-    /* Header del panel */
-    .mantenimiento-panel .mantenimiento-head {
+    /* Header del panel desktop */
+    .mantenimiento-panel-desktop .mantenimiento-head {
         padding: 16px 20px;
         border-bottom: 1px solid rgba(100, 116, 139, 0.1);
-        text-align: center;
         background: #f8fafc;
-        position: relative;
-        flex-shrink: 0;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-shrink: 0;
     }
 
-    .mantenimiento-panel .mantenimiento-head h3 {
+    .mantenimiento-panel-desktop .mantenimiento-head h3 {
         font-size: 1rem;
         font-weight: 600;
         margin: 0;
@@ -134,7 +138,7 @@
         text-transform: uppercase;
     }
 
-    .mantenimiento-panel .mantenimiento-close {
+    .mantenimiento-panel-desktop .mantenimiento-close {
         background: transparent;
         color: #64748b;
         border: none;
@@ -146,42 +150,135 @@
         justify-content: center;
         cursor: pointer;
         font-size: 1.2rem;
-        font-weight: 400;
         transition: all 0.2s ease;
     }
 
-    .mantenimiento-panel .mantenimiento-close:hover {
+    .mantenimiento-panel-desktop .mantenimiento-close:hover {
         background: #e2e8f0;
         color: #1e293b;
     }
 
-    /* Body del panel */
-    .mantenimiento-panel .mantenimiento-body {
+    /* Body del panel desktop */
+    .mantenimiento-panel-desktop .mantenimiento-body {
         padding: 20px;
         display: flex;
         flex-direction: column;
         gap: 1.25rem;
         flex: 1;
         overflow-y: auto;
-        overflow-x: hidden;
-        scrollbar-width: thin;
-        scrollbar-color: #cbd5e0 #f1f5f9;
     }
 
-    .mantenimiento-panel .mantenimiento-body::-webkit-scrollbar {
-        width: 4px;
+    /* --- Versión móvil: botón flotante y modal --- */
+    .mantenimiento-mobile {
+        display: block;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+        font-family: 'Open Sans', sans-serif;
     }
 
-    .mantenimiento-panel .mantenimiento-body::-webkit-scrollbar-track {
-        background: #f1f5f9;
+    @media (min-width: 1025px) {
+        .mantenimiento-mobile {
+            display: none;
+        }
     }
 
-    .mantenimiento-panel .mantenimiento-body::-webkit-scrollbar-thumb {
-        background: #cbd5e0;
-        border-radius: 2px;
+    .mantenimiento-mobile-button {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #1e3a8a;
+        color: white;
+        border: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
     }
 
-    /* Tarjeta de total */
+    .mantenimiento-mobile-button:hover {
+        background: #2563eb;
+        transform: scale(1.1);
+    }
+
+    .mantenimiento-mobile-button img {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+    }
+
+    .mantenimiento-mobile-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+    }
+
+    .mantenimiento-mobile-modal.hidden {
+        display: none;
+    }
+
+    .mantenimiento-mobile-content {
+        background: white;
+        border-radius: 24px;
+        width: 100%;
+        max-width: 380px;
+        max-height: 80vh;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .mantenimiento-mobile-header {
+        padding: 16px 20px;
+        background: #1e3a8a;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .mantenimiento-mobile-header h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .mantenimiento-mobile-close {
+        background: transparent;
+        color: white;
+        border: none;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+
+    .mantenimiento-mobile-close:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    .mantenimiento-mobile-body {
+        padding: 20px;
+        max-height: calc(80vh - 80px);
+        overflow-y: auto;
+    }
+
+    /* Mantener todos los estilos de las tarjetas igual */
     .total-card {
         background: linear-gradient(135deg, #1e293b, #0f172a);
         color: white;
@@ -381,94 +478,50 @@
         border: 1px solid #e2e8f0;
     }
 
-    /* Animación pulse para la solapa */
+    /* Animación pulse */
     @keyframes pulse-glow {
         0% { box-shadow: 0 0 0 0 rgba(30, 58, 138, 0.4); }
         70% { box-shadow: 0 0 0 10px rgba(30, 58, 138, 0); }
         100% { box-shadow: 0 0 0 0 rgba(30, 58, 138, 0); }
     }
 
-    .mantenimiento-trigger.pulse { 
+    .pulse { 
         animation: pulse-glow 2s infinite; 
-    }
-
-    /* Responsive */
-    @media (max-width: 1024px) {
-        .mantenimiento-panel { 
-            top: auto; 
-            bottom: 20px; 
-            right: 20px; 
-            transform: none; 
-        }
-        
-        .mantenimiento-panel .mantenimiento-trigger { 
-            position: relative; 
-            left: auto; 
-            top: auto; 
-            transform: none; 
-            width: 60px; 
-            height: 60px; 
-            border-radius: 50%; 
-            padding: 0; 
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-        
-        .mantenimiento-panel .mantenimiento-trigger .mantenimiento-trigger-label { 
-            display: none; 
-        }
-        
-        .mantenimiento-panel .mantenimiento-trigger img { 
-            width: 32px; 
-            height: 32px; 
-        }
-        
-        .mantenimiento-panel .mantenimiento-surface { 
-            position: fixed; 
-            top: 50%; 
-            left: 50%; 
-            transform: translate(-50%, -50%);
-            width: 90%; 
-            max-width: 350px; 
-            border-radius: 16px; 
-            border: 2px solid rgba(255,255,255,0.9);
-        }
     }
 </style>
 
-<div class="mantenimiento-panel" 
-     x-data="mantenimientoPanel()" 
+<!-- VERSIÓN DESKTOP -->
+<div class="mantenimiento-panel-desktop" 
+     x-data="mantenimientoPanelDesktop()" 
      x-init="init()"
      @keydown.window.escape="if(isOpen) toggle()">
 
-    <!-- Solapa azul (estilo original) -->
+    <!-- Solapa azul -->
     <button class="mantenimiento-trigger" 
             :class="{ 'pulse': !isOpen }" 
-            @click="toggle()" 
-            :aria-expanded="isOpen ? 'true' : 'false'"
-            aria-label="Abrir panel de estadísticas">
+            @click="toggle()">
         <img src="{{ $logoSrc }}" alt="Estadísticas">
         <span class="mantenimiento-trigger-label">{{ $triggerLabel }}</span>
     </button>
 
-    <!-- Panel deslizable -->
+    <!-- Panel -->
     <section class="mantenimiento-surface" 
-             x-cloak 
              x-show="isOpen"
              x-transition:enter="transition ease-out duration-300"
              x-transition:enter-start="opacity-0 transform translate-x-full"
              x-transition:enter-end="opacity-100 transform translate-x-0"
              x-transition:leave="transition ease-in duration-200"
              x-transition:leave-start="opacity-100 transform translate-x-0"
-             x-transition:leave-end="opacity-0 transform translate-x-0"
+             x-transition:leave-end="opacity-0 transform translate-x-full"
              @click.away="isOpen = false">
 
         <div class="mantenimiento-head">
             <h3>📊 Estadísticas</h3>
-            <button class="mantenimiento-close" @click="toggle()" aria-label="Cerrar">×</button>
+            <button class="mantenimiento-close" @click="toggle()">×</button>
         </div>
 
         <div class="mantenimiento-body">
-            <!-- Total general del año actual -->
+            <!-- Total general -->
             <div class="total-card">
                 <div class="total-label">Total de tareas de Mantenimiento</div>
                 <div class="total-value" x-text="formatNumber(animatedTotal)"></div>
@@ -505,7 +558,7 @@
                 </div>
             </div>
 
-            <!-- Distribución porcentual -->
+            <!-- Distribución -->
             <div class="distribution-container">
                 <div class="distribution-title">Distribución por categoría</div>
                 
@@ -534,7 +587,7 @@
                 </div>
             </div>
 
-            <!-- Historial por años (sin selector) -->
+            <!-- Historial por años -->
             @if(!empty($totalesPorAnio) && count($aniosDisponibles) > 0)
                 <div class="years-list">
                     <div class="years-title">📅 Totales por año</div>
@@ -558,8 +611,114 @@
     </section>
 </div>
 
+<!-- VERSIÓN MÓVIL -->
+<div class="mantenimiento-mobile" x-data="mantenimientoPanelMobile()" x-init="init()">
+    <!-- Botón flotante -->
+    <button class="mantenimiento-mobile-button pulse" @click="isOpen = true">
+        <img src="{{ $logoSrc }}" alt="Estadísticas">
+    </button>
+
+    <!-- Modal -->
+    <div class="mantenimiento-mobile-modal" :class="{ 'hidden': !isOpen }" @click="isOpen = false">
+        <div class="mantenimiento-mobile-content" @click.stop>
+            <div class="mantenimiento-mobile-header">
+                <h3>📊 Estadísticas</h3>
+                <button class="mantenimiento-mobile-close" @click="isOpen = false">×</button>
+            </div>
+            <div class="mantenimiento-mobile-body">
+                <!-- Total general -->
+                <div class="total-card">
+                    <div class="total-label">Total de tareas de Mantenimiento</div>
+                    <div class="total-value" x-text="formatNumber(animatedTotal)"></div>
+                    <div class="total-subtitle">tareas registradas</div>
+                </div>
+
+                <!-- Categorías -->
+                <div class="category-cards">
+                    <div class="category-card">
+                        <div class="category-icon">🏗️</div>
+                        <div class="category-content">
+                            <div class="category-name">APH</div>
+                            <div class="category-description">Albañilería · Plomería · Herrería</div>
+                        </div>
+                        <div class="category-count" x-text="formatNumber(animatedAph)"></div>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-icon">⚡</div>
+                        <div class="category-content">
+                            <div class="category-name">ELEC</div>
+                            <div class="category-description">Electricidad</div>
+                        </div>
+                        <div class="category-count" x-text="formatNumber(animatedElec)"></div>
+                    </div>
+
+                    <div class="category-card">
+                        <div class="category-icon">🌿</div>
+                        <div class="category-content">
+                            <div class="category-name">DEZM</div>
+                            <div class="category-description">Desmalezamiento</div>
+                        </div>
+                        <div class="category-count" x-text="formatNumber(animatedDezm)"></div>
+                    </div>
+                </div>
+
+                <!-- Distribución -->
+                <div class="distribution-container">
+                    <div class="distribution-title">Distribución por categoría</div>
+                    
+                    <div class="distribution-item">
+                        <span class="distribution-label">APH</span>
+                        <div class="distribution-bar-container">
+                            <div class="distribution-bar aph" :style="`width: ${aphPercentage}%`"></div>
+                        </div>
+                        <span class="distribution-percent" x-text="aphPercentage.toFixed(1) + '%'"></span>
+                    </div>
+
+                    <div class="distribution-item">
+                        <span class="distribution-label">ELEC</span>
+                        <div class="distribution-bar-container">
+                            <div class="distribution-bar elec" :style="`width: ${elecPercentage}%`"></div>
+                        </div>
+                        <span class="distribution-percent" x-text="elecPercentage.toFixed(1) + '%'"></span>
+                    </div>
+
+                    <div class="distribution-item">
+                        <span class="distribution-label">DEZM</span>
+                        <div class="distribution-bar-container">
+                            <div class="distribution-bar dezm" :style="`width: ${dezmPercentage}%`"></div>
+                        </div>
+                        <span class="distribution-percent" x-text="dezmPercentage.toFixed(1) + '%'"></span>
+                    </div>
+                </div>
+
+                <!-- Historial por años -->
+                @if(!empty($totalesPorAnio) && count($aniosDisponibles) > 0)
+                    <div class="years-list">
+                        <div class="years-title">📅 Totales por año</div>
+                        <div class="years-items">
+                            @foreach($aniosDisponibles as $y)
+                                @php
+                                    $row = $totalesPorAnio[$y] ?? ['TOTAL' => 0];
+                                    $qs = request()->query();
+                                    $qs['anio'] = $y;
+                                    $href = url()->current() . '?' . http_build_query($qs);
+                                @endphp
+                                <div class="year-row">
+                                    <a href="{{ $href }}" class="year">{{ $y }}</a>
+                                    <span class="total">{{ number_format((int)($row['TOTAL'] ?? 0)) }}</span>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
-    function mantenimientoPanel() {
+    function mantenimientoPanelDesktop() {
         return {
             isOpen: window.EDUDATA_MANTENIMIENTO_OPEN || false,
             animatedTotal: 0,
@@ -650,7 +809,81 @@
         }
     }
 
+    function mantenimientoPanelMobile() {
+        return {
+            isOpen: false,
+            animatedTotal: 0,
+            animatedAph: 0,
+            animatedElec: 0,
+            animatedDezm: 0,
+            totals: window.EDUDATA_MANTENIMIENTO_TOTALS || { APH: 0, ELEC: 0, DEZM: 0 },
+
+            get realTotals() {
+                return {
+                    total: (this.totals.APH || 0) + (this.totals.ELEC || 0) + (this.totals.DEZM || 0),
+                    aph: this.totals.APH || 0,
+                    elec: this.totals.ELEC || 0,
+                    dezm: this.totals.DEZM || 0
+                };
+            },
+
+            get aphPercentage() {
+                const t = this.realTotals.total;
+                return t > 0 ? (this.realTotals.aph / t) * 100 : 0;
+            },
+            
+            get elecPercentage() {
+                const t = this.realTotals.total;
+                return t > 0 ? (this.realTotals.elec / t) * 100 : 0;
+            },
+            
+            get dezmPercentage() {
+                const t = this.realTotals.total;
+                return t > 0 ? (this.realTotals.dezm / t) * 100 : 0;
+            },
+
+            init() {
+                this.startCounting();
+            },
+
+            formatNumber(num) {
+                return new Intl.NumberFormat('es-AR').format(num);
+            },
+
+            startCounting() {
+                const real = this.realTotals;
+                const duration = 800;
+                const steps = 40;
+                const stepDuration = duration / steps;
+                let current = 0;
+
+                const animate = () => {
+                    if (current <= steps) {
+                        const progress = current / steps;
+                        const ease = 1 - Math.pow(1 - progress, 3);
+                        
+                        this.animatedTotal = Math.floor(real.total * ease);
+                        this.animatedAph = Math.floor(real.aph * ease);
+                        this.animatedElec = Math.floor(real.elec * ease);
+                        this.animatedDezm = Math.floor(real.dezm * ease);
+                        
+                        current++;
+                        setTimeout(animate, stepDuration);
+                    } else {
+                        this.animatedTotal = real.total;
+                        this.animatedAph = real.aph;
+                        this.animatedElec = real.elec;
+                        this.animatedDezm = real.dezm;
+                    }
+                };
+                
+                animate();
+            }
+        }
+    }
+
     document.addEventListener('alpine:init', () => {
-        Alpine.data('mantenimientoPanel', mantenimientoPanel);
+        Alpine.data('mantenimientoPanelDesktop', mantenimientoPanelDesktop);
+        Alpine.data('mantenimientoPanelMobile', mantenimientoPanelMobile);
     });
 </script>
