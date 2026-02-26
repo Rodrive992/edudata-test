@@ -415,8 +415,131 @@
                     </div>
                 </div>
 
-                <!-- Continuar con las demás acciones... -->
-                <!-- Aquí van las acciones 4 a 14 con el mismo formato -->
+                <!-- Acción 4 -->
+                <div class="accion-item">
+                    <div class="accion-header">
+                        <div class="accion-numero">4</div>
+                        <div class="accion-titulo">Acompañamiento territorial del equipo técnico de la Dirección</div>
+                    </div>
+                    <div class="accion-contenido">
+                        <p class="accion-descripcion">Visitas periódicas a las instituciones educativas para brindar asesoramiento, seguimiento y apoyo en la gestión académica y administrativa.</p>
+                    </div>
+                </div>
+
+                <!-- Acción 5 -->
+                <div class="accion-item">
+                    <div class="accion-header">
+                        <div class="accion-numero">5</div>
+                        <div class="accion-titulo">Jornada en la Escuela Agrotécnica de Huaco – Semana de la Educación Agropecuaria</div>
+                    </div>
+                    <div class="accion-contenido">
+                        <p class="accion-descripcion">Realización de actividades en el marco de la semana de la educación agropecuaria, fortaleciendo el vínculo entre la escuela y su entorno productivo.</p>
+                    </div>
+                </div>
+
+                <!-- Acción 6 -->
+                <div class="accion-item">
+                    <div class="accion-header">
+                        <div class="accion-numero">6</div>
+                        <div class="accion-titulo">Acompañamiento en el aniversario 80 de la Escuela de Minería</div>
+                    </div>
+                    <div class="accion-contenido">
+                        <p class="accion-descripcion">Participación y apoyo institucional en la conmemoración del 80° aniversario de la Escuela de Minería, reconociendo su trayectoria y aporte a la educación técnica provincial.</p>
+                    </div>
+                </div>
+
+                <!-- Acción 7 -->
+                <div class="accion-item">
+                    <div class="accion-header">
+                        <div class="accion-numero">7</div>
+                        <div class="accion-titulo">Intervenciones ante situaciones complejas</div>
+                    </div>
+                    <div class="accion-contenido">
+                        <p class="accion-descripcion">Acciones inmediatas y coordinadas ante situaciones problemáticas en escuelas técnicas y agrotécnicas, garantizando la continuidad pedagógica y el bienestar de la comunidad educativa.</p>
+                    </div>
+                </div>
+
+                <!-- Acción 8 -->
+                <div class="accion-item">
+                    <div class="accion-header">
+                        <div class="accion-numero">8</div>
+                        <div class="accion-titulo">Firma de convenios con empresas</div>
+                    </div>
+                    <div class="accion-contenido">
+                        <p class="accion-descripcion">Celebración de convenios con empresas para la realización de prácticas profesionalizantes de los estudiantes de 7° año de tres escuelas técnicas y agrotécnicas, fortaleciendo la vinculación escuela-trabajo.</p>
+                    </div>
+                </div>
+
+                <!-- Acción 9 -->
+                <div class="accion-item">
+                    <div class="accion-header">
+                        <div class="accion-numero">9</div>
+                        <div class="accion-titulo">Articulación interministerial</div>
+                    </div>
+                    <div class="accion-contenido">
+                        <p class="accion-descripcion">Trabajo conjunto con el Ministerio de Salud, Ministerio de Desarrollo Social y Ministerio de Desarrollo Productivo para implementar políticas integrales que impacten en la educación técnica y agrotécnica.</p>
+                    </div>
+                </div>
+
+                <!-- Acción 10 -->
+                <div class="accion-item">
+                    <div class="accion-header">
+                        <div class="accion-numero">10</div>
+                        <div class="accion-titulo">Asistencia a Mesas Federales INET</div>
+                    </div>
+                    <div class="accion-contenido">
+                        <p class="accion-descripcion">Participación en reuniones federales convocadas por el INET, representando a la provincia y gestionando recursos y programas destinados a la educación técnica.</p>
+                    </div>
+                </div>
+
+                <!-- Acción 11 -->
+                <div class="accion-item">
+                    <div class="accion-header">
+                        <div class="accion-numero">11</div>
+                        <div class="accion-titulo">Reunión con centros de estudiantes</div>
+                    </div>
+                    <div class="accion-contenido">
+                        <p class="accion-descripcion">Encuentro con representantes de centros de estudiantes de escuelas técnicas y agrotécnicas para fortalecer la participación estudiantil y promover el liderazgo juvenil.</p>
+                    </div>
+                </div>
+
+                <!-- Acción 12 -->
+                <div class="accion-item">
+                    <div class="accion-header">
+                        <div class="accion-numero">12</div>
+                        <div class="accion-titulo">Inauguración del Centro Integral de Manejo Bovino</div>
+                    </div>
+                    <div class="accion-contenido">
+                        <p class="accion-descripcion">Habilitación de un espacio destinado a la formación práctica de estudiantes en la Escuela Agroganadera Fray Vicente Alcaraz, con tecnología y equipamiento para el manejo integral de la producción bovina.</p>
+                    </div>
+                </div>
+
+                <!-- Acción 13 -->
+                <div class="accion-item">
+                    <div class="accion-header">
+                        <div class="accion-numero">13</div>
+                        <div class="accion-titulo">Acompañamiento en el Rally del Poncho 2025</div>
+                    </div>
+                    <div class="accion-contenido">
+                        <p class="accion-descripcion">Apoyo y asistencia a la participación de estudiantes de la EPET N° 6 en el Rally del Poncho, promoviendo la aplicación de conocimientos técnicos en eventos de relevancia provincial.</p>
+                    </div>
+                </div>
+
+                <!-- Acción 14 -->
+                <div class="accion-item">
+                    <div class="accion-header">
+                        <div class="accion-numero">14</div>
+                        <div class="accion-titulo">Apoyo técnico a instituciones educativas</div>
+                    </div>
+                    <div class="accion-contenido">
+                        <p class="accion-descripcion">Asistencia de las escuelas técnicas a escuelas primarias, secundarias y jardines de infantes mediante proyectos y trabajos orientados a la mejora y mantenimiento de las instalaciones edilicias, fortaleciendo la comunidad educativa y promoviendo el aprendizaje basado en proyectos.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer con resumen -->
+            <div class="mt-6 text-xs text-gray-500 pt-4 border-t border-gray-200 text-center italic">
+                Resumen ejecutivo de las principales acciones desarrolladas durante 2025
             </div>
         </div>
     </section>
@@ -474,7 +597,131 @@
                         </div>
                     </div>
 
-                    <!-- Aquí van las acciones 4 a 14 con el mismo formato -->
+                    <!-- Acción 4 -->
+                    <div class="accion-item">
+                        <div class="accion-header">
+                            <div class="accion-numero">4</div>
+                            <div class="accion-titulo">Acompañamiento territorial del equipo técnico de la Dirección</div>
+                        </div>
+                        <div class="accion-contenido">
+                            <p class="accion-descripcion">Visitas periódicas a las instituciones educativas para brindar asesoramiento, seguimiento y apoyo en la gestión académica y administrativa.</p>
+                        </div>
+                    </div>
+
+                    <!-- Acción 5 -->
+                    <div class="accion-item">
+                        <div class="accion-header">
+                            <div class="accion-numero">5</div>
+                            <div class="accion-titulo">Jornada en la Escuela Agrotécnica de Huaco – Semana de la Educación Agropecuaria</div>
+                        </div>
+                        <div class="accion-contenido">
+                            <p class="accion-descripcion">Realización de actividades en el marco de la semana de la educación agropecuaria, fortaleciendo el vínculo entre la escuela y su entorno productivo.</p>
+                        </div>
+                    </div>
+
+                    <!-- Acción 6 -->
+                    <div class="accion-item">
+                        <div class="accion-header">
+                            <div class="accion-numero">6</div>
+                            <div class="accion-titulo">Acompañamiento en el aniversario 80 de la Escuela de Minería</div>
+                        </div>
+                        <div class="accion-contenido">
+                            <p class="accion-descripcion">Participación y apoyo institucional en la conmemoración del 80° aniversario de la Escuela de Minería, reconociendo su trayectoria y aporte a la educación técnica provincial.</p>
+                        </div>
+                    </div>
+
+                    <!-- Acción 7 -->
+                    <div class="accion-item">
+                        <div class="accion-header">
+                            <div class="accion-numero">7</div>
+                            <div class="accion-titulo">Intervenciones ante situaciones complejas</div>
+                        </div>
+                        <div class="accion-contenido">
+                            <p class="accion-descripcion">Acciones inmediatas y coordinadas ante situaciones problemáticas en escuelas técnicas y agrotécnicas, garantizando la continuidad pedagógica y el bienestar de la comunidad educativa.</p>
+                        </div>
+                    </div>
+
+                    <!-- Acción 8 -->
+                    <div class="accion-item">
+                        <div class="accion-header">
+                            <div class="accion-numero">8</div>
+                            <div class="accion-titulo">Firma de convenios con empresas</div>
+                        </div>
+                        <div class="accion-contenido">
+                            <p class="accion-descripcion">Celebración de convenios con empresas para la realización de prácticas profesionalizantes de los estudiantes de 7° año de tres escuelas técnicas y agrotécnicas, fortaleciendo la vinculación escuela-trabajo.</p>
+                        </div>
+                    </div>
+
+                    <!-- Acción 9 -->
+                    <div class="accion-item">
+                        <div class="accion-header">
+                            <div class="accion-numero">9</div>
+                            <div class="accion-titulo">Articulación interministerial</div>
+                        </div>
+                        <div class="accion-contenido">
+                            <p class="accion-descripcion">Trabajo conjunto con el Ministerio de Salud, Ministerio de Desarrollo Social y Ministerio de Desarrollo Productivo para implementar políticas integrales que impacten en la educación técnica y agrotécnica.</p>
+                        </div>
+                    </div>
+
+                    <!-- Acción 10 -->
+                    <div class="accion-item">
+                        <div class="accion-header">
+                            <div class="accion-numero">10</div>
+                            <div class="accion-titulo">Asistencia a Mesas Federales INET</div>
+                        </div>
+                        <div class="accion-contenido">
+                            <p class="accion-descripcion">Participación en reuniones federales convocadas por el INET, representando a la provincia y gestionando recursos y programas destinados a la educación técnica.</p>
+                        </div>
+                    </div>
+
+                    <!-- Acción 11 -->
+                    <div class="accion-item">
+                        <div class="accion-header">
+                            <div class="accion-numero">11</div>
+                            <div class="accion-titulo">Reunión con centros de estudiantes</div>
+                        </div>
+                        <div class="accion-contenido">
+                            <p class="accion-descripcion">Encuentro con representantes de centros de estudiantes de escuelas técnicas y agrotécnicas para fortalecer la participación estudiantil y promover el liderazgo juvenil.</p>
+                        </div>
+                    </div>
+
+                    <!-- Acción 12 -->
+                    <div class="accion-item">
+                        <div class="accion-header">
+                            <div class="accion-numero">12</div>
+                            <div class="accion-titulo">Inauguración del Centro Integral de Manejo Bovino</div>
+                        </div>
+                        <div class="accion-contenido">
+                            <p class="accion-descripcion">Habilitación de un espacio destinado a la formación práctica de estudiantes en la Escuela Agroganadera Fray Vicente Alcaraz, con tecnología y equipamiento para el manejo integral de la producción bovina.</p>
+                        </div>
+                    </div>
+
+                    <!-- Acción 13 -->
+                    <div class="accion-item">
+                        <div class="accion-header">
+                            <div class="accion-numero">13</div>
+                            <div class="accion-titulo">Acompañamiento en el Rally del Poncho 2025</div>
+                        </div>
+                        <div class="accion-contenido">
+                            <p class="accion-descripcion">Apoyo y asistencia a la participación de estudiantes de la EPET N° 6 en el Rally del Poncho, promoviendo la aplicación de conocimientos técnicos en eventos de relevancia provincial.</p>
+                        </div>
+                    </div>
+
+                    <!-- Acción 14 -->
+                    <div class="accion-item">
+                        <div class="accion-header">
+                            <div class="accion-numero">14</div>
+                            <div class="accion-titulo">Apoyo técnico a instituciones educativas</div>
+                        </div>
+                        <div class="accion-contenido">
+                            <p class="accion-descripcion">Asistencia de las escuelas técnicas a escuelas primarias, secundarias y jardines de infantes mediante proyectos y trabajos orientados a la mejora y mantenimiento de las instalaciones edilicias, fortaleciendo la comunidad educativa y promoviendo el aprendizaje basado en proyectos.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Footer con resumen -->
+                <div class="mt-6 text-xs text-gray-500 pt-4 border-t border-gray-200 text-center italic">
+                    Resumen ejecutivo de las principales acciones desarrolladas durante 2025
                 </div>
             </div>
         </div>
