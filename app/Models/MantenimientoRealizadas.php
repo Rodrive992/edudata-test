@@ -12,11 +12,10 @@ class MantenimientoRealizadas extends Model
     protected $table = 'mantenimiento_realizadas';
 
     protected $fillable = [
-    'id',
-    'fecha',
-    'establecimiento',
-    'tarea',
-    'tipo_tarea',
-    'cod_carga',
+        'fecha',
+        'establecimiento',
+        'tarea',
+        'tipo_tarea',
+        'cod_carga',
     ];
 }
