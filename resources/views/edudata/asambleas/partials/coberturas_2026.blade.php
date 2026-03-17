@@ -5,12 +5,17 @@
         border-radius: 1rem;
         box-shadow: 0 10px 28px rgba(15, 23, 42, .05);
         overflow: hidden;
+        width: 100%;
     }
 
     .empty-year-head {
-        background: linear-gradient(135deg, var(--pri-500) 0%, var(--pri-800) 100%);
+        background: linear-gradient(135deg, #2563eb, #1d4ed8);
         color: white;
         padding: 1rem 1.25rem;
+    }
+
+    .empty-year-head h3 {
+        font-size: clamp(1.1rem, 4vw, 1.5rem);
     }
 
     .empty-kpi {
@@ -23,18 +28,17 @@
     }
 
     .empty-kpi .num {
-        font-size: 2rem;
+        font-size: clamp(1.5rem, 5vw, 2rem);
         line-height: 1;
         font-weight: 800;
-        color: var(--pri-700);
+        color: #2563eb;
         margin-bottom: .35rem;
     }
 
     .empty-kpi .lab {
-        font-size: .84rem;
+        font-size: clamp(0.75rem, 2.5vw, 0.84rem);
         color: #64748b;
         text-transform: uppercase;
-        letter-spacing: .05em;
     }
 
     .empty-note {
@@ -46,17 +50,17 @@
     }
 </style>
 
-<div class="space-y-6">
+<div class="space-y-6 w-full">
     <div class="empty-year-card">
         <div class="empty-year-head">
-            <h3 class="text-lg md:text-xl font-bold">Cobertura de Cargos 2026</h3>
+            <h3 class="font-bold">Cobertura de Cargos 2026</h3>
             <p class="text-sm text-white/90 mt-1">
                 Espacio preparado para incorporar la información del año en curso.
             </p>
         </div>
 
         <div class="p-4 md:p-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-5">
                 <div class="empty-kpi">
                     <div class="num">—</div>
                     <div class="lab">Inicial / Primario</div>

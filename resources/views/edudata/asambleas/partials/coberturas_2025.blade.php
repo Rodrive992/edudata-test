@@ -100,21 +100,9 @@
 @endphp
 
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        background: #ffffff;
-        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-        padding: 2rem;
-    }
-
+    /* Estilos base - sin reset global */
     .stats-shell {
-        max-width: 1600px;
-        margin: 0 auto;
+        width: 100%;
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
@@ -126,7 +114,7 @@
         border: 1px solid #e2e8f0;
         border-radius: 1rem;
         padding: 1.5rem;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         border-left: 4px solid #3b82f6;
     }
 
@@ -140,7 +128,6 @@
         font-size: 0.7rem;
         font-weight: 600;
         color: #1e40af;
-        letter-spacing: 0.3px;
         margin-bottom: 1rem;
         border: 1px solid #bfdbfe;
     }
@@ -156,10 +143,9 @@
     .stats-hero-subtitle {
         font-size: 0.85rem;
         color: #475569;
-        max-width: 800px;
         line-height: 1.5;
         margin-bottom: 1rem;
-        font-weight: 400;
+        max-width: 800px;
     }
 
     /* Botón de resumen */
@@ -187,11 +173,17 @@
         box-shadow: 0 6px 10px -1px rgba(37, 99, 235, 0.3);
     }
 
-    /* Métricas principales */
+    /* Métricas principales - Responsive grid */
     .hero-metrics {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 0.75rem;
+    }
+
+    @media (min-width: 640px) {
+        .hero-metrics {
+            grid-template-columns: repeat(4, 1fr);
+        }
     }
 
     .hero-metric {
@@ -227,7 +219,7 @@
     }
 
     .metric-value {
-        font-size: 1.6rem;
+        font-size: clamp(1.2rem, 4vw, 1.6rem);
         font-weight: 700;
         color: #0f172a;
         line-height: 1.2;
@@ -235,7 +227,7 @@
     }
 
     .metric-label {
-        font-size: 0.7rem;
+        font-size: clamp(0.6rem, 2vw, 0.7rem);
         font-weight: 600;
         color: #475569;
         text-transform: uppercase;
@@ -249,11 +241,17 @@
         font-weight: 500;
     }
 
-    /* Grid principal */
+    /* Grid principal - Responsive */
     .dashboard-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 1fr;
         gap: 1rem;
+    }
+
+    @media (min-width: 1024px) {
+        .dashboard-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
     }
 
     /* Cards */
@@ -261,7 +259,6 @@
         background: #ffffff;
         border: 1px solid #e2e8f0;
         border-radius: 1rem;
-        height: 600px;
         display: flex;
         flex-direction: column;
         overflow: hidden;
@@ -297,6 +294,7 @@
         display: flex;
         align-items: center;
         gap: 0.4rem;
+        flex-wrap: wrap;
         margin-bottom: 0.2rem;
     }
 
@@ -315,6 +313,7 @@
         padding: 1rem 1.25rem;
         flex: 1;
         overflow-y: auto;
+        max-height: 500px;
         scrollbar-width: thin;
         scrollbar-color: #94a3b8 #e2e8f0;
         background: #ffffff;
@@ -333,12 +332,18 @@
         border-radius: 4px;
     }
 
-    /* KPIs pequeños */
+    /* KPIs pequeños - Responsive */
     .kpi-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 0.5rem;
         margin-bottom: 1rem;
+    }
+
+    @media (min-width: 480px) {
+        .kpi-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
     }
 
     .kpi-item {
@@ -358,7 +363,7 @@
     }
 
     .kpi-number {
-        font-size: 1.2rem;
+        font-size: clamp(0.9rem, 3vw, 1.2rem);
         font-weight: 700;
         color: #0f172a;
         line-height: 1.2;
@@ -416,8 +421,10 @@
 
     .asamblea-header {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
+        gap: 0.5rem;
         margin-bottom: 0.3rem;
     }
 
@@ -435,6 +442,7 @@
         padding: 0.2rem 0.6rem;
         border-radius: 1rem;
         border: 1px solid #bfdbfe;
+        white-space: nowrap;
     }
 
     .asamblea-fecha {
@@ -445,6 +453,7 @@
         gap: 0.2rem;
         margin-bottom: 0.4rem;
         font-weight: 500;
+        word-break: break-word;
     }
 
     .progress-bar {
@@ -516,6 +525,7 @@
         align-items: center;
         gap: 0.5rem;
         margin-bottom: 0.5rem;
+        flex-wrap: wrap;
     }
 
     .distribution-label {
@@ -527,6 +537,7 @@
 
     .distribution-bar {
         flex: 1;
+        min-width: 100px;
         height: 0.4rem;
         background: #e2e8f0;
         border-radius: 1rem;
@@ -553,12 +564,18 @@
         border-radius: 0.2rem;
     }
 
-    /* Tabla de institutos */
+    /* Tabla de institutos - Responsive */
     .institutos-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 0.5rem;
         margin-top: 0.5rem;
+    }
+
+    @media (min-width: 480px) {
+        .institutos-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
     .instituto-item {
@@ -595,12 +612,24 @@
         border: 1px solid #bfdbfe;
     }
 
-    /* Llamados superior */
+    /* Llamados superior - Responsive */
     .llamados-grid {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 0.4rem;
         margin: 0.75rem 0;
+    }
+
+    @media (min-width: 480px) {
+        .llamados-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (min-width: 640px) {
+        .llamados-grid {
+            grid-template-columns: repeat(5, 1fr);
+        }
     }
 
     .llamado-item {
@@ -631,18 +660,23 @@
         margin-top: 0.1rem;
     }
 
-    /* Support grid */
+    /* Support grid - Responsive */
     .support-grid {
         display: grid;
-        grid-template-columns: 1.5fr 1fr;
+        grid-template-columns: 1fr;
         gap: 1rem;
+    }
+
+    @media (min-width: 768px) {
+        .support-grid {
+            grid-template-columns: 1.5fr 1fr;
+        }
     }
 
     .support-card {
         background: #ffffff;
         border: 1px solid #e2e8f0;
         border-radius: 1rem;
-        height: 300px;
         display: flex;
         flex-direction: column;
         overflow: hidden;
@@ -675,10 +709,11 @@
         padding: 1rem 1.25rem;
         flex: 1;
         overflow-y: auto;
+        max-height: 300px;
         background: #ffffff;
     }
 
-    /* Modal */
+    /* Modal - Responsive */
     .modal-overlay {
         display: none;
         position: fixed;
@@ -778,8 +813,14 @@
 
     .modal-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 1rem;
+    }
+
+    @media (min-width: 640px) {
+        .modal-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
     .modal-stat {
@@ -812,10 +853,12 @@
 
     .modal-list-item {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         padding: 0.5rem 0;
         border-bottom: 1px solid #f1f5f9;
         font-size: 0.85rem;
+        gap: 0.5rem;
     }
 
     .modal-list-item:last-child {
@@ -860,11 +903,21 @@
         border-radius: 0.2rem;
     }
 
-    @media (max-width: 1200px) {
-        .dashboard-grid { grid-template-columns: 1fr; }
-        .support-grid { grid-template-columns: 1fr; }
-        .hero-metrics { grid-template-columns: repeat(2, 1fr); }
-        .card { height: auto; max-height: 500px; }
+    /* Utilidades adicionales */
+    .w-full {
+        width: 100%;
+    }
+
+    .text-sm {
+        font-size: 0.875rem;
+    }
+
+    .font-semibold {
+        font-weight: 600;
+    }
+
+    .mb-0 {
+        margin-bottom: 0;
     }
 </style>
 
@@ -1348,7 +1401,7 @@
                     <div class="modal-section-title">
                         <span>🏫</span> Institutos Superiores
                     </div>
-                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem;">
+                    <div style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 0.5rem;">
                         @foreach ($distribucionSuperior as $instituto)
                         <div style="display: flex; justify-content: space-between; padding: 0.3rem 0; border-bottom: 1px dashed #e2e8f0; font-size: 0.8rem;">
                             <span style="color: #475569;">{{ $instituto['ies'] }}</span>
@@ -1373,7 +1426,22 @@
     // Cerrar modal con tecla ESC
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
-            document.getElementById('modalResumen').classList.remove('active');
+            const modal = document.getElementById('modalResumen');
+            if (modal) {
+                modal.classList.remove('active');
+            }
+        }
+    });
+
+    // Cerrar modal al hacer click fuera del contenido
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById('modalResumen');
+        if (modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                }
+            });
         }
     });
 </script>

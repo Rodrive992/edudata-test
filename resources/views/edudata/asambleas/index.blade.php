@@ -14,6 +14,7 @@
             border-radius: 1.25rem;
             box-shadow: 0 14px 34px rgba(15, 23, 42, .08);
             overflow: hidden;
+            width: 100%;
         }
 
         .hero-year {
@@ -40,6 +41,18 @@
             border-radius: 999px;
             transition: .25s ease;
             box-shadow: 0 4px 14px rgba(15, 23, 42, .05);
+            font-size: clamp(0.8rem, 3vw, 1rem);
+            white-space: nowrap;
+        }
+
+        @media (max-width: 480px) {
+            .year-btn {
+                padding: .65rem 1rem;
+                font-size: 0.85rem;
+                white-space: normal;
+                width: 100%;
+                max-width: 280px;
+            }
         }
 
         .year-btn:hover {
@@ -48,13 +61,13 @@
         }
 
         .year-btn.active-2026 {
-            background: linear-gradient(135deg, var(--pri-500), var(--pri-700));
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
             color: #fff;
             border-color: transparent;
         }
 
         .year-btn.active-2025 {
-            background: linear-gradient(135deg, var(--ter-500), #3d8b83);
+            background: linear-gradient(135deg, #14b8a6, #0d9488);
             color: #fff;
             border-color: transparent;
         }
@@ -76,24 +89,46 @@
                 padding: 2rem;
             }
         }
+
+        /* Eliminar márgenes y padding del body que puedan estar causando compresión */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Asegurar que el contenedor principal ocupe todo el ancho */
+        .container {
+            width: 100%;
+            max-width: 100%;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1400px;
+            }
+        }
     </style>
 
-    <div class="container mx-auto px-4 py-6"
+    <div class="container-fluid px-0 md:px-4 py-6"
          x-data="coberturasPorAnio()"
          x-init="init()">
 
-        <div class="year-shell mb-6">
+        <div class="year-shell mb-6 mx-2 md:mx-0">
             <div class="hero-year p-4 md:p-6">
                 <div class="rounded-xl overflow-hidden mb-4 md:mb-6 flex justify-center">
                     <img src="{{ asset('images/titulo-coberturas.png') }}"
                          alt="Cobertura de Cargos"
-                         class="w-full max-w-2xl h-auto object-contain rounded-xl">
+                         class="w-full max-w-2xl h-auto object-contain rounded-xl"
+                         loading="lazy">
                 </div>
 
                 <div class="intro-card p-4 md:p-6">
                     <div class="text-center max-w-4xl mx-auto">
-                       
-
                         <p class="text-slate-600 text-base md:text-lg leading-relaxed mb-5">
                             Espacio de consulta pública sobre la oferta de cargos en asambleas y llamados de cobertura,
                             organizada por año y por nivel educativo.
@@ -104,14 +139,14 @@
                                     class="year-btn"
                                     :class="activeYear === '2026' ? 'active-2026' : ''"
                                     @click="switchYear('2026')">
-                                Cobertura de Cargos 2026
+                                Cobertura 2026
                             </button>
 
                             <button type="button"
                                     class="year-btn"
                                     :class="activeYear === '2025' ? 'active-2025' : ''"
                                     @click="switchYear('2025')">
-                                Cobertura de Cargos 2025
+                                Cobertura 2025
                             </button>
                         </div>
                     </div>
