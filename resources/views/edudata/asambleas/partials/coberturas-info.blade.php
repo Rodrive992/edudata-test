@@ -831,16 +831,16 @@
             autoAdvanceInterval: null,
             slides: Array.isArray(slides) && slides.length ? slides : [
                 {
-                    image: '{{ asset('images/coberturas/8va_asamblea2.jpg') }}',
-                    title: '8va Asamblea - Información General'
+                    image: '{{ asset('images/coberturas/1-asamblea-ordinaria-2026-secundario.jpg') }}',
+                    title: '1ra Asamblea Ordinaria - Información General'
                 },
                 {
-                    image: '{{ asset('images/coberturas/8va_asamblea.jpg') }}',
-                    title: '8va Asamblea - Detalles y Agenda'
+                    image: '{{ asset('images/coberturas/1-asamblea-ordinaria-2026-primario-especial.jpg') }}',
+                    title: '1ra Asamblea Ordinaria - Nivel Primario - Edu Especial'
                 },
                 {
-                    image: '{{ asset('images/coberturas/4ta_asamblea_cabecera.jpg') }}',
-                    title: 'Asamblea Cabecera Cero'
+                    image: '{{ asset('images/coberturas/1-asamblea-ordinaria-2026-belen.jpg') }}',
+                    title: '1ra Asamblea Belén'
                 }
             ],
             init(){

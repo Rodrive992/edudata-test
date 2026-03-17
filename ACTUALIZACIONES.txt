@@ -6,3 +6,17 @@ NORMATIVA CONTROLLER, OK
 INDEX DE NORMATIVA, OK
 
 
+MANTENIMENTO REALIZADAS CONTROLER,ok
+MANTENIMIENTO EDUDATA INDEX,ELIMINAR LAS CATEGORIAS DE BASE ELEC Y ESO,ok
+MANTENIMIENTO EDURED CARGA,ok
+matenimiento fotos blade, ok
+EDUTECNICA INDEX, PARTIAL TAREAS Y EXP, ok
+
+
+
+tareas-edu-tecnica.blade.php, OK
+mentenimiento info blade, ok
+
+asambleas, creamos la carpeta partail y los partial de info y el de los resumenes anuales // 
+
+
